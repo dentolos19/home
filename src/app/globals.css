@@ -1,0 +1,15 @@
+@import url("https://cdn.lineicons.com/4.0/lineicons.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.frame {
+  @apply px-12 py-8 mx-4;
+  @apply shadow-xl rounded-xl;
+  @apply bg-gradient-to-br from-white to-slate-300;
+}
+
+.lni {
+  @apply inline-block text-4xl transition-all hover:scale-125;
+}
