@@ -7,9 +7,16 @@
 .frame {
   @apply px-12 py-8 mx-4;
   @apply shadow-xl rounded-xl;
-  @apply bg-gradient-to-br from-white to-slate-300;
+  @apply bg-gradient-to-br from-neutral-50 to-neutral-300;
+}
+
+.button {
+  @apply px-2 py-1 transition-all;
+  @apply rounded shadow;
+  @apply text-white bg-gradient-to-tl from-neutral-500 to-neutral-600;
+  @apply hover:scale-110 active:scale-105;
 }
 
 .lni {
-  @apply inline-block text-4xl transition-all hover:scale-125;
+  @apply inline-block text-4xl transition-all hover:scale-125 active:scale-105;
 }
