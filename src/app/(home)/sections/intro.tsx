@@ -16,7 +16,7 @@ export default function Intro() {
           <div className={"text-gray-900"}>
             Student @ <a href={"https://nyp.edu.sg"}>Nanyang Polytechnic</a>
           </div>
-          <div className={"mt-4 flex gap-4 justify-center"}>
+          <div className={"mt-4 flex gap-8 justify-center"}>
             <a className={"lni lni-envelope"} href={"/#contact"}></a>
             <a className={"lni lni-github-original"} href={"https://github.com/dentolos19"}></a>
             <a className={"lni lni-linkedin-original"} href={"https://linkedin.com/in/dentolos19"}></a>
