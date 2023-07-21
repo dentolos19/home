@@ -1,15 +1,5 @@
 /** @type { import("next").NextConfig } */
 
-const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "gravatar.com",
-        pathname: "/avatar/**",
-      },
-    ],
-  },
-};
+const nextConfig = {};
 
 module.exports = nextConfig;

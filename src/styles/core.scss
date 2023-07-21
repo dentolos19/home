@@ -1,0 +1,18 @@
+@import "~lineicons/web-font/lineicons.css";
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+* {
+  font-family: Raleway, sans-serif;
+  box-sizing: border-box;
+}
+
+main {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/assets/green-forest.gif");
+  background-position: center;
+  background-size: cover;
+}

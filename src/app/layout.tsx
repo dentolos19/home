@@ -1,17 +1,17 @@
-import "./globals.css";
+import "@/styles/core.scss";
 
-import { Raleway } from "next/font/google";
+import { Metadata } from "next";
 
-const inter = Raleway({ subsets: ["latin"] });
-
-export const metadata = {
+export const metadata: Metadata = {
   title: "Dennise Catolos",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html>
+      <body>
+        <div>{children}</div>
+      </body>
     </html>
   );
 }

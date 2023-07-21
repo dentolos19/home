@@ -1,0 +1,58 @@
+@import "@/styles/common.scss";
+
+.page {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  @include surface;
+
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem;
+  align-items: center;
+  gap: 1rem;
+
+  .image {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .content {
+    text-align: center;
+
+    .name {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .role {
+      font-size: 0.8rem;
+    }
+
+    .socials {
+      display: flex;
+      margin-top: 1rem;
+      justify-content: center;
+      gap: 1rem;
+
+      & > a {
+        color: inherit;
+        font-size: 2rem;
+        text-decoration: none;
+
+        &:hover {
+          scale: 1.1;
+        }
+
+        &:active {
+          scale: 0.9;
+        }
+      }
+    }
+  }
+}

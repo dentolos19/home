@@ -1,0 +1,14 @@
+@import "@/styles/common.scss";
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  @include surface;
+
+  padding: 2rem 3rem;
+  text-align: center;
+}

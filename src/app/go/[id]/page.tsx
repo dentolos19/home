@@ -1,28 +1,33 @@
-"use client";
-
+import styles from "./page.module.scss";
 import NotFound from "@/app/not-found";
-import { useRouter } from "next/navigation";
-import { getRedirect } from "@/lib/database";
+import { useStyles } from "@/lib/utilities";
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const router = useRouter();
-  const redirect = await getRedirect(params.id);
+const redirects = [
+  {
+    id: "ncac",
+    url: "https://fakerspotter.vercel.app",
+  },
+  {
+    id: "pf2331",
+    url: "https://discord.gg/6Tck8VcJdT",
+  },
+];
+
+export default function Page({ params }: { params: { id: string } }) {
+  const redirect = redirects.find((redirect) => redirect.id === params.id);
   if (!redirect) return <NotFound />;
-  setTimeout(() => router.push(redirect.url), 1000);
+  const style = useStyles(styles);
   return (
-    <div className={"h-screen grid place-items-center bg-city-lights bg-center"}>
-      <div className={"frame"}>
-        <div className={"text-center"}>
-          <div className={"text-2xl font-bold"}>Redirecting...</div>
-          <div className={"text-gray-900"}>
-            If you {"haven't"} been redirected in a second, please{" "}
-            <a className={"underline"} href={redirect.url}>
-              click here
-            </a>
-            .
-          </div>
+    <>
+      <meta httpEquiv={"refresh"} content={`1; url = ${redirect.url}`} />
+      <main className={style(["page"])}>
+        <div className={style(["container"])}>
+          <h3>Redirecting</h3>
+          <p>
+            If you haven&apos;t been redirected, please click <a href={"#"}>this link</a>.
+          </p>
         </div>
-      </div>
-    </div>
+      </main>
+    </>
   );
 }
