@@ -27,7 +27,7 @@
     text-align: center;
 
     .name {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: bold;
     }
 
@@ -39,19 +39,20 @@
       display: flex;
       margin-top: 1rem;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.5rem;
 
       & > a {
         color: inherit;
         font-size: 2rem;
         text-decoration: none;
+        transition: all 250ms;
 
         &:hover {
-          scale: 1.1;
+          scale: 1.2;
         }
 
         &:active {
-          scale: 0.9;
+          scale: 1;
         }
       }
     }

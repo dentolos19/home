@@ -1,6 +1,11 @@
+"use client";
+
 import "@/styles/core.scss";
 
 import { Metadata } from "next";
+import { Raleway } from "next/font/google";
+
+const font = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Dennise Catolos",
@@ -8,10 +13,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html>
-      <body>
-        <div>{children}</div>
-      </body>
-    </html>
+    <>
+      <html className={font.className}>
+        <body>
+          <div>{children}</div>
+        </body>
+      </html>
+    </>
   );
 }
