@@ -3,6 +3,8 @@ import NotFound from "@/app/not-found";
 import { getRedirect } from "@/lib/database";
 import { useStyles } from "@/lib/utilities";
 
+export const revalidate = 120;
+
 export default async function Page({ params }: { params: { id: string } }) {
   const redirect = await getRedirect(params.id);
   if (!redirect) return <NotFound />;
