@@ -6,8 +6,8 @@ export default function NotFound() {
   return (
     <main className={style(["page"])}>
       <div className={style(["container"])}>
-        <h3>404</h3>
-        <p>The page you are looking for does not exist.</p>
+        <h3>Loading...</h3>
+        <p>Please wait until our page loads!</p>
       </div>
     </main>
   );
