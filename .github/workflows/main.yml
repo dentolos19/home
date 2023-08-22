@@ -23,12 +23,13 @@ jobs:
       - name: Build Project
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./
-          destination: ./_site
+          source: docs
+          destination: output
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v2
         with:
           name: Output
+          path: output
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
