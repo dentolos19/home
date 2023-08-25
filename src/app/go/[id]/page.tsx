@@ -12,8 +12,8 @@ export default async function Page({ params }: { params: { id: string } }) {
   return (
     <>
       <meta httpEquiv={"refresh"} content={`1; url = ${redirect.destination}`} />
-      <main className={style(["page"])}>
-        <div className={style(["container"])}>
+      <main className={style("page")}>
+        <div className={style("container")}>
           <h3>Redirecting</h3>
           <p>
             If you haven&apos;t been redirected, please click <a href={"#"}>this link</a>.
