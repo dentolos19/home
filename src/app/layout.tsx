@@ -1,4 +1,4 @@
-import "@/styles/global.scss";
+import "@/styles/globals.scss";
 
 import { Metadata } from "next";
 import { Raleway } from "next/font/google";
