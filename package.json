@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,15 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "20.5.4",
+    "@types/node": "20.5.6",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "lineicons": "1.0.3",
     "next": "13.4.19",
-    "pocketbase": "0.16.0",
+    "pocketbase": "0.17.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "1.66.1",
-    "typescript": "5.1.6"
+    "typescript": "5.2.2"
   }
 }
