@@ -1,13 +1,15 @@
+"use client";
+
 import styles from "./shared.module.scss";
 import { useStyles } from "@/lib/utilities";
 
-export default function NotFound() {
+export default function Error({ error, reset }: { error: Error; reset: () => void }) {
   const style = useStyles(styles);
   return (
     <main className={style("landing-page")}>
       <div className={style("container")}>
-        <h3>404</h3>
-        <p>The page you are looking for does not exist.</p>
+        <h3>An unhandled error had occurred!</h3>
+        <p>{error.message}</p>
       </div>
     </main>
   );
