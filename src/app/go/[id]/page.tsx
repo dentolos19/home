@@ -1,7 +1,7 @@
-import styles from "./page.module.scss";
 import NotFound from "@/app/not-found";
 import { getRedirect } from "@/lib/database";
 import { useStyles } from "@/lib/utilities";
+import styles from "./page.module.scss";
 
 export const revalidate = 0;
 

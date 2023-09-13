@@ -1,5 +1,5 @@
-import styles from "./shared.module.scss";
 import { useStyles } from "@/lib/utilities";
+import styles from "./shared.module.scss";
 
 export default function NotFound() {
   const style = useStyles(styles);

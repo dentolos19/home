@@ -1,7 +1,7 @@
 "use client";
 
-import styles from "./shared.module.scss";
 import { useStyles } from "@/lib/utilities";
+import styles from "./shared.module.scss";
 
 export default function Error({ error, reset }: { error: Error; reset: () => void }) {
   const style = useStyles(styles);
