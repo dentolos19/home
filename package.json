@@ -6,15 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
-    "@types/node": "20.5.9",
+    "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "lineicons": "1.0.3",
     "next": "13.4.19",
-    "pocketbase": "0.17.3",
+    "pocketbase": "0.18.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "1.66.1",
