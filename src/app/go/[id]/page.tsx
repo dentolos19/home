@@ -11,12 +11,16 @@ export default async function Page({ params }: { params: { id: string } }) {
   const style = useStyles(styles);
   return (
     <>
-      <meta httpEquiv={"refresh"} content={`1; url = ${redirect.destination}`} />
+      <meta
+        httpEquiv={"refresh"}
+        content={`1; url = ${redirect.destination}`}
+      />
       <main className={style("page")}>
         <div className={style("container")}>
           <h3>Redirecting</h3>
           <p>
-            If you haven&apos;t been redirected, please click <a href={"#"}>this link</a>.
+            If you haven&apos;t been redirected, please click{" "}
+            <a href={"#"}>this link</a>.
           </p>
         </div>
       </main>

@@ -7,7 +7,12 @@ export default function Page() {
     <main className={style("page")}>
       <div className={style("container")}>
         <div className={style("image")}>
-          <img src={"https://gravatar.com/avatar/a8c63fb5500bc292955f80701cbf53c2?s=128"} />
+          <img
+            alt={"avatar"}
+            src={
+              "https://gravatar.com/avatar/a8c63fb5500bc292955f80701cbf53c2?s=128"
+            }
+          />
         </div>
         <div className={style("content")}>
           <div className={style("name")}>Dennise Catolos</div>
