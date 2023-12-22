@@ -6,34 +6,34 @@ settings:
 
 dependencies:
   "@types/node":
-    specifier: 20.10.5
+    specifier: ^20.10.5
     version: 20.10.5
   "@types/react":
-    specifier: 18.2.45
+    specifier: ^18.2.45
     version: 18.2.45
   "@types/react-dom":
-    specifier: 18.2.18
+    specifier: ^18.2.18
     version: 18.2.18
   appwrite:
     specifier: ^13.0.1
     version: 13.0.1
   lineicons:
-    specifier: 1.0.3
+    specifier: ^1.0.3
     version: 1.0.3
   next:
-    specifier: 14.0.4
+    specifier: ^14.0.4
     version: 14.0.4(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)
   react:
-    specifier: 18.2.0
+    specifier: ^18.2.0
     version: 18.2.0
   react-dom:
-    specifier: 18.2.0
+    specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   sass:
-    specifier: 1.69.5
+    specifier: ^1.69.5
     version: 1.69.5
   typescript:
-    specifier: 5.3.3
+    specifier: ^5.3.3
     version: 5.3.3
 
 packages:
