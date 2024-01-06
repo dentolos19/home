@@ -12,6 +12,7 @@
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
+    "@vercel/analytics": "^1.1.1",
     "appwrite": "^13.0.1",
     "lineicons": "^1.0.3",
     "next": "^14.0.4",

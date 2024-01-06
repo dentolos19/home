@@ -1,4 +1,5 @@
 import "@/styles/globals.scss";
+import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -20,6 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body className={font.className}>
         <div>{children}</div>
+        <Analytics />
       </body>
     </html>
   );
