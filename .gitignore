@@ -1,20 +1,17 @@
-# environment
+# ide files
 .vs/
 .idea/
-.vscode/
-!.vscode/extensions.json
-!.vscode/launch.json
+
+# environment files
 node_modules/
 
-# output
+# output files
 .next/
-dist/
-out/
 
-# user
+# user-specific files
 *.local
 
-# miscellaneous
+# miscellaneous files
 .DS_Store
 Desktop.ini
 Thumbs.db
