@@ -12,7 +12,7 @@ dependencies:
     specifier: ^13
     version: 13.0.1
   lineicons:
-    specifier: ^1.0.3
+    specifier: ^1
     version: 1.0.3
   modern-normalize:
     specifier: ^2
