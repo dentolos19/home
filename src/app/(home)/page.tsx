@@ -20,13 +20,13 @@ export default function Page() {
           <div className={style("role")}>Student @ Nanyang Polytechnic</div>
           <div className={style("socials")}>
             <a href={"mailto:contact@dennise.me"}>
-              <i className={style("fa-solid fa-envelope")}></i>
+              <i className={style("lni lni-envelope")}></i>
             </a>
             <a href={"https://github.com/dentolos19"}>
-              <i className={style("fa-brands fa-github")}></i>
+              <i className={style("lni lni-github-original")}></i>
             </a>
             <a href={"https://linkedin.com/in/dentolos19"}>
-              <i className={style(["fa-brands fa-linkedin"])}></i>
+              <i className={style(["lni lni-linkedin-original"])}></i>
             </a>
           </div>
         </div>

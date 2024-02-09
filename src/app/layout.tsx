@@ -37,11 +37,6 @@ export default function RootLayout({
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-        <script
-          src="https://kit.fontawesome.com/d0674de6ae.js"
-          crossOrigin="anonymous"
-          async
-        ></script>
       </head>
       <body className={font.className}>
         {children}
