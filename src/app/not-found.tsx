@@ -1,8 +1,8 @@
-import { useStyles } from "@/lib/utilities";
+import { generateStyler } from "@/lib/utilities";
 import styles from "./shared.module.scss";
 
 export default function NotFound() {
-  const style = useStyles(styles);
+  const style = generateStyler(styles);
   return (
     <main className={style("landing-page")}>
       <div className={style("container")}>

@@ -1,6 +1,6 @@
 import NotFound from "@/app/not-found";
 import { getRedirect } from "@/lib/database";
-import { useStyles } from "@/lib/utilities";
+import { generateStyler } from "@/lib/utilities";
 import styles from "./page.module.scss";
 
 export const revalidate = 0;
@@ -8,7 +8,7 @@ export const revalidate = 0;
 export default async function Page({ params }: { params: { id: string } }) {
   const redirect = await getRedirect(params.id);
   if (!redirect) return <NotFound />;
-  const style = useStyles(styles);
+  const style = generateStyler(styles);
   return (
     <>
       <meta

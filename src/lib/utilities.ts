@@ -5,7 +5,7 @@
  * @param styles An object of CSS styles, where the keys are style names and the values are class names.
  * @returns A function that takes any number of arguments and returns a space-separated list of CSS classes.
  */
-export function useStyles(styles: { [key: string]: string } = {}) {
+export function generateStyler(styles: { [key: string]: string } = {}) {
   const parseStyle = (value: string) => {
     return styles.hasOwnProperty(value) ? styles[value] : value;
   };

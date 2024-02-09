@@ -1,9 +1,4 @@
-@import "lineicons/web-font/lineicons.css";
-
-* {
-  font-family: sans-serif;
-  box-sizing: border-box;
-}
+@import "modern-normalize/modern-normalize.css";
 
 main {
   position: absolute;
@@ -14,4 +9,21 @@ main {
   background-image: url("/assets/green-forest.gif");
   background-position: center;
   background-size: cover;
+}
+
+button {
+  padding: 4pt 8pt;
+  color: white;
+  background: black;
+  border: none;
+  border-radius: 4pt;
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.05;
+  }
+
+  &:active {
+    scale: 1;
+  }
 }
