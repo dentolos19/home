@@ -7,7 +7,7 @@
       "request": "launch",
       "command": "pnpm run dev",
       "serverReadyAction": {
-        "pattern": "- Local:.+(https?://.+)",
+        "pattern": "Local:.+(https?://.+)",
         "uriFormat": "%s",
         "action": "openExternally"
       }

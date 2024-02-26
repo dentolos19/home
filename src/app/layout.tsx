@@ -1,6 +1,6 @@
 import "@/styles/globals.scss";
 import "@/styles/mixins.scss";
-import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -38,10 +38,8 @@ export default function RootLayout({
         />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className={font.className}>
-        {children}
-        <Analytics />
-      </body>
+      <body className={font.className}>{children}</body>
+      <GoogleAnalytics gaId="G-L7MNCVE5XV" />
     </html>
   );
 }
