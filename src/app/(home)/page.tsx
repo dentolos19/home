@@ -22,6 +22,9 @@ export default function Page() {
             <a href={"mailto:contact@dennise.me"}>
               <i className={style("lni lni-envelope")}></i>
             </a>
+            <a href={"https://blog.dennise.me"}>
+              <i className={style("lni lni-book")}></i>
+            </a>
             <a href={"https://github.com/dentolos19"}>
               <i className={style("lni lni-github-original")}></i>
             </a>
