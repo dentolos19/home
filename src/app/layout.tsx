@@ -8,7 +8,7 @@ const font = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Dennise Catolos",
-  description: "My central hub for anything and everything about me!",
+  description: "My home page for anything and everything about me!",
 };
 
 export default function RootLayout({
