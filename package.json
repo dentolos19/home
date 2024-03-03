@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@next/third-parties": "14.1.0",
-    "appwrite": "^13",
+    "@upstash/redis": "^1",
     "lineicons": "^1",
     "modern-normalize": "^2",
     "next": "14.1.0",

@@ -11,10 +11,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   const style = generateStyler(styles);
   return (
     <>
-      <meta
-        httpEquiv={"refresh"}
-        content={`1; url = ${redirect.destination}`}
-      />
+      <meta httpEquiv={"refresh"} content={`1; url = ${redirect}`} />
       <main className={style("page")}>
         <div className={style("container")}>
           <h3>Redirecting</h3>

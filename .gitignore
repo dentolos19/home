@@ -1,18 +1,18 @@
-# ide files
-.vs/
-.idea/
+# IDE configurations
+.vs
+.idea
 
-# environment files
-node_modules/
+# Environment files
+node_modules
 
-# output files
-.next/
+# Output files
+.next
 next-env.d.ts
 
-# user-specific files
-*.local
+# User-specific files
+.env
 
-# miscellaneous files
+# Miscellaneous files
 .DS_Store
 Desktop.ini
 Thumbs.db

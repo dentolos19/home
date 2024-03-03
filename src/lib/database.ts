@@ -1,22 +1,18 @@
-import { Client, Databases, Query } from "appwrite";
+import { Redis } from "@upstash/redis";
 
-export type Redirect = {
-  name: string;
-  destination: string;
-};
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL as string,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN as string,
+});
 
-const client = new Client();
-client.setEndpoint("https://cloud.appwrite.io/v1").setProject("65858f61bee3d52ba89c");
-const databases = new Databases(client);
-
-export async function getRedirect(name: string) {
+export async function getRedirect(id: string) {
   try {
-    return databases
-      .listDocuments("65858f87218d89759bf5", "65858f8d4f8acf2c8fcb", [Query.equal("name", name)])
-      .then((res) => {
-        return res.documents[0] as unknown as Redirect;
-      });
-  } catch {
+    const redirect = await redis.get<string>("redirects:" + id);
+    if (!redirect) {
+      return null;
+    }
+    return redirect;
+  } catch (error) {
     return null;
   }
 }
