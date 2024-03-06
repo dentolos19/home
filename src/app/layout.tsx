@@ -1,4 +1,5 @@
 import LayoutContainer from "@/components/layout-container";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -45,6 +46,7 @@ export default function RootLayout({
 			<body className={font.className}>
 				<LayoutContainer>{children}</LayoutContainer>
 			</body>
+			<GoogleAnalytics gaId="G-L7MNCVE5XV" />
 		</html>
 	);
 }
