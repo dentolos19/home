@@ -1,14 +1,8 @@
-import { generateStyler } from "@/lib/utilities";
-import styles from "./shared.module.scss";
-
 export default function NotFound() {
-  const style = generateStyler(styles);
   return (
-    <main className={style("landing-page")}>
-      <div className={style("container")}>
-        <h3>404</h3>
-        <p>The page you are looking for does not exist.</p>
-      </div>
-    </main>
+    <div className={"h-full flex flex-col items-center justify-center text-center"}>
+      <h1 className={"text-xl font-bold"}>404</h1>
+      <p>Your requested page was not found.</p>
+    </div>
   );
 }

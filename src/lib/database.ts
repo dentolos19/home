@@ -7,12 +7,12 @@ const redis = new Redis({
 
 export async function getRedirect(id: string) {
   try {
-    const redirect = await redis.get<string>("redirects:" + id);
+    const redirect = await redis.get<string>(`redirects:${id}`);
     if (!redirect) {
-      return null;
+      return undefined;
     }
     return redirect;
   } catch (error) {
-    return null;
+    return undefined;
   }
 }
