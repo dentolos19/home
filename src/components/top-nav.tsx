@@ -22,7 +22,7 @@ export default function TopNav({
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	return (
-		<div className={`bg-zinc-200 ${className}`}>
+		<div className={`shadow-xl text-white bg-slate-800 ${className}`}>
 			<div
 				className={"w-full h-12 px-4 flex items-center justify-between"}
 			>
@@ -39,7 +39,7 @@ export default function TopNav({
 					{links.map((link) => (
 						<Link
 							key={link.name}
-							className={"block leading-loose text-center active:bg-zinc-300"}
+							className={"block leading-loose text-center"}
 							href={link.url}
 							onClick={() => setMenuOpen(false)}
 						>

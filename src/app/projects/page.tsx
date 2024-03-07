@@ -13,8 +13,8 @@ export default function Page() {
 					key={repo.full_name}
 					className={
 						"w-[90%] sm:w-[80%] px-4 py-2 " +
-						"flex max-sm:flex-col items-center justify-between shadow rounded bg-zinc-200 " +
-						"transition hover:bg-zinc-300 hover:cursor-pointer"
+						"flex max-sm:flex-col items-center justify-between shadow rounded bg-slate-800 " +
+						"transition hover:bg-slate-700 hover:cursor-pointer"
 					}
 					onClick={() => window.open(repo.html_url, "_blank")}
 				>
