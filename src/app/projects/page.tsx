@@ -1,7 +1,9 @@
 "use client";
 
 import { getRepos } from "@/github";
-import { use, useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
+import { use } from "react";
 
 const filters = [
 	{
@@ -31,59 +33,44 @@ const filters = [
 ];
 
 export default function Page() {
-	const repos = use(getRepos("dentolos19"));
-
-	const [filteredRepos, setFilteredRepos] = useState(repos);
-	const [currentFilter, setCurrentFilter] = useState(filters[0]);
-
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-	useEffect(() => {
-		let filteredRepos = repos
-			.sort((a, b) => b.stargazers_count - a.stargazers_count)
-			.filter((repo) => !repo.topics.includes("personal"));
-		if (currentFilter.topic) {
-			filteredRepos = repos.filter((repo) =>
-				repo.topics.includes(currentFilter.topic),
-			);
-			setFilteredRepos(filteredRepos);
-		} else {
-			setFilteredRepos(filteredRepos);
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [currentFilter]);
-
+  const pathname = usePathname();
+	const searchParams = useSearchParams();
+	const currentFilter =
+		filters.find((filter) => filter.topic === searchParams.get("filter")) ??
+		filters[0];
+	const repos = use(getRepos("dentolos19"))
+		.filter((repo) => !repo.topics.includes("personal"))
+		.sort((a, b) => b.stargazers_count - a.stargazers_count)
+		.filter(
+			(repo) =>
+				!currentFilter.topic || repo.topics.includes(currentFilter.topic),
+		);
 	return (
 		<div className={"py-4 flex flex-col items-center gap-4"}>
 			<div className={"w-[90%] sm:w-[60%] flex gap-2 overflow-y-auto"}>
 				{filters.map((filter) => (
-					// biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
-					<span
+					<Link
 						key={filter.topic}
 						className={`px-3 py-2 min-w-fit text-xs rounded-xl cursor-pointer hover:bg-slate-700 ${
 							filter.topic === currentFilter.topic
 								? "bg-slate-500"
 								: "bg-slate-800"
 						}`}
-						onClick={
-							filter.topic === currentFilter.topic
-								? undefined
-								: () => setCurrentFilter(filter)
-						}
+						href={filter.topic ? `?filter=${filter.topic}` : pathname}
 					>
 						{filter.name}
-					</span>
+					</Link>
 				))}
 			</div>
-			{filteredRepos.map((repo) => (
-				// biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
-				<div
+			{repos.map((repo) => (
+				<Link
 					key={repo.full_name}
 					className={
 						"w-[90%] sm:w-[60%] p-4 " +
 						"flex max-sm:flex-col sm:items-center justify-between shadow rounded bg-slate-800 " +
-						"transition hover:bg-slate-700 hover:cursor-pointer"
+						"transition hover:bg-slate-700"
 					}
-					onClick={() => window.open(repo.html_url, "_blank")}
+					href={repo.html_url}
 				>
 					<div>
 						<h1 className={"text-xl font-bold"}>{repo.name}</h1>
@@ -94,7 +81,7 @@ export default function Page() {
 						<i className={"fa-solid fa-star"} />
 						<span className={"ml-1"}>{repo.stargazers_count}</span>
 					</div>
-				</div>
+				</Link>
 			))}
 		</div>
 	);
