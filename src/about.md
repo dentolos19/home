@@ -1,10 +1,8 @@
-# Hello!
+# Hello there!
 
-Hi there! I am Dennise! 👋
+Hi! I am Dennise! 👋
 
-I started programming since I was in primary school. I was so fascinated by the magic of computers that I wanted to learn how to make them do anything I imagined. I taught myself various languages and frameworks, and soon I was creating amazing apps and games. Programming is not just a hobby for me. It’s fun, challenging, and rewarding but hard. I love solving problems and creating new things with code. I’m always eager to learn new skills and improve my craft. Programming is like life, having ups and downs.
-
-[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R6R0UXG7G)
+It all began when I was in primary school, there was a program that I was using and there was things that I need that wasn't there. My curious little brain thought, why doesn't it have it? Can I add it myself? How can one make a program? It doesn't just appear from nothing right? From there, it snowballed into who I am today, a freaking nerd at computers. 😩
 
 ## Get to know me!
 
