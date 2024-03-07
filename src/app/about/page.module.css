@@ -1,0 +1,27 @@
+.markdown h1 {
+    @apply mb-3 text-3xl font-bold;
+}
+
+.markdown h2 {
+    @apply mb-3 text-2xl font-bold;
+}
+
+.markdown h3 {
+    @apply mb-3 text-xl font-bold;
+}
+
+.markdown p {
+    @apply mb-2;
+}
+
+.markdown a {
+    @apply underline;
+}
+
+.markdown ul {
+    @apply list-disc;
+}
+
+.markdown ul li {
+    @apply ml-4;
+}

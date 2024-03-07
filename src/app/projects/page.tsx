@@ -8,6 +8,7 @@ export default function Page() {
 	return (
 		<div className={"py-4 flex flex-col items-center gap-4"}>
 			{repos.map((repo) => (
+				// biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
 				<div
 					key={repo.full_name}
 					className={

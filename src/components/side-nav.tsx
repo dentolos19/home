@@ -30,7 +30,7 @@ export default function SideNav({
 					<Link
 						key={link.name}
 						className={
-							"block leading-loose text-center transition hover:bg-slate-700"
+							"block leading-10 text-center transition hover:bg-slate-700"
 						}
 						href={link.url}
 					>

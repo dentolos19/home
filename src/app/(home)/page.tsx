@@ -16,7 +16,7 @@ export default function Page() {
 					</p>
 					<p className={"mt-3 flex gap-4 justify-center"}>
 						{socials.map((social) => (
-							<Link key={social.name} href={social.url}>
+							<Link key={social.name} className={"transition hover:text-slate-400"} href={social.url}>
 								<i className={`${social.icon} fa-xl`} />
 							</Link>
 						))}
