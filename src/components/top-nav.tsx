@@ -7,34 +7,32 @@ export default function TopNav({
 	className,
 	links,
 	socials,
-}: Readonly<{
+}: {
 	className?: string;
-	links: ReadonlyArray<{
+	links: {
 		name: string;
 		url: string;
-	}>;
-	socials: ReadonlyArray<{
+	}[];
+	socials: {
 		name: string;
 		icon: string;
 		url: string;
-	}>;
-}>) {
+	}[];
+}) {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	return (
 		<div className={`shadow-xl text-white bg-slate-800 ${className}`}>
-			<div
-				className={"w-full h-12 px-4 flex items-center justify-between"}
-			>
+			<div className={"w-full h-12 px-4 flex items-center justify-between"}>
 				<Link href={"/"}>
-          <div className={"text-lg font-bold"}>Dennise Catolos</div>
-        </Link>
+					<div className={"text-lg font-bold"}>Dennise Catolos</div>
+				</Link>
 				{/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
 				<div onClick={() => setMenuOpen(!menuOpen)}>
 					<i className={"fa-solid fa-bars fa-lg"} />
 				</div>
 			</div>
-			<div className={menuOpen ? "" :  "hidden"}>
+			<div className={menuOpen ? "" : "hidden"}>
 				<div>
 					{links.map((link) => (
 						<Link

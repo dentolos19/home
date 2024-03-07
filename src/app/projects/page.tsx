@@ -1,6 +1,6 @@
 "use client";
 
-import { getRepos } from "@/lib/github";
+import { getRepos } from "@/github";
 import { use } from "react";
 
 export default function Page() {
@@ -8,7 +8,6 @@ export default function Page() {
 	return (
 		<div className={"py-4 flex flex-col items-center gap-4"}>
 			{repos.map((repo) => (
-				// biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
 				<div
 					key={repo.full_name}
 					className={
