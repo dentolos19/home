@@ -4,15 +4,19 @@ export const links = [
 		url: "/",
 	},
 	{
-		name: "Projects",
+		name: "My Projects",
 		url: "/projects",
 	},
 	{
-		name: "Blog",
+		name: "My Blog",
 		url: "https://blog.dennise.me",
 	},
+  {
+    name: "Support Me",
+    url: "https://ko-fi.com/dentolos19",
+  },
 	{
-		name: "About",
+		name: "About Me",
 		url: "/about",
 	},
 ];
