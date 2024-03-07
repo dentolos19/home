@@ -9,7 +9,7 @@ export default async function Page() {
 		"utf-8",
 	);
 	return (
-		<div className={"h-full flex items-center justify-center"}>
+		<div className={"h-full flex sm:items-center justify-center"}>
 			<div
 				className={
 					"w-[90%] sm:w-[60%] h-fit my-4 p-6 shadow rounded bg-slate-800"
