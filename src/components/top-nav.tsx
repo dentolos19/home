@@ -32,27 +32,29 @@ export default function TopNav({
 					<i className={"fa-solid fa-bars fa-lg"} />
 				</div>
 			</div>
-			<div className={menuOpen ? "" : "hidden"}>
-				<div className={"my-2 flex items-center justify-center gap-3"}>
-					{socials.map((social) => (
-						<Link key={social.name} href={social.url}>
-							<i className={`${social.icon} fa-xl`} />
-						</Link>
-					))}
+			{menuOpen && (
+				<div>
+					<div className={"my-2 flex items-center justify-center gap-3"}>
+						{socials.map((social) => (
+							<Link key={social.name} href={social.url}>
+								<i className={`${social.icon} fa-xl`} />
+							</Link>
+						))}
+					</div>
+					<div className={"mb-2"}>
+						{links.map((link) => (
+							<Link
+								key={link.name}
+								className={"block leading-10 text-center"}
+								href={link.url}
+								onClick={() => setMenuOpen(false)}
+							>
+								{link.name}
+							</Link>
+						))}
+					</div>
 				</div>
-				<div className={"mb-2"}>
-					{links.map((link) => (
-						<Link
-							key={link.name}
-							className={"block leading-10 text-center"}
-							href={link.url}
-							onClick={() => setMenuOpen(false)}
-						>
-							{link.name}
-						</Link>
-					))}
-				</div>
-			</div>
+			)}
 		</div>
 	);
 }

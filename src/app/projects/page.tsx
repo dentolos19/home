@@ -9,22 +9,22 @@ const filters = [
 		topic: undefined,
 	},
 	{
-		name: ".NET",
+		name: ".NET (C#)",
 		topic: "dotnet",
 	},
 	{
-		name: "TypeScript",
+		name: "Web (JS/TS)",
 		topic: "web",
 	},
 	{
 		name: "Python",
 		topic: "python",
 	},
-  {
+	{
 		name: "Games",
 		topic: "game",
 	},
-  {
+	{
 		name: "VSCode Extensions",
 		topic: "vscode-extension",
 	},
@@ -38,9 +38,9 @@ export default function Page() {
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
-		let filteredRepos = repos.filter(
-			(repo) => !repo.topics.includes("personal"),
-		);
+		let filteredRepos = repos
+			.sort((a, b) => b.stargazers_count - a.stargazers_count)
+			.filter((repo) => !repo.topics.includes("personal"));
 		if (currentFilter.topic) {
 			filteredRepos = repos.filter((repo) =>
 				repo.topics.includes(currentFilter.topic),
@@ -49,20 +49,26 @@ export default function Page() {
 		} else {
 			setFilteredRepos(filteredRepos);
 		}
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [currentFilter]);
 
 	return (
 		<div className={"py-4 flex flex-col items-center gap-4"}>
-			<div className={"w-[90%] sm:w-[80%] flex gap-2 overflow-y-auto"}>
+			<div className={"w-[90%] sm:w-[60%] flex gap-2 overflow-y-auto"}>
 				{filters.map((filter) => (
 					// biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
 					<span
 						key={filter.topic}
 						className={`px-3 py-2 min-w-fit text-xs rounded-xl cursor-pointer hover:bg-slate-700 ${
-							filter.topic === currentFilter.topic ? "bg-slate-500" : "bg-slate-800"
+							filter.topic === currentFilter.topic
+								? "bg-slate-500"
+								: "bg-slate-800"
 						}`}
-						onClick={filter.topic === currentFilter.topic ? undefined : () => setCurrentFilter(filter)}
+						onClick={
+							filter.topic === currentFilter.topic
+								? undefined
+								: () => setCurrentFilter(filter)
+						}
 					>
 						{filter.name}
 					</span>
@@ -73,17 +79,21 @@ export default function Page() {
 				<div
 					key={repo.full_name}
 					className={
-						"w-[90%] sm:w-[80%] px-4 py-2 " +
-						"flex max-sm:flex-col items-center justify-between shadow rounded bg-slate-800 " +
+						"w-[90%] sm:w-[60%] p-4 " +
+						"flex max-sm:flex-col sm:items-center justify-between shadow rounded bg-slate-800 " +
 						"transition hover:bg-slate-700 hover:cursor-pointer"
 					}
 					onClick={() => window.open(repo.html_url, "_blank")}
 				>
 					<div>
 						<h1 className={"text-xl font-bold"}>{repo.name}</h1>
-						<p>{repo.description}</p>
+						<p className={"line-clamp-2"}>{repo.description}</p>
 					</div>
-					<div className={"max-sm:hidden"}>{repo.language}</div>
+					{/* <div className={"max-sm:hidden"}>{repo.language}</div> */}
+					<div className={"max-sm:mt-2"}>
+						<i className={"fa-solid fa-star"} />
+						<span className={"ml-1"}>{repo.stargazers_count}</span>
+					</div>
 				</div>
 			))}
 		</div>

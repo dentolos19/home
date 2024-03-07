@@ -5,13 +5,13 @@ export function getRepos(username: string) {
 			(repos) =>
 				repos as {
 					name: string;
-          full_name: string;
-          html_url: string;
+					full_name: string;
+					html_url: string;
 					description: string;
-          stargazers_count: number;
-          language: string;
-          archived: boolean;
-          topics: string[];
+					stargazers_count: number;
+					language: string;
+					archived: boolean;
+					topics: string[];
 				}[],
 		);
 }

@@ -4,12 +4,14 @@ import { links, socials } from "@/shared";
 
 export default function LayoutContainer({
 	children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: { children: React.ReactNode }) {
 	return (
 		<div className={"h-dvh flex max-sm:flex-col"}>
-			<TopNav className={"sm:hidden"} links={links} socials={socials}/>
-			<SideNav className={"max-sm:hidden"} links={links} socials={socials}/>
-			<main className={"flex-1 overflow-y-auto text-white bg-slate-600"}>{children}</main>
+			<TopNav className={"sm:hidden"} links={links} socials={socials} />
+			<SideNav className={"max-sm:hidden"} links={links} socials={socials} />
+			<main className={"flex-1 overflow-y-auto text-white bg-slate-600"}>
+				{children}
+			</main>
 		</div>
 	);
 }
