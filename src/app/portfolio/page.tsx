@@ -3,8 +3,8 @@ export default function NotFound() {
 		<div
 			className={"h-full flex flex-col items-center justify-center text-center"}
 		>
-			<h1 className={"text-xl font-bold"}>404</h1>
-			<p>Your requested page was not found.</p>
+			<h1 className={"text-xl font-bold"}>Coming soon!</h1>
+			<p>Still work-in-progress! Come back soon!</p>
 		</div>
 	);
 }

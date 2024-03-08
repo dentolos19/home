@@ -1,23 +1,14 @@
 "use client";
 
+import { links, socials } from "@/shared";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function TopNav({
 	className,
-	links,
-	socials,
 }: {
 	className?: string;
-	links: {
-		name: string;
-		url: string;
-	}[];
-	socials: {
-		name: string;
-		icon: string;
-		url: string;
-	}[];
 }) {
 	const [menuOpen, setMenuOpen] = useState(false);
 
@@ -27,34 +18,59 @@ export default function TopNav({
 				<Link href={"/"}>
 					<div className={"text-lg font-bold"}>Dennise Catolos</div>
 				</Link>
-				{/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-				<div onClick={() => setMenuOpen(!menuOpen)}>
+				<button
+					className={"cursor-pointer transition hover:text-slate-300"}
+					type={"button"}
+					onClick={() => setMenuOpen(!menuOpen)}
+				>
 					<i className={"fa-solid fa-bars fa-lg"} />
-				</div>
+				</button>
 			</div>
-			{menuOpen && (
-				<div>
-					<div className={"my-2 flex items-center justify-center gap-3"}>
-						{socials.map((social) => (
-							<Link key={social.name} href={social.url}>
-								<i className={`${social.icon} fa-xl`} />
-							</Link>
-						))}
-					</div>
-					<div className={"mb-2"}>
-						{links.map((link) => (
-							<Link
-								key={link.name}
-								className={"py-4 block text-center"}
-								href={link.url}
-								onClick={() => setMenuOpen(false)}
-							>
-								{link.name}
-							</Link>
-						))}
-					</div>
-				</div>
-			)}
+			<AnimatePresence>
+				{menuOpen && (
+					<motion.div
+						className={
+							"w-full absolute z-10 overflow-hidden drop-shadow-xl bg-slate-800"
+						}
+						initial={{
+							height: 0,
+						}}
+						animate={{
+							height: "auto",
+						}}
+						exit={{
+							height: 0,
+						}}
+						transition={{
+							duration: 0.2,
+						}}
+					>
+						<div className={"my-2 flex items-center justify-center gap-3"}>
+							{socials.map((social) => (
+								<Link
+									key={social.name}
+									className={"transition hover:text-slate-300"}
+									href={social.url}
+								>
+									<i className={`${social.icon} fa-xl`} />
+								</Link>
+							))}
+						</div>
+						<div className={"mb-2"}>
+							{links.map((link) => (
+								<Link
+									key={link.name}
+									className={"py-4 block text-center transition hover:bg-slate-700"}
+									href={link.url}
+									onClick={() => setMenuOpen(false)}
+								>
+									{link.name}
+								</Link>
+							))}
+						</div>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</div>
 	);
 }

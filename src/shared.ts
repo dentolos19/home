@@ -3,6 +3,10 @@ export const links = [
 		name: "Home",
 		url: "/",
 	},
+  {
+    name: "My Portfolio",
+    url: "/portfolio",
+  },
 	{
 		name: "My Projects",
 		url: "/projects",
@@ -11,10 +15,10 @@ export const links = [
 		name: "My Blog",
 		url: "https://blog.dennise.me",
 	},
-  {
-    name: "Support Me",
-    url: "https://ko-fi.com/dentolos19",
-  },
+	{
+		name: "Support Me",
+		url: "https://ko-fi.com/dentolos19",
+	},
 	{
 		name: "About Me",
 		url: "/about",

@@ -1,21 +1,11 @@
 import AvatarImage from "@/components/avatar-image";
+import { links, socials } from "@/shared";
 import Link from "next/link";
 
 export default function SideNav({
 	className,
-	links,
-	socials,
 }: {
 	className?: string;
-	links: {
-		name: string;
-		url: string;
-	}[];
-	socials: {
-		name: string;
-		icon: string;
-		url: string;
-	}[];
 }) {
 	return (
 		<div
@@ -29,9 +19,7 @@ export default function SideNav({
 				{links.map((link) => (
 					<Link
 						key={link.name}
-						className={
-							"py-3 block text-center transition hover:bg-slate-700"
-						}
+						className={"py-3 block text-center transition hover:bg-slate-700"}
 						href={link.url}
 					>
 						{link.name}
@@ -42,7 +30,7 @@ export default function SideNav({
 				{socials.map((social) => (
 					<Link
 						key={social.name}
-						className={"transition hover:text-slate-400"}
+						className={"transition hover:text-slate-300"}
 						href={social.url}
 					>
 						<i className={`${social.icon} fa-lg`} />
