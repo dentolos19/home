@@ -10,7 +10,7 @@ export default function Page() {
 				<div className={"px-4 py-6 shadow rounded bg-slate-800"}>
 					<div className={"my-[30px]"} />
 					<h1 className={"text-2xl font-bold"}>Dennise Catolos</h1>
-					<p className={"mt-1"}>
+					<p className={"mt-1 text-slate-300"}>
 						A soon-to-be Year 1 student studying at Nanyang Polytechnic, pursing
 						Diploma in Information Technology. ✌️🧑‍💻
 					</p>
