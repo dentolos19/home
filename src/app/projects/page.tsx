@@ -36,7 +36,7 @@ export default function Page() {
   const pathname = usePathname();
 	const searchParams = useSearchParams();
 	const currentFilter =
-		filters.find((filter) => filter.topic === searchParams.get("filter")) ??
+		filters.find((filter) => filter.topic === searchParams.get("topic")) ??
 		filters[0];
 	const repos = use(getRepos("dentolos19"))
 		.filter((repo) => !repo.topics.includes("personal"))
@@ -47,7 +47,7 @@ export default function Page() {
 		);
 	return (
 		<div className={"py-4 flex flex-col items-center gap-4"}>
-			<div className={"w-[90%] sm:w-[60%] flex gap-2 overflow-y-auto"}>
+			<div className={"w-[90%] md:w-[60%] flex gap-2 overflow-y-auto"}>
 				{filters.map((filter) => (
 					<Link
 						key={filter.topic}
@@ -56,7 +56,7 @@ export default function Page() {
 								? "bg-slate-500"
 								: "bg-slate-800"
 						}`}
-						href={filter.topic ? `?filter=${filter.topic}` : pathname}
+						href={filter.topic ? `?topic=${filter.topic}` : pathname}
 					>
 						{filter.name}
 					</Link>
@@ -66,8 +66,8 @@ export default function Page() {
 				<Link
 					key={repo.full_name}
 					className={
-						"w-[90%] sm:w-[60%] p-4 " +
-						"flex max-sm:flex-col sm:items-center justify-between shadow rounded bg-slate-800 " +
+						"w-[90%] md:w-[60%] p-4 " +
+						"flex max-md:flex-col md:items-center justify-between shadow rounded bg-slate-800 " +
 						"transition hover:bg-slate-700"
 					}
 					href={repo.html_url}
@@ -76,8 +76,7 @@ export default function Page() {
 						<h1 className={"text-xl font-bold"}>{repo.name}</h1>
 						<p className={"line-clamp-2"}>{repo.description}</p>
 					</div>
-					{/* <div className={"max-sm:hidden"}>{repo.language}</div> */}
-					<div className={"max-sm:mt-2"}>
+					<div className={"max-md:mt-2"}>
 						<i className={"fa-solid fa-star"} />
 						<span className={"ml-1"}>{repo.stargazers_count}</span>
 					</div>

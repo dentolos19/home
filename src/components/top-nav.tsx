@@ -45,7 +45,7 @@ export default function TopNav({
 						{links.map((link) => (
 							<Link
 								key={link.name}
-								className={"block leading-10 text-center"}
+								className={"py-4 block text-center"}
 								href={link.url}
 								onClick={() => setMenuOpen(false)}
 							>
