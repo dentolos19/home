@@ -12,14 +12,14 @@ export default function Page() {
 					<h1 className={"text-3xl font-bold"}>Dennise Catolos</h1>
 					<p className={"mt-2 mb-4 text-sm text-slate-300"}>
 						A soon-to-be Year 1 student studying at Nanyang Polytechnic, pursing
-						Diploma in Information Technology. ✌️🧑‍💻
+						a Diploma in Information Technology. ✌️🧑‍💻
 					</p>
 					<p className={"flex gap-4 justify-center"}>
 						{socials.map((social) => (
 							<Link
 								key={social.name}
 								className={"transition hover:text-slate-400"}
-                title={social.name}
+								title={social.name}
 								href={social.url}
 							>
 								<i className={`${social.icon} fa-xl`} />

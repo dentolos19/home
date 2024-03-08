@@ -45,7 +45,7 @@ export default function TopNav({
 							duration: 0.2,
 						}}
 					>
-						<div className={"my-2 flex items-center justify-center gap-3"}>
+						<div className={"my-4 flex items-center justify-center gap-8"}>
 							{socials.map((social) => (
 								<Link
 									key={social.name}
