@@ -31,6 +31,7 @@ export default function SideNav({
 					<Link
 						key={social.name}
 						className={"transition hover:text-slate-300"}
+            title={social.name}
 						href={social.url}
 					>
 						<i className={`${social.icon} fa-lg`} />

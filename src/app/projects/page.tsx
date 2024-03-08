@@ -47,7 +47,7 @@ export default function Page() {
 		);
 	return (
 		<div className={"py-4 flex flex-col items-center gap-4"}>
-			<div className={"w-[90%] md:w-[60%] flex gap-2 overflow-y-auto"}>
+			<div className={"w-[90%] lg:w-[60%] flex gap-2 overflow-y-auto"}>
 				{filters.map((filter) => (
 					<Link
 						key={filter.topic}
@@ -66,15 +66,15 @@ export default function Page() {
 				<Link
 					key={repo.full_name}
 					className={
-						"w-[90%] md:w-[60%] p-4 " +
+						"w-[90%] lg:w-[60%] p-4 " +
 						"flex max-md:flex-col md:items-center justify-between shadow rounded bg-slate-800 " +
 						"transition hover:bg-slate-700"
 					}
 					href={repo.html_url}
 				>
 					<div>
-						<h1 className={"text-xl font-bold"}>{repo.name}</h1>
-						<p className={"line-clamp-2"}>{repo.description}</p>
+						<h1 className={"text-2xl font-bold"}>{repo.name}</h1>
+						<p className={"line-clamp-2 text-sm text-slate-300"}>{repo.description}</p>
 					</div>
 					<div className={"max-md:mt-2"}>
 						<i className={"fa-solid fa-star"} />

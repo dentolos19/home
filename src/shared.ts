@@ -3,10 +3,10 @@ export const links = [
 		name: "Home",
 		url: "/",
 	},
-  {
-    name: "My Portfolio",
-    url: "/portfolio",
-  },
+	{
+		name: "My Portfolio",
+		url: "/portfolio",
+	},
 	{
 		name: "My Projects",
 		url: "/projects",
@@ -46,9 +46,9 @@ export const socials = [
 		icon: "fa-brands fa-instagram",
 		url: "https://instagram.com/dentolos19",
 	},
-	{
-		name: "Twitter",
-		icon: "fa-brands fa-x-twitter",
-		url: "https://twitter.com/dentolos19",
-	},
+  {
+    name: "Support Me",
+    icon: "fa-solid fa-circle-dollar-to-slot",
+    url: "https://ko-fi.com/dentolos19",
+  }
 ];
