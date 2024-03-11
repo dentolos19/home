@@ -22,6 +22,10 @@ const filters = [
 		name: "Python",
 		topic: "python",
 	},
+  {
+    name: "Rust",
+    topic: "rust",
+  },
 	{
 		name: "Games",
 		topic: "game",
