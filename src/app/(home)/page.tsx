@@ -11,7 +11,7 @@ export default function Page() {
 					<div className={"my-[30px]"} />
 					<h1 className={"text-3xl font-bold"}>Dennise Catolos</h1>
 					<p className={"mt-2 mb-4 text-sm text-slate-300"}>
-						A soon-to-be Year 1 student studying at Nanyang Polytechnic, pursing
+						A Year 1 student studying at Nanyang Polytechnic, pursing
 						a Diploma in Information Technology. ✌️🧑‍💻
 					</p>
 					<p className={"flex gap-4 justify-center"}>

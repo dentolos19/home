@@ -2,7 +2,7 @@
 
 Hi! I am Dennise! 👋
 
-It all began when I was in primary school, there was a program that I was using and there was things that I need that wasn't there. My curious little brain thought, why doesn't it have it? Can I add it myself? How can one make a program? It doesn't just appear from nothing right? From there, it snowballed into who I am today, a freaking nerd at computers. 😩
+It all began when I was in primary school, there was a program that I was using and there was things that I need that wasn't there. My curious little brain thought, why doesn't it have it? Can I make it myself? How can one make a program? It doesn't just appear from nothing right? From there, it snowballed into who I am today, a freaking nerd at computers. 😩
 
 ## Get to know me!
 
