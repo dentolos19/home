@@ -1,15 +1,19 @@
+"use client";
+
 import AvatarImage from "@/components/avatar-image";
 import { links, socials } from "@/shared";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function SideNav({
 	className,
 }: {
 	className?: string;
 }) {
+	const pathname = usePathname();
 	return (
 		<div
-			className={`w-[220px] flex flex-col shadow-xl text-white bg-slate-800 ${className}`}
+			className={`w-[220px] flex flex-col drop-shadow-xl text-white bg-slate-800 ${className}`}
 		>
 			<div className={"h-[220px] flex flex-col items-center justify-center"}>
 				<AvatarImage size={120} />
@@ -19,7 +23,9 @@ export default function SideNav({
 				{links.map((link) => (
 					<Link
 						key={link.name}
-						className={"py-3 block text-center transition hover:bg-slate-700"}
+						className={`py-3 block text-center transition hover:bg-slate-700 ${
+							pathname === link.url ? "bg-slate-600" : ""
+						}`}
 						href={link.url}
 					>
 						{link.name}
@@ -31,7 +37,7 @@ export default function SideNav({
 					<Link
 						key={social.name}
 						className={"transition hover:text-slate-300"}
-            title={social.name}
+						title={social.name}
 						href={social.url}
 					>
 						<i className={`${social.icon} fa-lg`} />

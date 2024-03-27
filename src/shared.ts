@@ -4,15 +4,15 @@ export const links = [
 		url: "/",
 	},
 	{
-		name: "My Portfolio",
+		name: "Portfolio",
 		url: "/portfolio",
 	},
 	{
-		name: "My Projects",
+		name: "Projects",
 		url: "/projects",
 	},
 	{
-		name: "My Blog",
+		name: "Blog",
 		url: "https://blog.dennise.me",
 	},
 	{

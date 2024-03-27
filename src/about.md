@@ -10,4 +10,4 @@ It all began when I was in primary school, there was a program that I was using 
 - **The Things I Love**: Programming, Manga/Manhwa/Webtoons, Volleyball, Badminton
 - **The Genres I Like**: Action, Fantasy, Romance, Isekai, Space, Wuxia/Murim (Martial Arts)
 - **The Genres I Dislike**: Horror
-- **The Music Genres I Like**: Pop (incl. K-pop)
+- **The Music Genres I Like**: Pop (incl. K-pop, [P-pop](https://en.wikipedia.org/wiki/Music_of_the_Philippines#Pinoy_pop_(P-pop)))

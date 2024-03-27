@@ -3,6 +3,7 @@
 import { links, socials } from "@/shared";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function TopNav({
@@ -10,6 +11,7 @@ export default function TopNav({
 }: {
 	className?: string;
 }) {
+	const pathname = usePathname();
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	return (
@@ -60,7 +62,9 @@ export default function TopNav({
 							{links.map((link) => (
 								<Link
 									key={link.name}
-									className={"py-4 block text-center transition hover:bg-slate-700"}
+									className={`py-4 block text-center transition hover:bg-slate-700 ${
+										pathname === link.url ? "bg-slate-600" : ""
+									}`}
 									href={link.url}
 									onClick={() => setMenuOpen(false)}
 								>
