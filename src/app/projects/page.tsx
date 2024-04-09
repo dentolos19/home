@@ -22,10 +22,10 @@ const filters = [
 		name: "Python",
 		topic: "python",
 	},
-  {
-    name: "Rust",
-    topic: "rust",
-  },
+	{
+		name: "Rust",
+		topic: "rust",
+	},
 	{
 		name: "Games",
 		topic: "game",
@@ -37,7 +37,7 @@ const filters = [
 ];
 
 export default function Page() {
-  const pathname = usePathname();
+	const pathname = usePathname();
 	const searchParams = useSearchParams();
 	const currentFilter =
 		filters.find((filter) => filter.topic === searchParams.get("topic")) ??
@@ -78,7 +78,9 @@ export default function Page() {
 				>
 					<div>
 						<h1 className={"text-2xl font-bold"}>{repo.name}</h1>
-						<p className={"line-clamp-2 text-sm text-slate-300"}>{repo.description}</p>
+						<p className={"line-clamp-2 text-sm text-slate-300"}>
+							{repo.description}
+						</p>
 					</div>
 					<div className={"max-md:mt-2"}>
 						<i className={"fa-solid fa-star"} />
