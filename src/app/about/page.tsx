@@ -1,5 +1,5 @@
-import { promises as fs } from "fs";
-import path from "path";
+import { promises as fs } from "node:fs";
+import path from "node:path";
 import Markdown from "react-markdown";
 
 export default async function Page() {
@@ -7,8 +7,9 @@ export default async function Page() {
 		path.join(process.cwd(), "src", "about.md"),
 		"utf-8",
 	);
+  // TODO: Fix the centering and alignment of the content block
 	return (
-		<div className={"h-full flex md:items-center justify-center"}>
+		<div className={"h-full flex justify-center"}>
 			<div
 				className={
 					"w-[90%] md:w-[70%] xl:w-[50%] h-fit my-4 p-6 shadow rounded bg-slate-800"
