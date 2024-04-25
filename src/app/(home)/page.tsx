@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Page() {
 	return (
-		<div className={"h-full flex items-center justify-center"}>
+		<div className={"min-h-full grid place-items-center"}>
 			<div className={"w-[90%] md:w-[70%] lg:w-[50%] text-center"}>
 				<AvatarImage className={"relative bottom-[-50px] mx-auto"} size={150} />
 				<div className={"px-4 py-6 shadow rounded bg-slate-800"}>
