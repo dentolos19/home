@@ -2,7 +2,6 @@
   "name": "home",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@8.15.5+sha1.a58c038faac410c947dbdb93eb30994037d0fce2",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -19,6 +18,7 @@
     "react-markdown": "^9.0.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.7.1",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20.11.25",
     "@types/react": "^18.2.64",

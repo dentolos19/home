@@ -39,7 +39,7 @@ export const socials = [
 	{
 		name: "LinkedIn",
 		icon: "fa-brands fa-linkedin",
-		url: "https://www.linkedin.com/in/dentolos19/",
+		url: "https://linkedin.com/in/dentolos19",
 	},
 	{
 		name: "Instagram",
