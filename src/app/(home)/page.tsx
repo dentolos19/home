@@ -7,7 +7,7 @@ export default function Page() {
     <div className={"min-h-full grid place-items-center"}>
       <div className={"w-[90%] md:w-[70%] lg:w-[50%] text-center"}>
         <AvatarImage className={"relative bottom-[-50px] mx-auto"} size={150} />
-        <div className={"px-4 py-6 shadow rounded bg-slate-800"}>
+        <div className={"px-6 py-8 shadow rounded bg-slate-800"}>
           <div className={"my-[30px]"} />
           <h1 className={"text-3xl font-bold"}>Dennise Catolos</h1>
           <p className={"mt-2 mb-4 text-sm text-slate-300"}>
