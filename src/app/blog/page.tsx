@@ -48,9 +48,9 @@ export default function Page({
               className={"p-4 shadow rounded bg-slate-800 transition hover:bg-slate-700"}
               href={`/blog/${post.id}`}
             >
-              <div>
-                <h1 className={"text-2xl font-bold"}>{post.metadata.title}</h1>
-                <p className={"line-clamp-2 text-sm text-slate-300"}>{post.metadata.date}</p>
+              <div className={"space-y-1"}>
+                <h1 className={"line-clamp-2 text-2xl font-bold"}>{post.metadata.title}</h1>
+                <p className={"line-clamp-2 text-sm text-slate-300"}>{post.metadata.excerpt}</p>
               </div>
             </Link>
           ))}

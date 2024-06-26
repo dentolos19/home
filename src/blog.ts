@@ -10,8 +10,9 @@ export type Post = {
 
 export type PostMetadata = {
   title: string;
-  date: string;
+  excerpt: string;
   category: string;
+  date: string;
 };
 
 export function parseFrontmatter<T>(data: string) {

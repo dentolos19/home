@@ -1,7 +1,8 @@
 ---
 title: How to install Microsoft Office with your own configuration
-date: 2023-09-28
+excerpt: A simple and short guide for installing Microsoft Office for free
 category: guides
+date: 2023-09-28
 ---
 
 # Introduction

@@ -1,10 +1,11 @@
 ---
 title: Realize
-date: 2024-06-26
+excerpt: A short story about love. Translated.
 category: stories
+date: 2024-06-26
 ---
 
-> This story is from a [TikTok](https://www.tiktok.com/@_sun_flowerssss/photo/7374223139640773893?is_from_webapp=1&sender_device=pc&web_id=7375529809030972929). The original version of this story can be found [here](/blog/realize-tagalog).
+> This story is from a [TikTok](https://www.tiktok.com/@_sun_flowerssss/photo/7374223139640773893?is_from_webapp=1&sender_device=pc&web_id=7375529809030972929). The original version of this story can be found [here](/blog/realize-filipino).
 
 My law professor in review school asked one of the girls inside the room.
 
