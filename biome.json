@@ -1,15 +1,5 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.6.4/schema.json",
-  "linter": {
-    "rules": {
-      "a11y": {
-        "noSvgWithoutTitle": "off"
-      },
-      "suspicious": {
-        "noArrayIndexKey": "off"
-      }
-    }
-  },
   "formatter": {
     "indentStyle": "space",
     "indentWidth": 2,
