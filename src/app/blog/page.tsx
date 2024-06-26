@@ -1,4 +1,4 @@
-import { getPosts } from "@/app/blog/utils";
+import { getPosts } from "@/blog";
 import Link from "next/link";
 
 const filters = [

@@ -1,0 +1,67 @@
+---
+title: Realize
+date: 2024-06-26
+category: stories
+---
+
+> This story is from a [TikTok](https://www.tiktok.com/@_sun_flowerssss/photo/7374223139640773893?is_from_webapp=1&sender_device=pc&web_id=7375529809030972929). The original version of this story can be found [here](/blog/realize-tagalog).
+
+My law professor in review school asked one of the girls inside the room.
+
+"Do you have a boyfriend?"
+"No, sir," answered my classmate.
+
+Then he walked again and asked one of my classmates at the end,
+
+"And you? Do you have a girlfriend?"
+
+My classmate was a bit quiet for a while but he answered,
+
+"Yes sir".
+"Oh really? How many?"
+"One, sir."
+"Will he pick you up after this class?"
+"No, sir," answered my classmate.
+
+My professor asked why his girlfriend wouldn't pick him up but my classmate couldn't answer.
+
+My professor said,
+
+"See, what's the difference of having a boyfriend? There's no difference. With a boyfriend, you won't be picked up. Without a boyfriend, no one will pick you up?"
+"Why don't you dance a lot, girls?"
+
+We laughed, but of course, I said to myself, in that situation, there is really no difference.
+
+My professor said,
+
+"Girls, be wise. One has jowa and the other doesn't but both have no one to pick them up, right? You know why? Because your boyfriend is very comfortable. He is not afraid of losing you. Because you girls thought, your boyfriend is the best. How can you know he's the best if you don't read other books? The problem is with women, they choose who will be their boyfriend They and not their husband. You choose the make-up before you buy it. But don't you have a boyfriend?
+
+We laughed hard.
+
+Is it right for us to dance a lot? I said in my mind. It seems wrong.
+
+"Why? What's wrong with having many boyfriends? Maybe others think you're CHEAP? Flirty? So your character is measured by the number of boyfriends you have and not by what you do?"
+
+"This is what I mean, there are two women, one has five boyfriends but they don't have sex. The other one has only one boyfriend but they have sex. So who is flirty? The five are jowa or the one?"
+
+We were suddenly silent.
+
+"You know if you don't choose your future husband, maybe the day will come, your child will ask you this question, 'Mom, why you didn't choose the right guy to be my father?'
+
+Or maybe you'll come to me later,
+
+"Attorney, can you help me file an annulment, nullity of marriage, divorce? I married the wrong guy."
+
+Because you didn't choose who will be your husband. The husband, forever. There should be no chance for you to be separated."
+
+"You know your boyfriend can do that two or three times, try to entertain other suitors, they will get angry. Correct? Because he is afraid to be compared to others because he knows he is not the best. Again, because if he knows he's the best, he will welcome competition and let the other suitors come until each of them is gone, right?"
+
+"Boys have a lot of options on who to date. Yes! You girls are just one of a millions of options that they can date. Sometimes, he will date you at the same time and let you answer first, right?"
+
+"Then what you will do is answer him because you have no other option," he said jokingly.
+
+"My point is, love is very unfair on the women's side. Boys may choose among the girls. Well, the girls, of course, the only answer to that is one of those who are courting her, the woman cannot answer the one who is not courting to him. What if that's ugly? A woman really has no choice. A woman can't flirt with a man unless it's flirty."
+
+"So boys, once you choose the girl, and the girl chooses you back, cherish it with all your heart, love her, be thankful, make her special because she answered you. She answered you because for her, you're the one. Pick him up after class," he added.
+
+"That's for you, boys. Since SOME of the girls are faithful enough to love you wholeheartedly and can't do the remedy I suggested, it's your natural obligation to be fair with them, give justice and learn your conscience."

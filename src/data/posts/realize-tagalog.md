@@ -4,7 +4,7 @@ date: 2024-06-01
 category: stories
 ---
 
-> This story is from a [TikTok](https://www.tiktok.com/@_sun_flowerssss/photo/7374223139640773893?is_from_webapp=1&sender_device=pc&web_id=7375529809030972929). The translated version of this story will be posted soon.
+> This story is from a [TikTok](https://www.tiktok.com/@_sun_flowerssss/photo/7374223139640773893?is_from_webapp=1&sender_device=pc&web_id=7375529809030972929). The translated version of this story can be found [here](/blog/realize).
 
 My law professor in review school asked one of the girls inside the room.
 

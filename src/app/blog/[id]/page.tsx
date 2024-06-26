@@ -1,4 +1,4 @@
-import { getPost } from "@/app/blog/utils";
+import { getPost } from "@/blog";
 import Markdown from "react-markdown";
 
 export default function Page({ params }: { params: { id: string } }) {
