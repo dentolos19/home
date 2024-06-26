@@ -7,10 +7,10 @@ export const links = [
     name: "Projects",
     url: "/projects",
   },
-  {
-    name: "Blog",
-    url: "https://blog.dennise.me",
-  },
+  // {
+  //   name: "Blog",
+  //   url: "/blog",
+  // },
   {
     name: "About",
     url: "/about",
