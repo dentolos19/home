@@ -13,6 +13,7 @@ export type Post = {
 export type PostMetadata = {
   title: string;
   date: string;
+  category: string;
 };
 
 export function getPosts() {
