@@ -4,14 +4,15 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className={"min-h-full grid place-items-center"}>
+    <main className={"grid place-items-center"}>
       <div className={"w-[90%] md:w-[70%] lg:w-[50%] text-center"}>
         <AvatarImage className={"relative bottom-[-50px] mx-auto"} size={150} />
         <div className={"px-6 py-8 shadow rounded bg-slate-800"}>
           <div className={"my-[30px]"} />
           <h1 className={"text-3xl font-bold"}>Dennise Catolos</h1>
           <p className={"mt-2 mb-4 text-sm text-slate-300"}>
-            A Year 1 student studying at Nanyang Polytechnic, pursing a Diploma in Information Technology. ✌️🧑‍💻
+            A Year 1 student studying at Nanyang Polytechnic, pursing a Diploma
+            in Information Technology. ✌️🧑‍💻
           </p>
           <p className={"flex gap-4 justify-center"}>
             {socials.map((social) => (
@@ -27,6 +28,6 @@ export default function Page() {
           </p>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

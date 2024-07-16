@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+main {
+  @apply text-white bg-slate-600 overflow-y-auto;
+
+  scrollbar-gutter: stable both-edges;
+}

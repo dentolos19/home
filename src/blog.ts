@@ -1,6 +1,6 @@
-import path from "node:path";
-import fs from "node:fs";
 import { slugify } from "@/utils";
+import fs from "node:fs";
+import path from "node:path";
 
 export type Post = {
   id: string;
@@ -37,7 +37,9 @@ export function parseFrontmatter<T>(data: string) {
 
 export function getPosts() {
   const postsDir = path.join(process.cwd(), "src", "data", "posts");
-  const fileNames = fs.readdirSync(postsDir).filter((fileName) => fileName.endsWith(".md"));
+  const fileNames = fs
+    .readdirSync(postsDir)
+    .filter((fileName) => fileName.endsWith(".md"));
   const posts = fileNames.map((fileName) => {
     const data = fs.readFileSync(path.join(postsDir, fileName), "utf8");
     const id = fileName.replace(/\.md$/, "");

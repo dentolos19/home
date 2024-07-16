@@ -44,8 +44,9 @@ export default async function Page({
     .filter((repo) => !repo.topics.includes("personal"))
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
     .filter((repo) => !currentFilter.topic || repo.topics.includes(currentFilter.topic));
+
   return (
-    <div className={"py-4 flex flex-col items-center"}>
+    <main className={"py-4 flex flex-col items-center"}>
       <div className={"w-[90%] lg:w-[60%]"}>
         <div className={"mb-2 flex gap-2 overflow-y-auto"}>
           {filters.map((filter) => (
@@ -81,6 +82,6 @@ export default async function Page({
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 }

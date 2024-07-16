@@ -8,7 +8,7 @@ export default function Page({ params }: { params: { id: string } }) {
     return <NotFoundPage />;
   }
   return (
-    <div className={"min-h-full grid place-items-center"}>
+    <main className={"grid place-items-center"}>
       <div className={"w-[90%] xl:w-[70%] h-fit my-4 shadow rounded overflow-hidden bg-slate-800"}>
         <div className={"p-4 grid lg:grid-cols-[1fr_auto] max-lg:grid-rows-[auto_auto] bg-slate-900"}>
           <div className={"line-clamp-2 text-3xl font-bold"}>{post?.metadata.title}</div>
@@ -18,6 +18,6 @@ export default function Page({ params }: { params: { id: string } }) {
           {post?.content}
         </Markdown>
       </div>
-    </div>
+    </main>
   );
 }

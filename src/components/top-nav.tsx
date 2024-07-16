@@ -1,20 +1,18 @@
 "use client";
 
 import { links, socials } from "@/shared";
+import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { twJoin } from "tailwind-merge";
 
-export default function TopNav(props: {
-  className?: string;
-}) {
+export default function TopNav(props: { className?: string }) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className={twJoin("shadow-xl text-white bg-slate-800", props.className)}>
+    <div className={clsx("shadow-xl text-white bg-slate-800", props.className)}>
       <div className={"w-full h-12 px-4 flex items-center justify-between"}>
         <Link href={"/"}>
           <div className={"text-lg font-bold"}>Dennise Catolos</div>
@@ -30,7 +28,9 @@ export default function TopNav(props: {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className={"w-full absolute z-10 overflow-hidden drop-shadow-xl bg-slate-800"}
+            className={
+              "w-full absolute z-10 overflow-hidden drop-shadow-xl bg-slate-800"
+            }
             initial={{
               height: 0,
             }}
@@ -46,7 +46,11 @@ export default function TopNav(props: {
           >
             <div className={"my-4 flex items-center justify-center gap-8"}>
               {socials.map((social) => (
-                <Link key={social.name} className={"transition hover:text-slate-300"} href={social.url}>
+                <Link
+                  key={social.name}
+                  className={"transition hover:text-slate-300"}
+                  href={social.url}
+                >
                   <i className={`${social.icon} fa-xl`} />
                 </Link>
               ))}

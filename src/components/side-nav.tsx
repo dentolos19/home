@@ -2,16 +2,19 @@
 
 import AvatarImage from "@/components/avatar-image";
 import { links, socials } from "@/shared";
+import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { twJoin } from "tailwind-merge";
 
-export default function SideNav(props: {
-  className?: string;
-}) {
+export default function SideNav(props: { className?: string }) {
   const pathname = usePathname();
   return (
-    <div className={twJoin("w-[220px] flex flex-col drop-shadow-xl text-white bg-slate-800", props.className)}>
+    <div
+      className={clsx(
+        "w-[220px] flex flex-col drop-shadow-xl text-white bg-slate-800",
+        props.className
+      )}
+    >
       <div className={"h-[220px] flex flex-col items-center justify-center"}>
         <AvatarImage size={120} />
         <h1 className={"mt-2 text-xl font-bold"}>Dennise Catolos</h1>
@@ -31,7 +34,12 @@ export default function SideNav(props: {
       </div>
       <div className={"h-12 flex items-center justify-center gap-4"}>
         {socials.map((social) => (
-          <Link key={social.name} className={"transition hover:text-slate-300"} title={social.name} href={social.url}>
+          <Link
+            key={social.name}
+            className={"transition hover:text-slate-300"}
+            title={social.name}
+            href={social.url}
+          >
             <i className={`${social.icon} fa-lg`} />
           </Link>
         ))}
