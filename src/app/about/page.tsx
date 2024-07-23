@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import Markdown from "react-markdown";
 
-export default async function NotFound() {
+export default async function Page() {
   const content = await fs.readFile(
     path.join(process.cwd(), "src", "data", "about.md"),
     "utf-8"

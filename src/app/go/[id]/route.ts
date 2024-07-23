@@ -1,4 +1,4 @@
-import { getRedirect } from "@/database";
+import { getRedirect } from "@/content";
 import { redirect } from "next/navigation";
 
 export async function GET(

@@ -1,4 +1,4 @@
-export default function NotFound() {
+export default function Page() {
   return (
     <main className={"grid place-items-center"}>
       <div className={"card bg-base-300"}>
