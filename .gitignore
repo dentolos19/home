@@ -5,6 +5,11 @@
 # Environment files
 node_modules/
 
+# Output files
+out/
+build/
+dist/
+
 # Output files: Next.js
 .vercel/
 .next/

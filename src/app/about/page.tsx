@@ -1,27 +1,19 @@
-import { promises as fs } from "node:fs";
+import fs from "node:fs/promises";
 import path from "node:path";
 import Markdown from "react-markdown";
 
-export default async function Page() {
+export default async function NotFound() {
   const content = await fs.readFile(
     path.join(process.cwd(), "src", "data", "about.md"),
     "utf-8"
   );
 
   return (
-    <main className={"grid place-items-center"}>
-      <div
-        className={
-          "w-[90%] md:w-[70%] xl:w-[60%] h-fit my-4 p-6 shadow rounded bg-slate-800"
-        }
-      >
-        <Markdown
-          className={
-            "max-w-full prose prose-sm prose-slate prose-invert prose-headings:my-3"
-          }
-        >
-          {content}
-        </Markdown>
+    <main className={"py-4 grid place-items-center"}>
+      <div className={"card bg-base-300"}>
+        <div className={"card-body"}>
+          <Markdown className={"prose"}>{content}</Markdown>
+        </div>
       </div>
     </main>
   );

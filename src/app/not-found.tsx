@@ -1,9 +1,11 @@
-export default function NotFoundPage() {
+export default function NotFound() {
   return (
     <main className={"grid place-items-center"}>
-      <div className={"text-center"}>
-        <h1 className={"text-xl font-bold"}>404</h1>
-        <p>Your requested page was not found.</p>
+      <div className={"card bg-base-300"}>
+        <div className={"card-body items-center"}>
+          <h2 className={"card-title"}>404</h2>
+          <p>Sorry, the page that you are looking for does not exist.</p>
+        </div>
       </div>
     </main>
   );

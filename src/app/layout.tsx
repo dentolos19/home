@@ -1,5 +1,5 @@
-import LayoutContainer from "@/components/layout-container";
-import { Analytics } from "@vercel/analytics/react";
+import NavigationBar from "@/components/navigation-bar";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -8,7 +8,6 @@ const font = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Dennise Catolos",
-  description: "My home page for everything and anything about me!",
 };
 
 export default function RootLayout({
@@ -17,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang={"en"} data-theme={"forest"}>
       <head>
         <link
           rel="apple-touch-icon"
@@ -44,8 +43,11 @@ export default function RootLayout({
         />
       </head>
       <body className={font.className}>
+        <div className={"h-dvh grid grid-rows-[auto,1fr]"}>
+          <NavigationBar />
+          {children}
+        </div>
         <Analytics />
-        <LayoutContainer>{children}</LayoutContainer>
       </body>
     </html>
   );

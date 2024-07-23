@@ -3,7 +3,27 @@
 @tailwind utilities;
 
 main {
-  @apply text-white bg-slate-600 overflow-y-auto;
+  height: 100%;
+  overflow: auto;
+}
 
-  scrollbar-gutter: stable both-edges;
+@layer utilities {
+  .position-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .position-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .position-center-y {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
