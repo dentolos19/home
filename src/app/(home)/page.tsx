@@ -5,7 +5,10 @@ export default function Page() {
   return (
     <main className={"grid place-items-center"}>
       <div className={"relative"}>
-        <AvatarImage className={"z-10 position-center-x top-[-30px]"} size={200} />
+        <AvatarImage
+          className={"z-10 position-center-x top-[-30px]"}
+          size={200}
+        />
         <div className={"mt-[150px] card bg-base-300"}>
           <div className={"card-body items-center text-center"}>
             <h2 className={"card-title text-3xl"}>Dennise Catolos</h2>

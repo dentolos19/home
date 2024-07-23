@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 const links = [
@@ -20,6 +22,13 @@ const links = [
 ];
 
 export default function NavigationBar() {
+  const handleSearch = () => {
+    const searchModal = document.getElementById(
+      "search-modal"
+    ) as HTMLDialogElement;
+    searchModal.showModal();
+  };
+
   return (
     <nav className={"z-50 navbar bg-base-300"}>
       <div className={"navbar-start"}>
@@ -49,7 +58,11 @@ export default function NavigationBar() {
         </ul>
       </div>
       <div className={"navbar-end"}>
-        <button className={"btn btn-ghost"} type={"button"}>
+        <button
+          className={"btn btn-ghost"}
+          type={"button"}
+          onClick={handleSearch}
+        >
           <i className={"fa-solid fa-magnifying-glass fa-xl"} />
         </button>
       </div>

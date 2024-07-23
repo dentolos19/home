@@ -1,4 +1,5 @@
 import NavigationBar from "@/components/navigation-bar";
+import SearchModal from "@/components/search-modal";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -10,11 +11,7 @@ export const metadata: Metadata = {
   title: "Dennise Catolos",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function Layout(props: { children: React.ReactNode }) {
   return (
     <html lang={"en"} data-theme={"forest"}>
       <head>
@@ -45,8 +42,9 @@ export default function RootLayout({
       <body className={font.className}>
         <div className={"h-dvh grid grid-rows-[auto,1fr]"}>
           <NavigationBar />
-          {children}
+          {props.children}
         </div>
+        <SearchModal />
         <Analytics />
       </body>
     </html>

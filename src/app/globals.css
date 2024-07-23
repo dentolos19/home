@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  overflow: hidden;
+  scrollbar-gutter: unset !important;
+}
+
 main {
   height: 100%;
   overflow: auto;
