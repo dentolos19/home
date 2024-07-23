@@ -2,12 +2,7 @@
 
 Hi! I am Dennise! 👋
 
-If you're here, then you might want to know me better? Here's some fun facts...
-
-- I suck at games but I still play them. 💀
-- I also suck at sports but I still play them. 🏐
-- I occasionally experiment with cooking different kinds of dishes. 🍽️
-- I am a man of a few words. If you see me yapping, I don't know what I am talking about. 🗣️
+I started my interest in tech when I was in primary school where I experimented with scripting small programs. Since then, I have built a lot of projects using technologies and programming languages such as .NET, Python, React, Next.js and more!
 
 ## Becoming a nerd...
 
