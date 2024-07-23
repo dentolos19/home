@@ -49,8 +49,8 @@ export default async function Page(props: {
 
   return (
     <main className={"py-4"}>
-      <div className={"mx-auto w-[90%] md:w-[50%] space-y-2"}>
-        <div className={"flex"}>
+      <div className={"mx-auto w-[90%] md:w-[70%] lg:w-[50%] space-y-2"}>
+        <div className={"flex gap-2 overflow-x-auto"}>
           {filters.map((filter) => (
             <Link
               key={filter.topic}

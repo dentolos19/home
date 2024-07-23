@@ -7,7 +7,7 @@ const config: Config = {
   ],
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
-    themes: ["forest"],
+    themes: ["forest", "nord"],
   },
 };
 
