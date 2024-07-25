@@ -15,6 +15,11 @@ const links = [
     href: "/projects",
     icon: "fa-solid fa-folder-tree",
   },
+  // {
+  //   label: "Portfolio",
+  //   href: "/portfolio",
+  //   icon: "fa-solid fa-briefcase",
+  // },
   {
     label: "Blog",
     href: "/blog",
@@ -40,9 +45,14 @@ export default function NavigationBar() {
   return (
     <nav className={"z-50 navbar bg-base-300"}>
       <div className={"navbar-start"}>
+        <div className={"tooltip tooltip-right"} data-tip={"Home"}>
+          <Link className={"btn btn-ghost text-xl max-md:hidden"} href={"/"}>
+            <i className={"fa-solid fa-house fa-lg"} />
+          </Link>
+        </div>
         <div className={"dropdown md:hidden"}>
           <div className={"btn btn-ghost"} role={"button"} tabIndex={0}>
-            <i className={"fa-solid fa-bars"} />
+            <i className={"fa-solid fa-bars fa-lg"} />
           </div>
           <ul className={"dropdown-content menu bg-base-300"}>
             {links.map((link) => (
@@ -58,12 +68,12 @@ export default function NavigationBar() {
             ))}
           </ul>
         </div>
-        <Link className={"btn btn-ghost text-xl"} href={"/"}>
-          Dennise Catolos
-        </Link>
       </div>
       <div className={"navbar-center"}>
-        <ul className={"menu menu-horizontal hidden md:flex"}>
+        <Link className={"btn btn-ghost text-xl md:hidden"} href={"/"}>
+          Dennise Catolos
+        </Link>
+        <ul className={"menu menu-horizontal max-md:hidden"}>
           {links.map((link) => (
             <li key={link.label}>
               <Link
@@ -84,7 +94,7 @@ export default function NavigationBar() {
             type={"button"}
             onClick={handleSearch}
           >
-            <i className={"fa-solid fa-magnifying-glass fa-xl"} />
+            <i className={"fa-solid fa-magnifying-glass fa-lg"} />
           </button>
         </div>
       </div>

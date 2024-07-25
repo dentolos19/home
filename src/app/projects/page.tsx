@@ -1,4 +1,5 @@
 import { getRepos } from "@/content";
+import { SearchParams } from "@/types";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -33,9 +34,7 @@ const filters = [
   },
 ];
 
-export default async function Page(props: {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+export default async function Page(props: { searchParams?: SearchParams }) {
   const currentFilter =
     filters.find((filter) => filter.topic === props.searchParams?.topic) ??
     filters[0];
