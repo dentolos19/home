@@ -1,0 +1,90 @@
+[
+  {
+    "group": "Nanyang Polytechnic Year 1",
+    "cca": "Technopreneurship Club",
+    "name": "NYP Solve",
+    "date": "2024-XX-XX",
+    "status": "Upcoming",
+    "role": "Welfare In-charge",
+    "description": "",
+    "src": "",
+    "href": ""
+  },
+  {
+    "group": "Nanyang Polytechnic Year 1",
+    "cca": "Students' Union",
+    "name": "Amazing Race",
+    "date": "2024-11-XX",
+    "status": "Upcoming",
+    "role": "Programmes In-charge",
+    "description": "",
+    "src": "",
+    "href": ""
+  },
+  {
+    "group": "Nanyang Polytechnic Year 1",
+    "cca": "Technopreneurship Club",
+    "name": "Fireside Talk",
+    "date": "2024-09-XX",
+    "status": "Upcoming",
+    "role": "Programmes-cum-Welfare In-charge",
+    "description": "",
+    "src": "",
+    "href": ""
+  },
+  {
+    "group": "Nanyang Polytechnic Year 1",
+    "cca": "PFP Club",
+    "name": "PFP Club Camp",
+    "date": "2024-07-20 and 2024-07-27",
+    "status": "Ended",
+    "role": "Media In-charge",
+    "description": "",
+    "src": "",
+    "href": ""
+  },
+  {
+    "group": "Nanyang Polytechnic Year 1",
+    "cca": "Student Initiative",
+    "name": "PFP Outreach @ SGSS",
+    "date": "2024-XX",
+    "status": "Ended",
+    "role": "AR Developer",
+    "description": "I was part of the team leading an outreach programme at Serangoon Garden Secondary School. I was involved in developing the AR cards that help students learn the United Nations Sustainable Development Goals.",
+    "src": "",
+    "href": ""
+  },
+  {
+    "group": "Nanyang Polytechnic Year 0 (PFP)",
+    "cca": "PFP Club",
+    "name": "PFP Freshmen Orientation",
+    "date": "2024-04-04",
+    "status": "Ended",
+    "role": "Student Mentor",
+    "description": "",
+    "src": "",
+    "href": ""
+  },
+  {
+    "group": "Nanyang Polytechnic Year 0 (PFP)",
+    "cca": "PFP Club",
+    "name": "PFP Open House",
+    "date": "2024-01-03 to 2024-01-06",
+    "status": "Ended",
+    "role": "Logistics In-charge",
+    "description": "I was a committee member involved in organizing NYP's PFP Open House 2024. I was in charge of compiling the overall logistics of the event, developing the microsite detailing PFP students' experiences, and ensuring that nothing went wrong during the actual event.",
+    "src": "",
+    "href": ""
+  },
+  {
+    "group": "Nanyang Polytechnic Year 0 (PFP)",
+    "cca": "PFP Pulse",
+    "name": "PFP Design Competition",
+    "date": "2023",
+    "status": "Ended",
+    "role": "Student Liaison",
+    "description": "I was involved in organizing the inaugural PFP Design Competition where PFP students design custom shirts for the cohort. We had over five participants who joined and had over a hundred orders for the shirt.",
+    "src": "",
+    "href": ""
+  }
+]

@@ -29,7 +29,7 @@ export default function Page(props: { searchParams?: SearchParams }) {
 
   return (
     <main className={"py-4"}>
-      <div className={"mx-auto w-[50%] grid grid-rows-2 gap-2"}>
+      <div className={"mx-auto w-[60%] max-md:w-[90%] grid grid-rows-[auto,1fr] gap-2"}>
         <div className={"card bg-base-300"}>
           <div className={"card-body"}>
             <h2 className={"card-title"}>Dennise Catolos</h2>

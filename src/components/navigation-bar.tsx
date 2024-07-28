@@ -47,12 +47,12 @@ export default function NavigationBar() {
       <div className={"navbar-start"}>
         <div className={"tooltip tooltip-right"} data-tip={"Home"}>
           <Link className={"btn btn-ghost text-xl max-md:hidden"} href={"/"}>
-            <i className={"fa-solid fa-house fa-lg"} />
+            <i className={"fa-solid fa-house"} />
           </Link>
         </div>
         <div className={"dropdown md:hidden"}>
           <div className={"btn btn-ghost"} role={"button"} tabIndex={0}>
-            <i className={"fa-solid fa-bars fa-lg"} />
+            <i className={"fa-solid fa-bars fa-xl"} />
           </div>
           <ul className={"dropdown-content menu bg-base-300"}>
             {links.map((link) => (
@@ -70,7 +70,7 @@ export default function NavigationBar() {
         </div>
       </div>
       <div className={"navbar-center"}>
-        <Link className={"btn btn-ghost text-xl md:hidden"} href={"/"}>
+        <Link className={"btn btn-ghost text-lg md:hidden"} href={"/"}>
           Dennise Catolos
         </Link>
         <ul className={"menu menu-horizontal max-md:hidden"}>
@@ -94,7 +94,7 @@ export default function NavigationBar() {
             type={"button"}
             onClick={handleSearch}
           >
-            <i className={"fa-solid fa-magnifying-glass fa-lg"} />
+            <i className={"fa-solid fa-magnifying-glass fa-xl"} />
           </button>
         </div>
       </div>

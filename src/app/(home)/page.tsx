@@ -12,7 +12,7 @@ export default function Page() {
         <div className={"mt-[150px] card bg-base-300"}>
           <div className={"card-body items-center text-center"}>
             <h2 className={"card-title text-3xl"}>Dennise Catolos</h2>
-            <p>
+            <p className={"my-2 max-w-screen-sm"}>
               A Year 1 student studying at Nanyang Polytechnic, pursing a
               Diploma in Information Technology. ✌️🧑‍💻
             </p>
