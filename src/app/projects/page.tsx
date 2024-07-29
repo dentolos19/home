@@ -79,6 +79,12 @@ export default async function Page(props: { searchParams?: SearchParams }) {
                       {repo.stargazers_count}
                     </div>
                   )}
+                  {repo.forks_count > 0 && (
+                    <div className={"badge badge-outline gap-1"}>
+                      <i className={"fa-solid fa-code-fork"} />
+                      {repo.forks_count}
+                    </div>
+                  )}
                 </h2>
                 <p>{repo.description}</p>
               </div>

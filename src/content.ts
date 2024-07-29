@@ -29,6 +29,7 @@ export function getRepos() {
           description: string;
           stargazers_count: number;
           language: string;
+          forks_count: number;
           archived: boolean;
           topics: string[];
         }[]
