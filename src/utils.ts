@@ -13,3 +13,12 @@ export function hashStrings(...args: string[]) {
     return acc + cur.replace(/[^a-zA-Z0-9]/g, "");
   }, "");
 }
+
+export function setSearchParam(
+  url: URL,
+  key: string,
+  value: string | undefined
+) {
+  value ? url.searchParams.set(key, value) : url.searchParams.delete(key);
+  return url;
+}

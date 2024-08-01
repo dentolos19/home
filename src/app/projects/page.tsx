@@ -1,5 +1,7 @@
+import { getURL } from "@/actions";
 import { getRepos } from "@/content";
-import { SearchParams } from "@/types";
+import type { SearchParams } from "@/types";
+import { setSearchParam } from "@/utils";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -35,6 +37,7 @@ const filters = [
 ];
 
 export default async function Page(props: { searchParams?: SearchParams }) {
+  const url = await getURL();
   const currentFilter =
     filters.find((filter) => filter.topic === props.searchParams?.topic) ??
     filters[0];
@@ -59,7 +62,7 @@ export default async function Page(props: { searchParams?: SearchParams }) {
                   ? "btn-primary"
                   : "btn-outline"
               )}
-              href={filter.topic ? `?topic=${filter.topic}` : "/projects"}
+              href={setSearchParam(url, "topic", filter.topic).href}
             >
               {filter.label}
             </Link>
