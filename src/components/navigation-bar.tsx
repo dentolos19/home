@@ -36,9 +36,7 @@ export default function NavigationBar() {
   const pathname = usePathname();
 
   const handleSearch = () => {
-    const searchModal = document.getElementById(
-      "search-modal"
-    ) as HTMLDialogElement;
+    const searchModal = document.getElementById("search-modal") as HTMLDialogElement;
     searchModal.showModal();
   };
 
@@ -57,10 +55,7 @@ export default function NavigationBar() {
           <ul className={"dropdown-content menu bg-base-300"}>
             {links.map((link) => (
               <li key={link.label}>
-                <Link
-                  className={clsx(pathname === link.href && "active")}
-                  href={link.href}
-                >
+                <Link className={clsx(pathname === link.href && "active")} href={link.href}>
                   <i className={link.icon} />
                   {link.label}
                 </Link>
@@ -76,10 +71,7 @@ export default function NavigationBar() {
         <ul className={"menu menu-horizontal max-md:hidden"}>
           {links.map((link) => (
             <li key={link.label}>
-              <Link
-                className={clsx(pathname === link.href && "active")}
-                href={link.href}
-              >
+              <Link className={clsx(pathname === link.href && "active")} href={link.href}>
                 <i className={link.icon} />
                 {link.label}
               </Link>
@@ -89,11 +81,7 @@ export default function NavigationBar() {
       </div>
       <div className={"navbar-end"}>
         <div className={"tooltip tooltip-left"} data-tip={"Search"}>
-          <button
-            className={"btn btn-ghost"}
-            type={"button"}
-            onClick={handleSearch}
-          >
+          <button className={"btn btn-ghost"} type={"button"} onClick={handleSearch}>
             <i className={"fa-solid fa-magnifying-glass fa-xl"} />
           </button>
         </div>

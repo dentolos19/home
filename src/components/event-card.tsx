@@ -22,9 +22,7 @@ export default function EventCard(props: {
   return (
     <>
       <button
-        className={
-          "card text-left cursor-pointer bg-base-100 hover:bg-base-200"
-        }
+        className={"card text-left cursor-pointer bg-base-100 hover:bg-base-200"}
         type={"button"}
         onClick={handleClick}
       >
@@ -54,12 +52,7 @@ export default function EventCard(props: {
       <dialog id={modalId} className={"modal"}>
         <div className={"modal-box"}>
           <form method={"dialog"}>
-            <button
-              className={
-                "btn btn-sm btn-circle btn-ghost absolute right-4 top-4"
-              }
-              type={"submit"}
-            >
+            <button className={"btn btn-sm btn-circle btn-ghost absolute right-4 top-4"} type={"submit"}>
               <i className={"fa-solid fa-x"} />
             </button>
           </form>
@@ -77,9 +70,7 @@ export default function EventCard(props: {
             </div>
             <div className={"badge badge-outline"}>{props.role}</div>
           </div>
-          <div className={"my-4"}>
-            {props.description || "Nothing to read here."}
-          </div>
+          <div className={"my-4"}>{props.description || "Nothing to read here."}</div>
         </div>
       </dialog>
     </>

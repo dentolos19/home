@@ -38,16 +38,11 @@ const filters = [
 
 export default async function Page(props: { searchParams?: SearchParams }) {
   const url = await getURL();
-  const currentFilter =
-    filters.find((filter) => filter.topic === props.searchParams?.topic) ??
-    filters[0];
+  const currentFilter = filters.find((filter) => filter.topic === props.searchParams?.topic) ?? filters[0];
   const repos = (await getRepos())
     .filter((repo) => !repo.topics.includes("personal"))
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
-    .filter(
-      (repo) =>
-        !currentFilter.topic || repo.topics.includes(currentFilter.topic)
-    );
+    .filter((repo) => !currentFilter.topic || repo.topics.includes(currentFilter.topic));
 
   return (
     <main className={"py-4"}>
@@ -56,12 +51,7 @@ export default async function Page(props: { searchParams?: SearchParams }) {
           {filters.map((filter) => (
             <Link
               key={filter.topic}
-              className={clsx(
-                "btn btn-sm",
-                filter.topic === currentFilter.topic
-                  ? "btn-primary"
-                  : "btn-outline"
-              )}
+              className={clsx("btn btn-sm", filter.topic === currentFilter.topic ? "btn-primary" : "btn-outline")}
               href={setSearchParam(url, "topic", filter.topic).href}
             >
               {filter.label}
