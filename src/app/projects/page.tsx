@@ -55,7 +55,9 @@ export default async function Page(props: { searchParams?: SearchParams }) {
               key={filter.topic}
               className={clsx(
                 "btn btn-sm",
-                filter.topic === currentFilter.topic && "btn-primary"
+                filter.topic === currentFilter.topic
+                  ? "btn-primary"
+                  : "btn-outline"
               )}
               href={filter.topic ? `?topic=${filter.topic}` : "/projects"}
             >
