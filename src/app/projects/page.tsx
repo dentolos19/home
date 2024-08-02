@@ -22,10 +22,10 @@ const filters = [
     label: "Python",
     topic: "python",
   },
-  {
-    label: "Rust",
-    topic: "rust",
-  },
+  // {
+  //   label: "Rust",
+  //   topic: "rust",
+  // },
   {
     label: "Games",
     topic: "game",
