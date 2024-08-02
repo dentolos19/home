@@ -2,6 +2,7 @@
 
 import { hashStrings } from "@/utils";
 import clsx from "clsx";
+import Link from "next/link";
 
 export default function EventCard(props: {
   name: string;
@@ -27,7 +28,7 @@ export default function EventCard(props: {
         onClick={handleClick}
       >
         <figure>
-          <img src={props.src || "/assets/nyp.jpg"} alt={"Preview"} />
+          <img className={"aspect-video object-cover"} src={props.src || "/assets/nyp.jpg"} alt={"Preview"} />
         </figure>
         <div className={"card-body"}>
           <h2 className={"card-title"}>
@@ -70,7 +71,13 @@ export default function EventCard(props: {
             </div>
             <div className={"badge badge-outline"}>{props.role}</div>
           </div>
-          <div className={"my-4"}>{props.description || "Nothing to read here."}</div>
+          <div className={"mt-4"}>{props.description || "Nothing to read here."}</div>
+          {props.href && (
+            <Link className={"mt-2 btn btn-sm btn-info"} href={props.href}>
+              <i className={"fa-solid fa-arrow-up-right-from-square"} />
+              Read More
+            </Link>
+          )}
         </div>
       </dialog>
     </>
