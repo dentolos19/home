@@ -74,12 +74,14 @@ export default async function Page(props: RouteProps) {
             />
           </div>
           <div className={"card-actions justify-end"}>
-            <button className={"btn btn-sm btn-info"} type={"submit"} formAction={handleEdit}>
+            <button className={"btn btn-sm btn-info"} formAction={handleEdit}>
               {isNew ? "Add" : "Save"}
             </button>
-            <button className={"btn btn-sm btn-error"} type={"button"} formAction={handleDelete}>
-              Delete
-            </button>
+            {isNew || (
+              <button className={"btn btn-sm btn-error"} formAction={handleDelete}>
+                Delete
+              </button>
+            )}
           </div>
         </form>
       </div>
