@@ -1,11 +1,12 @@
 import EventCard from "@/components/event-card";
-import data from "@/data/events.json";
+import { getEvents } from "@/content";
 
 export default function EventsTab() {
+  const events = getEvents();
   return (
     <section className={"p-4"}>
       <div className={"grid sm:grid-cols-2 gap-2"}>
-        {data.map((event, index) => (
+        {events.map((event, index) => (
           <EventCard key={index} {...event} />
         ))}
       </div>

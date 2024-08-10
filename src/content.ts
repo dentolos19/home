@@ -1,4 +1,8 @@
+import assets from "@/content/data/assets.json";
+import events from "@/content/data/events.json";
 import { Redis } from "@upstash/redis";
+import fs from "node:fs/promises";
+import path from "node:path";
 
 const redis = new Redis({
   url: process.env.UPSTASH_REDIS_REST_URL as string,
@@ -34,4 +38,21 @@ export function getRepos() {
           topics: string[];
         }[]
     );
+}
+
+export function getAssets() {
+  return assets;
+}
+
+export function getAsset(id: string) {
+  return getAssets().find((asset) => asset.id === id);
+}
+
+export function getEvents() {
+  return events;
+}
+
+export async function getInternalFile(name: string) {
+  const filePath = path.join(process.cwd(), "src", "content", name);
+  return await fs.readFile(filePath, "utf-8");
 }

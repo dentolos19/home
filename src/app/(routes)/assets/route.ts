@@ -1,15 +1,12 @@
-import data from "@/data/assets.json";
+import { getAsset } from "@/content";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
 
 export function GET(request: NextRequest) {
-  const url = new URL(request.nextUrl);
-  const id = url.searchParams.get("id");
-  if (id) {
-    const asset = data.find((asset) => asset.id === id);
-    if (asset) {
-      redirect(asset.url);
-    }
+  const id = request.nextUrl.searchParams.get("id");
+  if (!id) {
+    return redirect("/");
   }
-  redirect("/");
+  const asset = getAsset(id);
+  redirect(asset?.url || "/");
 }
