@@ -6,8 +6,8 @@ export default function EventsTab() {
   return (
     <section className={"p-4"}>
       <div className={"grid sm:grid-cols-2 gap-2"}>
-        {events.map((event, index) => (
-          <EventCard key={index} {...event} />
+        {events.map((event) => (
+          <EventCard key={event.id} {...event} />
         ))}
       </div>
     </section>

@@ -1,22 +1,21 @@
 "use client";
 
-import { hashStrings } from "@/utils";
 import clsx from "clsx";
 import Link from "next/link";
 
 export default function EventCard(props: {
+  id: string;
   name: string;
   date: string;
   status: string;
+  private: boolean;
   role: string;
   description: string;
   src: string;
   href: string;
 }) {
-  const modalId = hashStrings(props.name, props.date);
-
   const handleClick = () => {
-    const dialog = document.getElementById(modalId) as HTMLDialogElement;
+    const dialog = document.getElementById(props.id) as HTMLDialogElement;
     dialog.showModal();
   };
 
@@ -32,7 +31,7 @@ export default function EventCard(props: {
         </figure>
         <div className={"card-body"}>
           <h2 className={"card-title"}>
-            {props.name}
+            {props.private ? "[Redacted]" : props.name}
             <div
               className={clsx(
                 "badge",
@@ -50,14 +49,14 @@ export default function EventCard(props: {
           </div>
         </div>
       </button>
-      <dialog id={modalId} className={"modal"}>
+      <dialog id={props.id} className={"modal"}>
         <div className={"modal-box"}>
           <form method={"dialog"}>
             <button className={"btn btn-sm btn-circle btn-ghost absolute right-4 top-4"} type={"submit"}>
               <i className={"fa-solid fa-x"} />
             </button>
           </form>
-          <div className={"text-xl font-bold"}>{props.name}</div>
+          <div className={"text-xl font-bold"}>{props.private ? "[Redacted]" : props.name}</div>
           <div className={"space-x-1"}>
             <div
               className={clsx(

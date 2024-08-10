@@ -1,4 +1,4 @@
-export default function ExperienceTab() {
+export default function PositionsTab() {
   return (
     <section className={"h-40 grid place-items-center"}>
       <div className={"text-center"}>

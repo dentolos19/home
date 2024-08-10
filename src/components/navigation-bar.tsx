@@ -10,11 +10,11 @@ const links = [
     href: "/projects",
     icon: "fa-solid fa-folder-tree",
   },
-  // {
-  //   label: "Portfolio",
-  //   href: "/portfolio",
-  //   icon: "fa-solid fa-briefcase",
-  // },
+  {
+    label: "Portfolio",
+    href: "/portfolio/academic",
+    icon: "fa-solid fa-briefcase",
+  },
   {
     label: "Blog",
     href: "/blog",
