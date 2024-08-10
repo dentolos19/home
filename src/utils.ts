@@ -17,3 +17,18 @@ export function setSearchParam(url: URL, key: string, value: string | undefined)
   value ? url.searchParams.set(key, value) : url.searchParams.delete(key);
   return url;
 }
+
+export function formatDate(date: string) {
+  let currentDate = new Date();
+  let targetDate = currentDate;
+
+  if (!date.includes("T")) {
+    targetDate = new Date(`${date}T00:00:00`);
+  }
+
+  return targetDate.toLocaleString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+}

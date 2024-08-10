@@ -1,7 +1,9 @@
 import assets from "@/content/data/assets.json";
 import events from "@/content/data/events.json";
+import { formatDate } from "@/utils";
 import { Redis } from "@upstash/redis";
-import fs from "node:fs/promises";
+import matter from "gray-matter";
+import fs from "node:fs";
 import path from "node:path";
 
 const redis = new Redis({
@@ -58,6 +60,54 @@ export async function deleteRedirect(id: string) {
   }
 }
 
+export function getAssets() {
+  return assets;
+}
+
+export function getAsset(id: string) {
+  return getAssets().find((asset) => asset.id === id);
+}
+
+export function getPosts() {
+  const postsDir = path.join(process.cwd(), "src", "content", "blog");
+  const fileNames = fs.readdirSync(postsDir);
+  return fileNames
+    .map((fileName) => {
+      const name = fileName.replace(/\.md$/, "");
+      const nameParts = name.split("_");
+      const postDate = nameParts[0];
+      const postSlug = nameParts.slice(1).join("_");
+      const fileContent = fs.readFileSync(path.join(postsDir, fileName), "utf-8");
+      const fileMatter = matter(fileContent);
+      return {
+        id: postSlug,
+        title: fileMatter.data.title,
+        excerpt: fileMatter.data.excerpt,
+        category: fileMatter.data.category,
+        date: formatDate(postDate),
+        content: fileMatter.content,
+      };
+    })
+    .sort((a, b) => a.date.localeCompare(b.date));
+}
+
+export function getPost(id: string) {
+  const post = getPosts().find((post) => post.id === id);
+  if (!post) {
+    return undefined;
+  }
+  return post;
+}
+
+export function getEvents() {
+  return events;
+}
+
+export function getTextFile(name: string) {
+  const filePath = path.join(process.cwd(), "src", "content", name);
+  return fs.readFileSync(filePath, "utf-8");
+}
+
 export function getRepos() {
   return fetch("https://api.github.com/users/dentolos19/repos")
     .then((res) => res.json())
@@ -75,21 +125,4 @@ export function getRepos() {
           topics: string[];
         }[]
     );
-}
-
-export function getAssets() {
-  return assets;
-}
-
-export function getAsset(id: string) {
-  return getAssets().find((asset) => asset.id === id);
-}
-
-export function getEvents() {
-  return events;
-}
-
-export async function getTextFile(name: string) {
-  const filePath = path.join(process.cwd(), "src", "content", name);
-  return await fs.readFile(filePath, "utf-8");
 }
