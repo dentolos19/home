@@ -1,5 +1,9 @@
 [
   {
+    "id": "placeholder",
+    "url": "/assets/global/nyp.jpg"
+  },
+  {
     "id": "avatar",
     "url": "https://gravatar.com/avatar/a8c63fb5500bc292955f80701cbf53c2?s=512"
   },

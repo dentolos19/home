@@ -27,7 +27,7 @@ export default function EventCard(props: {
         onClick={handleClick}
       >
         <figure>
-          <img className={"aspect-video object-cover"} src={props.src || "/assets/nyp.jpg"} alt={"Preview"} />
+          <img className={"aspect-video object-cover"} src={props.src || "/assets?id=placeholder"} alt={"Preview"} />
         </figure>
         <div className={"card-body"}>
           <h2 className={"card-title"}>
