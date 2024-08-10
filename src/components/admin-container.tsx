@@ -11,13 +11,24 @@ export default function AdminContainer(props: { children: React.ReactNode }) {
     router.back();
   };
 
-  const adminLogout = () => {
-    router.push("/");
-  };
-
   return (
     <div className={"h-full drawer lg:drawer-open"}>
       <input id={"drawer"} className={"drawer-toggle"} type={"checkbox"} />
+      <div className={"h-full drawer-content grid grid-rows-[auto,1fr]"}>
+        <div className={"navbar bg-base-300"}>
+          <div className={"navbar-start"}>
+            <label className={"btn btn-ghost lg:hidden"} htmlFor={"drawer"}>
+              <i className={"fa-solid fa-bars fa-xl"} />
+            </label>
+          </div>
+          <div className={"navbar-end"}>
+            <div className={"mr-2 tooltip tooltip-left"} data-tip={"Account"}>
+              <UserButton />
+            </div>
+          </div>
+        </div>
+        {props.children}
+      </div>
       <div className={"drawer-side"}>
         <label className={"drawer-overlay"} htmlFor={"drawer"} />
         <div className={"w-56 h-full bg-base-300"}>
@@ -45,21 +56,6 @@ export default function AdminContainer(props: { children: React.ReactNode }) {
             </li>
           </ul>
         </div>
-      </div>
-      <div className={"h-full drawer-content grid grid-rows-[auto,1fr]"}>
-        <div className={"navbar bg-base-300"}>
-          <div className={"navbar-start"}>
-            <label className={"btn btn-ghost lg:hidden"} htmlFor={"drawer"}>
-              <i className={"fa-solid fa-bars fa-xl"} />
-            </label>
-          </div>
-          <div className={"navbar-end"}>
-            <div className={"mr-2 tooltip tooltip-left"} data-tip={"Account"}>
-              <UserButton />
-            </div>
-          </div>
-        </div>
-        {props.children}
       </div>
     </div>
   );

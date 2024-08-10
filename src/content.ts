@@ -13,13 +13,16 @@ export async function getRedirects() {
   try {
     const keys = await redis.keys("redirects:*");
     const redirects = await redis.mget(keys);
-    return keys.map((key, index) => ({
-      id: key.split(":")[1],
-      url: redirects[index],
-    } as {
-      id: string;
-      url: string;
-    }));
+    return keys.map(
+      (key, index) =>
+        ({
+          id: key.split(":")[1],
+          url: redirects[index],
+        } as {
+          id: string;
+          url: string;
+        })
+    );
   } catch (error) {
     return [];
   }
@@ -34,6 +37,24 @@ export async function getRedirect(id: string) {
     return redirect;
   } catch (error) {
     return undefined;
+  }
+}
+
+export async function setRedirect(id: string, url: string) {
+  try {
+    await redis.set(`redirects:${id}`, url);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+export async function deleteRedirect(id: string) {
+  try {
+    const num = await redis.del(`redirects:${id}`);
+    return true;
+  } catch (error) {
+    return false;
   }
 }
 
