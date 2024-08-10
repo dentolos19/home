@@ -1,11 +1,8 @@
+import { getRedirects } from "@/content";
 import Link from "next/link";
 
 export default async function Page() {
-  // const redirects = await getRedirects();
-  const redirects: {
-    id: string;
-  }[] = [];
-  // TODO: remove security measure
+  const redirects = await getRedirects();
   return (
     <main className={"p-4 space-y-2"}>
       <Link className={"w-full btn btn-primary"} href={"/admin/redirects/add"}>

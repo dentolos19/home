@@ -1,5 +1,6 @@
 "use client";
 
+import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -53,10 +54,11 @@ export default function AdminContainer(props: { children: React.ReactNode }) {
             </label>
           </div>
           <div className={"navbar-end"}>
-            <div className={"tooltip tooltip-left"} data-tip={"Logout"}>
-              <button className={"btn btn-ghost"} onClick={adminLogout}>
+            <div className={"mr-2 tooltip tooltip-left"} data-tip={"Account"}>
+              {/* <button className={"btn btn-ghost"} onClick={adminLogout}>
                 <i className={"fa-solid fa-right-from-bracket fa-xl"} />
-              </button>
+              </button> */}
+              <UserButton />
             </div>
           </div>
         </div>
