@@ -55,9 +55,6 @@ export default function AdminContainer(props: { children: React.ReactNode }) {
           </div>
           <div className={"navbar-end"}>
             <div className={"mr-2 tooltip tooltip-left"} data-tip={"Account"}>
-              {/* <button className={"btn btn-ghost"} onClick={adminLogout}>
-                <i className={"fa-solid fa-right-from-bracket fa-xl"} />
-              </button> */}
               <UserButton />
             </div>
           </div>
