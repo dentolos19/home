@@ -9,6 +9,22 @@ const redis = new Redis({
   token: process.env.UPSTASH_REDIS_REST_TOKEN as string,
 });
 
+export async function getRedirects() {
+  try {
+    const keys = await redis.keys("redirects:*");
+    const redirects = await redis.mget(keys);
+    return keys.map((key, index) => ({
+      id: key.split(":")[1],
+      url: redirects[index],
+    } as {
+      id: string;
+      url: string;
+    }));
+  } catch (error) {
+    return [];
+  }
+}
+
 export async function getRedirect(id: string) {
   try {
     const redirect = await redis.get<string>(`redirects:${id}`);
@@ -52,7 +68,7 @@ export function getEvents() {
   return events;
 }
 
-export async function getInternalFile(name: string) {
+export async function getTextFile(name: string) {
   const filePath = path.join(process.cwd(), "src", "content", name);
   return await fs.readFile(filePath, "utf-8");
 }

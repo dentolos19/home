@@ -1,5 +1,3 @@
-import NavigationBar from "@/components/navigation-bar";
-import SearchModal from "@/components/search-modal";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -22,11 +20,7 @@ export default function Layout(props: { children: React.ReactNode }) {
         <script src="https://kit.fontawesome.com/d0674de6ae.js" crossOrigin="anonymous" async />
       </head>
       <body className={font.className}>
-        <div className={"h-dvh grid grid-rows-[auto,1fr]"}>
-          <NavigationBar />
-          {props.children}
-        </div>
-        <SearchModal />
+        {props.children}
         <Analytics />
       </body>
     </html>

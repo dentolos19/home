@@ -1,8 +1,8 @@
-import { getInternalFile } from "@/content";
+import { getTextFile } from "@/content";
 import Markdown from "react-markdown";
 
 export default async function Page() {
-  const content = await getInternalFile("about.md");
+  const content = await getTextFile("about.md");
   return (
     <main className={"py-4 grid place-items-center"}>
       <div className={"card bg-base-300"}>
