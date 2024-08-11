@@ -1,11 +1,12 @@
 "use client";
 
+import { ErrorRouteProps } from "@/types";
 import { useEffect } from "react";
 
-export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
+export default function Error(props: ErrorRouteProps) {
   useEffect(() => {
-    console.error(error);
-  }, [error]);
+    console.error(props.error);
+  }, [props.error]);
 
   return (
     <main className={"grid place-items-center"}>
@@ -14,7 +15,7 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
           <h2 className={"card-title"}>Oops!</h2>
           <p>Something went wrong in the code, sorry about that!</p>
           <div className={"card-actions"}>
-            <button className={"btn btn-sm btn-primary"} onClick={reset}>
+            <button className={"btn btn-sm btn-primary"} onClick={props.reset}>
               Reload
             </button>
           </div>

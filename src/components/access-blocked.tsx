@@ -6,7 +6,7 @@ export default function AccessBlocked() {
       <div className={"card bg-base-300"}>
         <div className={"card-body items-center text-center"}>
           <h2 className={"card-title"}>Oops!</h2>
-          <p>You do not have the level of privileges to access this page!</p>
+          <p>You do not have the permission to access this feature!</p>
           <div>
             <OrganizationSwitcher />
           </div>

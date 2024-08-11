@@ -4,10 +4,23 @@ import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+const links = [
+  {
+    label: "Dashboard",
+    href: "/admin",
+    icon: "fa-solid fa-gauge",
+  },
+  {
+    label: "Redirects",
+    href: "/admin/redirects",
+    icon: "fa-solid fa-folder-open",
+  },
+];
+
 export default function AdminContainer(props: { children: React.ReactNode }) {
   const router = useRouter();
 
-  const navigateBack = () => {
+  const handleBack = () => {
     router.back();
   };
 
@@ -22,7 +35,7 @@ export default function AdminContainer(props: { children: React.ReactNode }) {
             </label>
           </div>
           <div className={"navbar-end"}>
-            <div className={"mr-2 tooltip tooltip-left"} data-tip={"Account"}>
+            <div className={"mr-2 flex items-center tooltip tooltip-left"} data-tip={"Account"}>
               <UserButton />
             </div>
           </div>
@@ -35,25 +48,21 @@ export default function AdminContainer(props: { children: React.ReactNode }) {
           <div className={"navbar max-lg:hidden"}>
             <div className={"navbar-start"}>
               <div className={"tooltip tooltip-right"} data-tip={"Back"}>
-                <button className={"btn btn-ghost"} onClick={navigateBack}>
+                <button className={"btn btn-ghost"} onClick={handleBack}>
                   <i className={"fa-solid fa-backward fa-xl"} />
                 </button>
               </div>
             </div>
           </div>
           <ul className={"menu"}>
-            <li>
-              <Link href={"/admin"}>
-                <i className={"fa-solid fa-gauge"} />
-                Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link href={"/admin/redirects"}>
-                <i className={"fa-solid fa-folder-open"} />
-                Redirects
-              </Link>
-            </li>
+            {links.map((link) => (
+              <li key={link.label}>
+                <Link href={link.href}>
+                  <i className={link.icon} />
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { getURL } from "@/actions";
 import { getPosts } from "@/content";
 import { RouteProps } from "@/types";
-import { setSearchParam } from "@/utils";
+import { updateSearchParams } from "@/utils";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -36,7 +36,7 @@ export default async function Page(props: RouteProps) {
             <Link
               key={filter.label}
               className={clsx("btn btn-sm", currentFilter === filter ? "btn-primary" : "btn-outline")}
-              href={setSearchParam(url, "category", filter.category).href}
+              href={updateSearchParams(url, "category", filter.category).href}
             >
               {filter.label}
             </Link>

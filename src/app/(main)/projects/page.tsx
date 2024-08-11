@@ -1,7 +1,7 @@
 import { getURL } from "@/actions";
 import { getRepos } from "@/content";
 import type { SearchParams } from "@/types";
-import { setSearchParam } from "@/utils";
+import { updateSearchParams } from "@/utils";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -52,7 +52,7 @@ export default async function Page(props: { searchParams?: SearchParams }) {
             <Link
               key={filter.topic}
               className={clsx("btn btn-sm", filter.topic === currentFilter.topic ? "btn-primary" : "btn-outline")}
-              href={setSearchParam(url, "topic", filter.topic).href}
+              href={updateSearchParams(url, "topic", filter.topic).href}
             >
               {filter.label}
             </Link>

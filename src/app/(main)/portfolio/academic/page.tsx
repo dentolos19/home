@@ -3,7 +3,7 @@ import AchievementsTab from "@/app/(main)/portfolio/academic/tabs/achievements";
 import EventsTab from "@/app/(main)/portfolio/academic/tabs/events";
 import PositionsTab from "@/app/(main)/portfolio/academic/tabs/positions";
 import type { SearchParams } from "@/types";
-import { setSearchParam } from "@/utils";
+import { updateSearchParams } from "@/utils";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -50,7 +50,7 @@ export default async function Page(props: { searchParams?: SearchParams }) {
                 key={tab.value}
                 className={clsx("tab", tab.value === currentTab.value && "tab-active")}
                 role={"tab"}
-                href={setSearchParam(url, "tab", tab.value).href}
+                href={updateSearchParams(url, "tab", tab.value).href}
               >
                 {tab.label}
               </Link>

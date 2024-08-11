@@ -88,7 +88,7 @@ export function getPosts() {
         content: fileMatter.content,
       };
     })
-    .sort((a, b) => a.date.localeCompare(b.date));
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export function getPost(id: string) {
