@@ -1,8 +1,9 @@
 "use client";
 
 import { UserButton } from "@clerk/nextjs";
+import clsx from "clsx";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const links = [
   {
@@ -19,6 +20,7 @@ const links = [
 
 export default function AdminContainer(props: { children: React.ReactNode }) {
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleBack = () => {
     router.back();
@@ -57,7 +59,7 @@ export default function AdminContainer(props: { children: React.ReactNode }) {
           <ul className={"menu"}>
             {links.map((link) => (
               <li key={link.label}>
-                <Link href={link.href}>
+                <Link className={clsx(pathname === link.href && "active")} href={link.href}>
                   <i className={link.icon} />
                   {link.label}
                 </Link>
