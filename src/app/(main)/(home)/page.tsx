@@ -19,22 +19,22 @@ export default function Page() {
                 </Link>
               </div>
               <div className={"tooltip tooltip-bottom"} data-tip={"GitHub Profile"}>
-                <Link href={"https://github.com/dentolos19"}>
+                <Link href={"/go/github"}>
                   <i className={"fa-brands fa-github fa-xl"} />
                 </Link>
               </div>
               <div className={"tooltip tooltip-bottom"} data-tip={"LinkedIn Profile"}>
-                <Link href={"https://linkedin.com/in/dentolos19"}>
+                <Link href={"/go/linkedin"}>
                   <i className={"fa-brands fa-linkedin fa-xl"} />
                 </Link>
               </div>
               <div className={"tooltip tooltip-bottom"} data-tip={"Instagram Page"}>
-                <Link href={"https://instagram.com/dentolos19"}>
+                <Link href={"/go/instagram"}>
                   <i className={"fa-brands fa-instagram fa-xl"} />
                 </Link>
               </div>
               <div className={"tooltip tooltip-bottom"} data-tip={"Support Me"}>
-                <Link href={"https://ko-fi.com/dentolos19"}>
+                <Link href={"/go/support"}>
                   <i className={"fa-solid fa-circle-dollar-to-slot fa-xl"} />
                 </Link>
               </div>

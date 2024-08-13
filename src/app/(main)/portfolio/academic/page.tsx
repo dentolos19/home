@@ -35,7 +35,7 @@ export default async function Page(props: { searchParams?: SearchParams }) {
         <div className={"grid grid-cols-[auto,1fr] bg-base-300 rounded-box overflow-hidden"}>
           <div className={"mr-8 avatar"}>
             <div className={"size-32"}>
-              <img src={"/assets?id=face"} alt={"Avatar"} />
+              <img src={"/assets?id=cavatar"} alt={"Avatar"} />
             </div>
           </div>
           <div className={"flex flex-col justify-center"}>
