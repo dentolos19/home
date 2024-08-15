@@ -3,7 +3,7 @@
 import { UserButton } from "@clerk/nextjs";
 import clsx from "clsx";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const links = [
   {
@@ -24,17 +24,12 @@ const links = [
 ];
 
 export default function AdminContainer(props: { children: React.ReactNode }) {
-  const router = useRouter();
   const pathname = usePathname();
 
-  const handleBack = () => {
-    router.back();
-  };
-
   return (
-    <div className={"h-full drawer lg:drawer-open"}>
+    <div className={"drawer lg:drawer-open"}>
       <input id={"drawer"} className={"drawer-toggle"} type={"checkbox"} />
-      <div className={"h-full drawer-content grid grid-rows-[auto,1fr]"}>
+      <div className={"h-dvh drawer-content grid grid-rows-[auto,1fr]"}>
         <div className={"navbar bg-base-300"}>
           <div className={"navbar-start"}>
             <label className={"btn btn-ghost lg:hidden"} htmlFor={"drawer"}>
@@ -51,7 +46,7 @@ export default function AdminContainer(props: { children: React.ReactNode }) {
       </div>
       <div className={"drawer-side"}>
         <label className={"drawer-overlay"} htmlFor={"drawer"} />
-        <div className={"w-56 h-full bg-base-300"}>
+        <div className={"w-56 h-dvh bg-base-300"}>
           <div className={"navbar max-lg:hidden"}>
             <div className={"tooltip tooltip-right"} data-tip={"Home"}>
               <Link className={"btn btn-ghost"} href={"/"}>

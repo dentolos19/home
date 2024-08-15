@@ -1,6 +1,6 @@
 ---
 title: How to install Microsoft Office with your own configuration
-excerpt: A simple and short guide for installing Microsoft Office for free
+excerpt: A simple and short guide for installing Microsoft Office for free.
 category: guides
 ---
 
@@ -8,13 +8,11 @@ category: guides
 
 If you are looking for a way to customize your productivity tools, you should consider configuring your own Microsoft Office. By doing so, you can choose the applications, features, and settings that best suit your needs and preferences. You can also avoid cluttering your device with unnecessary programs. Configuring your own Microsoft Office is easy, and you can always change your options later if you want to try something new.
 
-## Benefits
+## What's the benefit?
 
 Here are some of the benefits of configuring your own Microsoft Office...
 
 - You can select the applications that you use most often, such as Word, Excel, PowerPoint, Outlook, OneNote, and more. You can also add or remove apps anytime you want.
-
-- You can choose the features that enhance your productivity, such as cloud storage, collaboration tools, advanced security, and more. You can also adjust the settings to optimize your performance and user experience.
 
 - You can avoid wasting space and resources on your device by only installing the programs that you use. You can also uninstall or reinstall apps anytime you want.
 
@@ -22,23 +20,23 @@ Here are some of the benefits of configuring your own Microsoft Office...
 
 Configuring your own Microsoft Office is a great way to personalize your productivity tools and make them work for you.
 
-## Instructions
+## How do I do it?
 
 1. Go to the [Office Customization Tool](https://config.office.com/deploymentsettings) website.
 
 2. Start configuring your options...
 
-    - Scroll down and select your office suite as **Microsoft 365 Apps for Enterprise**.
-    - Scroll down to where you can select which apps and features that you want to include and start selecting which one to install on your computer.
-    - Scroll down to the Language section and select the option **Match Operating System** as the primary language.
-    -  *(Optional)* Scroll down till the Licensing and Activation section and check **Automatically accept the EULA**.
+   - Scroll down and select your office suite as **Microsoft 365 Apps for Enterprise**.
+   - Scroll down to where you can select which apps and features that you want to include and start selecting which one to install on your computer.
+   - Scroll down to the Language section and select the option **Match Operating System** as the primary language.
+   - _(Optional)_ Scroll down till the Licensing and Activation section and check **Automatically accept the EULA**.
 
 3. After your done configuring your options...
 
-    - Click **Export** at the top right of your screen.
-    - Select **Office Open XML Formats** as the default file format, then click **OK**.
-    - Accept the terms and finally click **Export** and download the configuration file.
-    - *(Note)* Your browser might label the file as dangerous, but it's just a text file so it wouldn't do you any harm.
+   - Click **Export** at the top right of your screen.
+   - Select **Office Open XML Formats** as the default file format, then click **OK**.
+   - Accept the terms and finally click **Export** and download the configuration file.
+   - _(Note)_ Your browser might label the file as dangerous, but it's just a text file so it wouldn't do you any harm.
 
 4. Download the [Office Deployment Tool](https://microsoft.com/download/details.aspx?id=49117) from Microsoft's official website.
 
