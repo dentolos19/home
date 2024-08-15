@@ -1,11 +1,14 @@
-import AvatarImage from "@/components/avatar-image";
 import Link from "next/link";
 
 export default function Page() {
   return (
     <main className={"grid place-items-center"}>
       <div className={"relative"}>
-        <AvatarImage className={"z-10 position-center-x top-[-30px]"} size={200} />
+        <div className={"absolute position-center-x top-[-30px] z-10 avatar"}>
+          <div className={"size-[200px] rounded-full"}>
+            <img src={"/assets?id=avatar"} alt={"Avatar"} />
+          </div>
+        </div>
         <div className={"mt-[150px] card bg-base-300"}>
           <div className={"card-body items-center text-center"}>
             <h2 className={"card-title text-3xl"}>Dennise Catolos</h2>

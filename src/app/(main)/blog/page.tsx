@@ -17,15 +17,17 @@ const filters = [
     label: "Guides",
     category: "guides",
   },
-  {
-    label: "Stories",
-    category: "stories",
-  },
+  // {
+  //   label: "Stories",
+  //   category: "stories",
+  // },
 ];
 
 export default async function Page(props: RouteProps) {
   const currentFilter = filters.find((filter) => filter.category === props.searchParams?.category) ?? filters[0];
-  const posts = getPosts().filter((repo) => !currentFilter.category || repo.category.includes(currentFilter.category));
+  const posts = getPosts().filter(
+    (post) => !post.draft && (!currentFilter.category || post.category.includes(currentFilter.category))
+  );
   return (
     <main className={"py-4"}>
       <div className={"mx-auto w-[90%] md:w-[70%] lg:w-[50%] space-y-2"}>
@@ -45,7 +47,7 @@ export default async function Page(props: RouteProps) {
             <Link
               key={post.id}
               className={"card cursor-pointer bg-base-300 hover:bg-base-200"}
-              href={`/blog/${post.id}`}
+              href={post.url || `/blog/${post.id}`}
             >
               <div className={"card-body"}>
                 <h2 className={"card-title"}>{post.title}</h2>

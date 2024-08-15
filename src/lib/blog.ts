@@ -3,6 +3,17 @@ import matter from "gray-matter";
 import fs from "node:fs";
 import path from "node:path";
 
+export type Post = {
+  id: string;
+  title: string;
+  excerpt: string | undefined;
+  category: string;
+  draft: boolean;
+  url: string | undefined;
+  date: string;
+  content: string | undefined;
+};
+
 export function getPosts() {
   const postsDir = path.join(process.cwd(), "src", "content", "blog");
   const fileNames = fs.readdirSync(postsDir);
@@ -19,9 +30,11 @@ export function getPosts() {
         title: fileMatter.data.title,
         excerpt: fileMatter.data.excerpt,
         category: fileMatter.data.category,
+        draft: fileMatter.data.draft,
+        url: fileMatter.data.url,
         date: formatDate(postDate),
         content: fileMatter.content,
-      };
+      } as Post;
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
