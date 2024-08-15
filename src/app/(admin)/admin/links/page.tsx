@@ -1,6 +1,8 @@
 import { getLinks } from "@/lib/links";
 import Link from "next/link";
 
+export const revalidate = 0;
+
 export default async function Page() {
   const links = await getLinks();
   return (
