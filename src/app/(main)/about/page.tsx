@@ -1,4 +1,4 @@
-import { getTextFile } from "@/content";
+import { getTextFile } from "@/lib/content";
 import Markdown from "react-markdown";
 
 export default async function Page() {

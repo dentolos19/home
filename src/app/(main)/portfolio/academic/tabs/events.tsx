@@ -1,5 +1,5 @@
 import EventCard from "@/components/event-card";
-import { getEvents } from "@/content";
+import { getEvents } from "@/lib/content";
 
 export default function EventsTab() {
   const events = getEvents();

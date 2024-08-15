@@ -1,5 +1,5 @@
 import { getURL } from "@/actions";
-import { getPosts } from "@/content";
+import { getPosts } from "@/lib/blog";
 import { RouteProps } from "@/types";
 import { updateSearchParams } from "@/utils";
 import clsx from "clsx";

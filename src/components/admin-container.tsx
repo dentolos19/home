@@ -12,10 +12,15 @@ const links = [
     icon: "fa-solid fa-gauge",
   },
   {
-    label: "Redirects",
-    href: "/admin/redirects",
-    icon: "fa-solid fa-folder-open",
+    label: "Links",
+    href: "/admin/links",
+    icon: "fa-solid fa-link",
   },
+  {
+    label: "Files",
+    href: "/admin/files",
+    icon: "fa-solid fa-folder",
+  }
 ];
 
 export default function AdminContainer(props: { children: React.ReactNode }) {
@@ -48,12 +53,10 @@ export default function AdminContainer(props: { children: React.ReactNode }) {
         <label className={"drawer-overlay"} htmlFor={"drawer"} />
         <div className={"w-56 h-full bg-base-300"}>
           <div className={"navbar max-lg:hidden"}>
-            <div className={"navbar-start"}>
-              <div className={"tooltip tooltip-right"} data-tip={"Back"}>
-                <button className={"btn btn-ghost"} onClick={handleBack}>
-                  <i className={"fa-solid fa-backward fa-xl"} />
-                </button>
-              </div>
+            <div className={"tooltip tooltip-right"} data-tip={"Back"}>
+              <button className={"btn btn-ghost"} onClick={handleBack}>
+                <i className={"fa-solid fa-backward fa-xl"} />
+              </button>
             </div>
           </div>
           <ul className={"menu"}>

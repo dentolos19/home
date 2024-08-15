@@ -1,4 +1,4 @@
-import { getAsset } from "@/content";
+import { getAsset } from "@/lib/content";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
 

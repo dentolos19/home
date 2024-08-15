@@ -1,5 +1,5 @@
 import NotFound from "@/app/not-found";
-import { deleteRedirect, getRedirect, setRedirect } from "@/content";
+import { deleteLink, getLink, setLink } from "@/lib/links";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
 
@@ -10,21 +10,22 @@ export default async function Page(props: RouteProps) {
     return <NotFound />;
   }
 
+  const record = await getLink(id);
+
   const handleEdit = async (data: FormData) => {
     "use server";
 
     const id = data.get("id") as string;
     const url = data.get("url") as string;
 
-    if (!id || !url || id === "add") {
-      return;
-    }
+    const success = await setLink(id, {
+      url,
+    });
 
-    const success = await setRedirect(id, url);
     if (success) {
-      redirect("/admin/redirects");
+      redirect("/admin/links");
     } else {
-      // TODO
+      redirect("/admin/error");
     }
   };
 
@@ -37,51 +38,46 @@ export default async function Page(props: RouteProps) {
       return;
     }
 
-    const success = await deleteRedirect(id);
+    const success = await deleteLink(id);
+
     if (success) {
-      redirect("/admin/redirects");
+      redirect("/admin/links");
     } else {
-      // TODO
+      redirect("/admin/error");
     }
   };
 
-  const isNew = id === "add";
-  const redirectId = isNew ? "" : id;
-  const redirectUrl = isNew ? "" : await getRedirect(id);
-
   return (
     <main className={"grid place-items-center"}>
-      <div className={"card bg-base-300"}>
+      <div className={"w-96 card bg-base-300"}>
         <form className={"card-body"}>
-          <h2 className={"card-title self-center"}>Manage Redirect</h2>
-          <div className={"my-2 space-y-2"}>
+          <h2 className={"card-title self-center"}>Edit Link</h2>
+          <div className={"my-2 flex flex-col gap-2"}>
             <input
-              className={"block input"}
+              className={"input"}
               type={"text"}
               name={"id"}
               required={true}
+              readOnly={true}
               placeholder={"ID"}
-              defaultValue={redirectId}
-              readOnly={!isNew}
+              defaultValue={record?.id}
             />
             <input
-              className={"block input"}
+              className={"input"}
               type={"url"}
               name={"url"}
               required={true}
               placeholder={"URL"}
-              defaultValue={redirectUrl}
+              defaultValue={record?.url}
             />
           </div>
           <div className={"card-actions justify-end"}>
             <button className={"btn btn-sm btn-info"} formAction={handleEdit}>
-              {isNew ? "Add" : "Save"}
+              Edit
             </button>
-            {isNew || (
-              <button className={"btn btn-sm btn-error"} formAction={handleDelete}>
-                Delete
-              </button>
-            )}
+            <button className={"btn btn-sm btn-error"} formAction={handleDelete}>
+              Delete
+            </button>
           </div>
         </form>
       </div>

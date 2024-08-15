@@ -1,6 +1,6 @@
 import { getURL } from "@/actions";
-import { getRepos } from "@/content";
-import type { SearchParams } from "@/types";
+import { getRepos } from "@/lib/github";
+import type { RouteProps } from "@/types";
 import { updateSearchParams } from "@/utils";
 import clsx from "clsx";
 import Link from "next/link";
@@ -36,10 +36,10 @@ const filters = [
   },
 ];
 
-export default async function Page(props: { searchParams?: SearchParams }) {
+export default async function Page(props: RouteProps) {
   const url = await getURL();
   const currentFilter = filters.find((filter) => filter.topic === props.searchParams?.topic) ?? filters[0];
-  const repos = (await getRepos())
+  const repos = (await getRepos("dentolos19"))
     .filter((repo) => !repo.topics.includes("personal"))
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
     .filter((repo) => !currentFilter.topic || repo.topics.includes(currentFilter.topic));

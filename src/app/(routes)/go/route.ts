@@ -1,4 +1,4 @@
-import { getRedirect } from "@/content";
+import { getLink } from "@/lib/links";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
 
@@ -7,6 +7,6 @@ export async function GET(request: NextRequest) {
   if (!id) {
     return redirect("/");
   }
-  const url = await getRedirect(id);
-  redirect(url ?? "/");
+  const record = await getLink(id);
+  redirect(record?.url ?? "/");
 }
