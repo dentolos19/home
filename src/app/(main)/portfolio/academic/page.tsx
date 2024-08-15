@@ -2,7 +2,7 @@ import AchievementsTab from "@/app/(main)/portfolio/academic/tabs/achievements";
 import EventsTab from "@/app/(main)/portfolio/academic/tabs/events";
 import PositionsTab from "@/app/(main)/portfolio/academic/tabs/positions";
 import { updateSearchParams } from "@/lib/utils";
-import type { SearchParams } from "@/types";
+import type { RouteProps } from "@/types";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -24,7 +24,7 @@ const tabs = [
   },
 ];
 
-export default async function Page(props: { searchParams?: SearchParams }) {
+export default async function Page(props: RouteProps) {
   const currentTab = tabs.find((tab) => tab.value === props.searchParams?.tab) ?? tabs[0];
 
   return (

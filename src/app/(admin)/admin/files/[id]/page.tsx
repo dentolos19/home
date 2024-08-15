@@ -1,5 +1,5 @@
 import NotFound from "@/app/not-found";
-import { deleteAssetFile, downloadAssetFile, getAssetFile } from "@/lib/backend";
+import { assetBucketId, storage } from "@/lib/backend";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
 
@@ -10,40 +10,24 @@ export default async function Page(props: RouteProps) {
     return <NotFound />;
   }
 
-  const record = await getAssetFile(id);
+  const file = await storage.getFile(assetBucketId, id);
 
-  const handleDownload = async (data: FormData) => {
+  const handleDownload = async () => {
     "use server";
-
-    const id = data.get("id") as string;
-
-    if (!id) {
-      return;
-    }
-
-    const url = await downloadAssetFile(id);
-
-    if (url) {
+    try {
+      const url = await storage.getFileDownload(assetBucketId, id);
       redirect(url.href);
-    } else {
+    } catch {
       redirect("/admin/error");
     }
   };
 
-  const handleDelete = async (data: FormData) => {
+  const handleDelete = async () => {
     "use server";
-
-    const id = data.get("id") as string;
-
-    if (!id) {
-      return;
-    }
-
-    const success = await deleteAssetFile(id);
-
-    if (success) {
+    try {
+      await storage.deleteFile(assetBucketId, id);
       redirect("/admin/files");
-    } else {
+    } catch {
       redirect("/admin/error");
     }
   };
@@ -61,7 +45,7 @@ export default async function Page(props: RouteProps) {
               required={true}
               readOnly={true}
               placeholder={"ID"}
-              defaultValue={record?.$id}
+              defaultValue={file?.$id}
             />
             <input
               className={"input"}
@@ -70,7 +54,7 @@ export default async function Page(props: RouteProps) {
               required={true}
               readOnly={true}
               placeholder={"URL"}
-              defaultValue={record?.name}
+              defaultValue={file?.name}
             />
           </div>
           <div className={"card-actions justify-end"}>

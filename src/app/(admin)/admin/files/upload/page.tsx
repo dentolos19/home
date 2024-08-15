@@ -1,4 +1,5 @@
-import { uploadAssetFile } from "@/lib/backend";
+import { assetBucketId, storage } from "@/lib/backend";
+import { ID } from "appwrite";
 import { redirect } from "next/navigation";
 
 export default function Page() {
@@ -6,12 +7,10 @@ export default function Page() {
     "use server";
 
     const file = data.get("file") as File;
-
-    const success = await uploadAssetFile(file);
-
-    if (success) {
+    try {
+      await storage.createFile(assetBucketId, ID.unique(), file);
       redirect("/admin/files");
-    } else {
+    } catch {
       redirect("/admin/error");
     }
   };

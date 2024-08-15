@@ -11,7 +11,7 @@ export default async function Page() {
         Add Link
       </Link>
       {links.map((link) => (
-        <div className={"p-6 grid grid-cols-[1fr,auto] rounded-box bg-base-300 hover:bg-base-200"}>
+        <div className={"p-6 grid grid-cols-[1fr,auto] rounded-box transition bg-base-300 hover:bg-base-200"}>
           <div className={"space-y-1"}>
             <h2 className={"card-title"}>{link.id}</h2>
             <p className={"text-xs text-gray-400"}>{link.url}</p>
@@ -23,7 +23,7 @@ export default async function Page() {
               </Link>
             </div>
             <div className={"tooltip"} data-tip={"Visit"}>
-              <Link className={"btn btn-sm btn-ghost"} href={link.url}>
+              <Link className={"btn btn-sm btn-ghost"} target={"_blank"} href={link.url}>
                 <i className={"fa-solid fa-arrow-up-right-from-square"} />
               </Link>
             </div>
