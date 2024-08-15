@@ -1,9 +1,8 @@
-import { getURL } from "@/actions";
 import AchievementsTab from "@/app/(main)/portfolio/academic/tabs/achievements";
 import EventsTab from "@/app/(main)/portfolio/academic/tabs/events";
 import PositionsTab from "@/app/(main)/portfolio/academic/tabs/positions";
+import { updateSearchParams } from "@/lib/utils";
 import type { SearchParams } from "@/types";
-import { updateSearchParams } from "@/utils";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -26,7 +25,6 @@ const tabs = [
 ];
 
 export default async function Page(props: { searchParams?: SearchParams }) {
-  const url = await getURL();
   const currentTab = tabs.find((tab) => tab.value === props.searchParams?.tab) ?? tabs[0];
 
   return (
@@ -50,7 +48,7 @@ export default async function Page(props: { searchParams?: SearchParams }) {
                 key={tab.value}
                 className={clsx("tab", tab.value === currentTab.value && "tab-active")}
                 role={"tab"}
-                href={updateSearchParams(url, "tab", tab.value).href}
+                href={updateSearchParams("tab", tab.value).href}
               >
                 {tab.label}
               </Link>

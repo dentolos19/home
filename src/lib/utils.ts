@@ -1,3 +1,5 @@
+import { headers } from "next/headers";
+
 export function generateRandomString(length: number) {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let result = "";
@@ -7,7 +9,8 @@ export function generateRandomString(length: number) {
   return result;
 }
 
-export function updateSearchParams(url: URL, key: string, value: string | undefined) {
+export function updateSearchParams(key: string, value: string | undefined) {
+  const url = new URL(headers().get("x-url") || "");
   value ? url.searchParams.set(key, value) : url.searchParams.delete(key);
   return url;
 }

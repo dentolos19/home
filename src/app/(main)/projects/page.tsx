@@ -1,7 +1,6 @@
-import { getURL } from "@/actions";
 import { getRepos } from "@/lib/github";
+import { updateSearchParams } from "@/lib/utils";
 import type { RouteProps } from "@/types";
-import { updateSearchParams } from "@/utils";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -37,13 +36,11 @@ const filters = [
 ];
 
 export default async function Page(props: RouteProps) {
-  const url = await getURL();
   const currentFilter = filters.find((filter) => filter.topic === props.searchParams?.topic) ?? filters[0];
   const repos = (await getRepos("dentolos19"))
     .filter((repo) => !repo.topics.includes("personal"))
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
     .filter((repo) => !currentFilter.topic || repo.topics.includes(currentFilter.topic));
-
   return (
     <main className={"py-4"}>
       <div className={"mx-auto w-[90%] md:w-[70%] lg:w-[50%] space-y-2"}>
@@ -52,7 +49,7 @@ export default async function Page(props: RouteProps) {
             <Link
               key={filter.topic}
               className={clsx("btn btn-sm", filter.topic === currentFilter.topic ? "btn-primary" : "btn-outline")}
-              href={updateSearchParams(url, "topic", filter.topic).href}
+              href={updateSearchParams("topic", filter.topic).href}
             >
               {filter.label}
             </Link>

@@ -1,15 +1,10 @@
 import AccessBlocked from "@/components/access-blocked";
 import AdminContainer from "@/components/admin-container";
-import { ClerkProvider, Protect, SignedIn, SignedOut, SignIn } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
+import { Protect, SignedIn, SignedOut, SignIn } from "@clerk/nextjs";
 
 export default function Layout(props: { children: React.ReactNode }) {
   return (
-    <ClerkProvider
-      appearance={{
-        baseTheme: dark,
-      }}
-    >
+    <>
       <SignedOut>
         <main className={"grid place-items-center"}>
           <SignIn routing={"hash"} forceRedirectUrl={"/admin"} />
@@ -20,6 +15,6 @@ export default function Layout(props: { children: React.ReactNode }) {
           <AdminContainer>{props.children}</AdminContainer>
         </Protect>
       </SignedIn>
-    </ClerkProvider>
+    </>
   );
 }

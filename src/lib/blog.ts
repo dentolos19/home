@@ -1,4 +1,4 @@
-import { formatDate } from "@/utils";
+import { formatDate } from "@/lib/utils";
 import matter from "gray-matter";
 import fs from "node:fs";
 import path from "node:path";

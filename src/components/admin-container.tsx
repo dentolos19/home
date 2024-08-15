@@ -20,7 +20,7 @@ const links = [
     label: "Files",
     href: "/admin/files",
     icon: "fa-solid fa-folder",
-  }
+  },
 ];
 
 export default function AdminContainer(props: { children: React.ReactNode }) {
@@ -53,13 +53,19 @@ export default function AdminContainer(props: { children: React.ReactNode }) {
         <label className={"drawer-overlay"} htmlFor={"drawer"} />
         <div className={"w-56 h-full bg-base-300"}>
           <div className={"navbar max-lg:hidden"}>
-            <div className={"tooltip tooltip-right"} data-tip={"Back"}>
-              <button className={"btn btn-ghost"} onClick={handleBack}>
-                <i className={"fa-solid fa-backward fa-xl"} />
-              </button>
+            <div className={"tooltip tooltip-right"} data-tip={"Home"}>
+              <Link className={"btn btn-ghost"} href={"/"}>
+                <i className={"fa-solid fa-house fa-xl"} />
+              </Link>
             </div>
           </div>
           <ul className={"menu"}>
+            <li className={"lg:hidden"}>
+              <Link href={"/"}>
+                <i className={"fa-solid fa-house"} />
+                Home
+              </Link>
+            </li>
             {links.map((link) => (
               <li key={link.label}>
                 <Link className={clsx(pathname === link.href && "active")} href={link.href}>

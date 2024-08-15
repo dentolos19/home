@@ -1,7 +1,6 @@
-import { getURL } from "@/actions";
 import { getPosts } from "@/lib/blog";
+import { updateSearchParams } from "@/lib/utils";
 import { RouteProps } from "@/types";
-import { updateSearchParams } from "@/utils";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -25,7 +24,6 @@ const filters = [
 ];
 
 export default async function Page(props: RouteProps) {
-  const url = await getURL();
   const currentFilter = filters.find((filter) => filter.category === props.searchParams?.category) ?? filters[0];
   const posts = getPosts().filter((repo) => !currentFilter.category || repo.category.includes(currentFilter.category));
   return (
@@ -36,7 +34,7 @@ export default async function Page(props: RouteProps) {
             <Link
               key={filter.label}
               className={clsx("btn btn-sm", currentFilter === filter ? "btn-primary" : "btn-outline")}
-              href={updateSearchParams(url, "category", filter.category).href}
+              href={updateSearchParams("category", filter.category).href}
             >
               {filter.label}
             </Link>
