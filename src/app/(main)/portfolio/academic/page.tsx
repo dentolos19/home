@@ -1,7 +1,6 @@
-import AchievementsTab from "@/app/(main)/portfolio/academic/tabs/achievements";
-import EventsTab from "@/app/(main)/portfolio/academic/tabs/events";
-import PositionsTab from "@/app/(main)/portfolio/academic/tabs/positions";
-import { updateSearchParams } from "@/lib/utils";
+import AchievementsTab from "@/app/(main)/portfolio/academic/_tabs/achievements";
+import EventsTab from "@/app/(main)/portfolio/academic/_tabs/events";
+import PositionsTab from "@/app/(main)/portfolio/academic/_tabs/positions";
 import type { RouteProps } from "@/types";
 import clsx from "clsx";
 import Link from "next/link";
@@ -48,7 +47,7 @@ export default async function Page(props: RouteProps) {
                 key={tab.value}
                 className={clsx("tab", tab.value === currentTab.value && "tab-active")}
                 role={"tab"}
-                href={updateSearchParams("tab", tab.value).href}
+                href={`/portfolio/academic?tab=${tab.value}`}
               >
                 {tab.label}
               </Link>

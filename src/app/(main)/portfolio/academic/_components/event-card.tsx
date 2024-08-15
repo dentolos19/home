@@ -22,7 +22,7 @@ export default function EventCard(props: {
   return (
     <>
       <button
-        className={"card text-left cursor-pointer bg-base-100 hover:bg-base-200"}
+        className={"card text-left cursor-pointer transition bg-base-100 hover:bg-base-200"}
         type={"button"}
         onClick={handleClick}
       >

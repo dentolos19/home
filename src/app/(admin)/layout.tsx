@@ -1,14 +1,13 @@
-import AccessBlocked from "@/components/access-blocked";
+import AccessBlocked from "@/app/(admin)/_components/access-blocked";
+import LoginContainer from "@/app/(admin)/_components/login-container";
 import AdminContainer from "@/components/admin-container";
-import { Protect, SignedIn, SignedOut, SignIn } from "@clerk/nextjs";
+import { Protect, SignedIn, SignedOut } from "@clerk/nextjs";
 
 export default function Layout(props: { children: React.ReactNode }) {
   return (
     <>
       <SignedOut>
-        <main className={"grid place-items-center"}>
-          <SignIn routing={"hash"} forceRedirectUrl={"/admin"} />
-        </main>
+        <LoginContainer />
       </SignedOut>
       <SignedIn>
         <Protect condition={(has) => has({ role: "org:admin" })} fallback={<AccessBlocked />}>

@@ -1,4 +1,4 @@
-import EventCard from "@/components/event-card";
+import EventCard from "@/app/(main)/portfolio/academic/_components/event-card";
 import { getEvents } from "@/lib/content";
 
 export default function EventsTab() {

@@ -1,8 +1,7 @@
+import ProjectCard from "@/app/(main)/projects/_components/project-card";
+import FilterSelector from "@/components/filter-selector";
 import { getRepos } from "@/lib/github";
-import { updateSearchParams } from "@/lib/utils";
 import type { RouteProps } from "@/types";
-import clsx from "clsx";
-import Link from "next/link";
 
 const filters = [
   {
@@ -46,41 +45,25 @@ export default async function Page(props: RouteProps) {
       <div className={"mx-auto w-[90%] md:w-[70%] lg:w-[50%] space-y-2"}>
         <div className={"flex gap-2 overflow-x-auto"}>
           {filters.map((filter) => (
-            <Link
+            <FilterSelector
               key={filter.topic}
-              className={clsx("btn btn-sm", filter.topic === currentFilter.topic ? "btn-primary" : "btn-outline")}
-              href={updateSearchParams("topic", filter.topic).href}
-            >
-              {filter.label}
-            </Link>
+              label={filter.label}
+              name={"topic"}
+              value={filter.topic}
+              active={filter === currentFilter}
+            />
           ))}
         </div>
         <div className={"flex flex-col gap-2"}>
           {repos.map((repo) => (
-            <Link
+            <ProjectCard
               key={repo.full_name}
-              className={"card cursor-pointer bg-base-300 hover:bg-base-200"}
+              name={repo.name}
+              description={repo.description}
+              stars={repo.stargazers_count}
+              forks={repo.forks_count}
               href={repo.html_url}
-            >
-              <div className={"card-body"}>
-                <h2 className={"card-title"}>
-                  {repo.name}
-                  {repo.stargazers_count > 0 && (
-                    <div className={"badge badge-accent gap-1"}>
-                      <i className={"fa-solid fa-star"} />
-                      {repo.stargazers_count}
-                    </div>
-                  )}
-                  {repo.forks_count > 0 && (
-                    <div className={"badge badge-outline gap-1"}>
-                      <i className={"fa-solid fa-code-fork"} />
-                      {repo.forks_count}
-                    </div>
-                  )}
-                </h2>
-                <p>{repo.description}</p>
-              </div>
-            </Link>
+            />
           ))}
         </div>
       </div>
