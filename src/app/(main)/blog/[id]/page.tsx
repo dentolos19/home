@@ -1,6 +1,7 @@
 import NotFound from "@/app/not-found";
 import { getPost } from "@/lib/blog";
 import { RouteProps } from "@/types";
+import { redirect } from "next/navigation";
 import Markdown from "react-markdown";
 
 export default function Page(props: RouteProps) {
@@ -8,13 +9,16 @@ export default function Page(props: RouteProps) {
   if (!post) {
     return <NotFound />;
   }
+  if (post.url) {
+    redirect(post.url);
+  }
   return (
     <>
       <head>
         <meta name={"title"} content={post.title} />
         <meta name={"description"} content={post.excerpt} />
         <meta name={"og:title"} content={post.title} />
-        <meta name={"og:description"} content={post.title} />
+        <meta name={"og:description"} content={post.excerpt} />
         {/* <meta name={"og:image"} content={post.imageSrc}/> */}
         <meta name={"twitter:title"} content={post.title} />
         <meta name={"twitter:description"} content={post.excerpt} />
