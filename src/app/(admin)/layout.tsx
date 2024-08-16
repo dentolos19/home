@@ -1,13 +1,14 @@
 import AccessBlocked from "@/app/(admin)/_components/access-blocked";
-import LoginContainer from "@/app/(admin)/_components/login-container";
+import LoginView from "@/app/(admin)/_components/login-view";
 import AdminContainer from "@/components/admin-container";
+import { LayoutProps } from "@/types";
 import { Protect, SignedIn, SignedOut } from "@clerk/nextjs";
 
-export default function Layout(props: { children: React.ReactNode }) {
+export default function Layout(props: LayoutProps) {
   return (
     <>
       <SignedOut>
-        <LoginContainer />
+        <LoginView />
       </SignedOut>
       <SignedIn>
         <Protect condition={(has) => has({ role: "org:admin" })} fallback={<AccessBlocked />}>

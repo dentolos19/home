@@ -7,7 +7,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 export default function FilterSelector(props: {
   label: string;
   name: string;
-  value: string | undefined;
+  value?: string;
   active: boolean;
 }) {
   const pathname = usePathname();

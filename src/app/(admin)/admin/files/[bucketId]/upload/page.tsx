@@ -8,12 +8,12 @@ export default function Page(props: RouteProps) {
 
   const handleUpload = async (data: FormData) => {
     "use server";
-
     const file = data.get("file") as File;
     try {
       await storage.createFile(bucketId, ID.unique(), file);
       redirect(`/admin/files/${bucketId}`);
-    } catch {
+    } catch (err) {
+      console.error(err);
       redirect("/admin/error");
     }
   };

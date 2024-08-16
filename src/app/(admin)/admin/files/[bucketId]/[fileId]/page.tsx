@@ -3,22 +3,24 @@ import { storage } from "@/lib/backend";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
 
+export const revalidate = 0;
+
 export default async function Page(props: RouteProps) {
   const bucketId = props.params.bucketId;
   const fileId = props.params.fileId;
+  const file = await storage.getFile(bucketId, fileId).catch(() => undefined);
 
-  if (!fileId) {
+  if (!file) {
     return <NotFound />;
   }
-
-  const file = await storage.getFile(bucketId, fileId);
 
   const handleDownload = async () => {
     "use server";
     try {
       const url = await storage.getFileDownload(bucketId, fileId);
       redirect(url.href);
-    } catch {
+    } catch (err) {
+      console.error(err);
       redirect("/admin/error");
     }
   };
@@ -28,7 +30,8 @@ export default async function Page(props: RouteProps) {
     try {
       await storage.deleteFile(bucketId, fileId);
       redirect(`/admin/files/${bucketId}`);
-    } catch {
+    } catch (err) {
+      console.error(err);
       redirect("/admin/error");
     }
   };

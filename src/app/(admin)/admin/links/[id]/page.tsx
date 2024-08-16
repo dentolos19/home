@@ -3,25 +3,23 @@ import { deleteLink, getLink, setLink } from "@/lib/links";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
 
+export const revalidate = 0;
+
 export default async function Page(props: RouteProps) {
   const id = props.params.id;
+  const record = await getLink(id);
 
-  if (!id) {
+  if (!record) {
     return <NotFound />;
   }
 
-  const record = await getLink(id);
-
-  const handleEdit = async (data: FormData) => {
+  const handleSave = async (data: FormData) => {
     "use server";
-
     const id = data.get("id") as string;
     const url = data.get("url") as string;
-
     const success = await setLink(id, {
       url,
     });
-
     if (success) {
       redirect("/admin/links");
     } else {
@@ -31,15 +29,8 @@ export default async function Page(props: RouteProps) {
 
   const handleDelete = async (data: FormData) => {
     "use server";
-
     const id = data.get("id") as string;
-
-    if (!id) {
-      return;
-    }
-
     const success = await deleteLink(id);
-
     if (success) {
       redirect("/admin/links");
     } else {
@@ -72,7 +63,7 @@ export default async function Page(props: RouteProps) {
             />
           </div>
           <div className={"card-actions justify-end"}>
-            <button className={"btn btn-sm btn-info"} formAction={handleEdit}>
+            <button className={"btn btn-sm btn-primary"} formAction={handleSave}>
               Save
             </button>
             <button className={"btn btn-sm btn-error"} formAction={handleDelete}>

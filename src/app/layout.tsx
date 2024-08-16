@@ -1,3 +1,4 @@
+import { LayoutProps } from "@/types";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   title: "Dennise Catolos",
 };
 
-export default function Layout(props: { children: React.ReactNode }) {
+export default function Layout(props: LayoutProps) {
   return (
     <ClerkProvider
       appearance={{

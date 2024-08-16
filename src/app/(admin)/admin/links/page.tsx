@@ -11,10 +11,10 @@ export default async function Page() {
         Add Link
       </Link>
       {links.map((link) => (
-        <div className={"p-6 grid grid-cols-[1fr,auto] rounded-box transition bg-base-300 hover:bg-base-200"}>
-          <div className={"space-y-1"}>
-            <h2 className={"card-title"}>{link.id}</h2>
-            <p className={"text-xs text-gray-400"}>{link.url}</p>
+        <div key={link.id} className={"p-4 flex rounded-box bg-base-300"}>
+          <div className={"flex-1 flex flex-col justify-center"}>
+            <h2 className={"text-lg font-bold"}>{link.id}</h2>
+            <p className={"text-sm text-gray-400"}>{link.url}</p>
           </div>
           <div className={"flex items-center"}>
             <div className={"tooltip"} data-tip={"Edit"}>

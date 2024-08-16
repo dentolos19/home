@@ -4,14 +4,11 @@ import { redirect } from "next/navigation";
 export default async function Page() {
   const handleAdd = async (data: FormData) => {
     "use server";
-
     const id = data.get("id") as string;
     const url = data.get("url") as string;
-
     const success = await setLink(id, {
       url,
     });
-
     if (success) {
       redirect("/admin/links");
     } else {
