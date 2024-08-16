@@ -1,11 +1,9 @@
-"use client";
-
+import NavigationItem, { NavigationItemData } from "@/components/navigation-item";
+import { mediaBucketId } from "@/lib/backend";
 import { UserButton } from "@clerk/nextjs";
-import clsx from "clsx";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
-const links = [
+const links: NavigationItemData[] = [
   {
     label: "Dashboard",
     href: "/admin",
@@ -18,14 +16,17 @@ const links = [
   },
   {
     label: "Files",
-    href: "/admin/files",
     icon: "fa-solid fa-folder",
+    subItems: [
+      {
+        label: "Media",
+        href: `/admin/files/${mediaBucketId}`,
+      },
+    ],
   },
 ];
 
 export default function AdminContainer(props: { children: React.ReactNode }) {
-  const pathname = usePathname();
-
   return (
     <div className={"drawer lg:drawer-open"}>
       <input id={"drawer"} className={"drawer-toggle"} type={"checkbox"} />
@@ -55,19 +56,9 @@ export default function AdminContainer(props: { children: React.ReactNode }) {
             </div>
           </div>
           <ul className={"menu"}>
-            <li className={"lg:hidden"}>
-              <Link href={"/"}>
-                <i className={"fa-solid fa-house"} />
-                Home
-              </Link>
-            </li>
+            <NavigationItem className={"lg:hidden"} data={{ label: "Home", href: "/", icon: "fa-solid fa-house" }} />
             {links.map((link) => (
-              <li key={link.label}>
-                <Link className={clsx(pathname === link.href && "active")} href={link.href}>
-                  <i className={link.icon} />
-                  {link.label}
-                </Link>
-              </li>
+              <NavigationItem key={link.href} data={link} />
             ))}
           </ul>
         </div>

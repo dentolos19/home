@@ -8,4 +8,4 @@ client.headers["X-Appwrite-Key"] = APPWRITE_KEY;
 export const databases = new Databases(client);
 export const storage = new Storage(client);
 
-export const assetBucketId = "66bd5e930023ae85b607";
+export const mediaBucketId = "66bd5e930023ae85b607";

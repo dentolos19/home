@@ -1,21 +1,22 @@
 import NotFound from "@/app/not-found";
-import { assetBucketId, storage } from "@/lib/backend";
+import { storage } from "@/lib/backend";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
 
 export default async function Page(props: RouteProps) {
-  const id = props.params.id;
+  const bucketId = props.params.bucketId;
+  const fileId = props.params.fileId;
 
-  if (!id) {
+  if (!fileId) {
     return <NotFound />;
   }
 
-  const file = await storage.getFile(assetBucketId, id);
+  const file = await storage.getFile(bucketId, fileId);
 
   const handleDownload = async () => {
     "use server";
     try {
-      const url = await storage.getFileDownload(assetBucketId, id);
+      const url = await storage.getFileDownload(bucketId, fileId);
       redirect(url.href);
     } catch {
       redirect("/admin/error");
@@ -25,8 +26,8 @@ export default async function Page(props: RouteProps) {
   const handleDelete = async () => {
     "use server";
     try {
-      await storage.deleteFile(assetBucketId, id);
-      redirect("/admin/files");
+      await storage.deleteFile(bucketId, fileId);
+      redirect(`/admin/files/${bucketId}`);
     } catch {
       redirect("/admin/error");
     }

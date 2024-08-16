@@ -1,10 +1,8 @@
-"use client";
-
-import clsx from "clsx";
+import NavigationItem, { NavigationItemData } from "@/components/navigation-item";
+import { showSearchModal } from "@/components/search-modal";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
-const links = [
+const links: NavigationItemData[] = [
   {
     label: "Projects",
     href: "/projects",
@@ -28,13 +26,6 @@ const links = [
 ];
 
 export default function NavigationBar() {
-  const pathname = usePathname();
-
-  const handleSearch = () => {
-    const searchModal = document.getElementById("search-modal") as HTMLDialogElement;
-    searchModal.showModal();
-  };
-
   return (
     <nav className={"z-50 navbar bg-base-300"}>
       <div className={"navbar-start"}>
@@ -49,12 +40,7 @@ export default function NavigationBar() {
           </div>
           <ul className={"dropdown-content menu bg-base-300"}>
             {links.map((link) => (
-              <li key={link.label}>
-                <Link className={clsx(pathname === link.href && "active")} href={link.href}>
-                  <i className={link.icon} />
-                  {link.label}
-                </Link>
-              </li>
+              <NavigationItem key={link.label} data={link} />
             ))}
           </ul>
         </div>
@@ -65,18 +51,13 @@ export default function NavigationBar() {
         </Link>
         <ul className={"menu menu-horizontal max-md:hidden"}>
           {links.map((link) => (
-            <li key={link.label}>
-              <Link className={clsx(pathname === link.href && "active")} href={link.href}>
-                <i className={link.icon} />
-                {link.label}
-              </Link>
-            </li>
+            <NavigationItem key={link.label} data={link} />
           ))}
         </ul>
       </div>
       <div className={"navbar-end"}>
         <div className={"tooltip tooltip-left"} data-tip={"Search"}>
-          <button className={"btn btn-ghost"} type={"button"} onClick={handleSearch}>
+          <button className={"btn btn-ghost"} type={"button"} onClick={showSearchModal}>
             <i className={"fa-solid fa-magnifying-glass fa-xl"} />
           </button>
         </div>

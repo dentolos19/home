@@ -1,15 +1,18 @@
-import { assetBucketId, storage } from "@/lib/backend";
+import { storage } from "@/lib/backend";
+import { RouteProps } from "@/types";
 import { ID } from "appwrite";
 import { redirect } from "next/navigation";
 
-export default function Page() {
+export default function Page(props: RouteProps) {
+  const bucketId = props.params.bucketId;
+
   const handleUpload = async (data: FormData) => {
     "use server";
 
     const file = data.get("file") as File;
     try {
-      await storage.createFile(assetBucketId, ID.unique(), file);
-      redirect("/admin/files");
+      await storage.createFile(bucketId, ID.unique(), file);
+      redirect(`/admin/files/${bucketId}`);
     } catch {
       redirect("/admin/error");
     }

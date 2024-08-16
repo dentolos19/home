@@ -1,3 +1,10 @@
+"use client";
+
+export function showSearchModal() {
+  const searchModal = document.getElementById("search-modal") as HTMLDialogElement;
+  searchModal.showModal();
+}
+
 export default function SearchModal() {
   return (
     <dialog id={"search-modal"} className={"modal"}>
