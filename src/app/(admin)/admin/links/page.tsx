@@ -12,9 +12,9 @@ export default async function Page() {
       </Link>
       {links.map((link) => (
         <div key={link.id} className={"p-4 flex rounded-box bg-base-300"}>
-          <div className={"flex-1 flex flex-col justify-center"}>
-            <h2 className={"text-lg font-bold"}>{link.id}</h2>
-            <p className={"text-sm text-gray-400"}>{link.url}</p>
+          <div className={"min-w-0 flex-1 flex flex-col justify-center"}>
+            <h2 className={"text-lg font-bold truncate"}>{link.id}</h2>
+            <p className={"text-sm text-gray-400 truncate"}>{link.url}</p>
           </div>
           <div className={"flex items-center"}>
             <div className={"tooltip"} data-tip={"Edit"}>

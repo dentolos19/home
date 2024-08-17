@@ -36,11 +36,11 @@ export default async function Page(props: RouteProps) {
         Upload File
       </Link>
       {files.map((file) => (
-        <div key={file.$id} className={"h-24 flex rounded-box bg-base-300"}>
-          <img className={"w-24 rounded-l-box"} src={file.previewUrl} alt={"Preview"} />
-          <div className={"pl-4 flex-1 flex flex-col justify-center"}>
-            <h2 className={"text-lg font-bold"}>{file.name}</h2>
-            <p className={"text-sm text-gray-400"}>{file.sizeText}</p>
+        <div key={file.$id} className={"h-16 sm:h-24 flex rounded-box bg-base-300"}>
+          <img className={"w-16 sm:w-24 rounded-l-box"} src={file.previewUrl} alt={"Preview"} />
+          <div className={"pl-4 min-w-0 flex-1 flex flex-col justify-center"}>
+            <h2 className={"text-lg font-bold truncate"}>{file.name}</h2>
+            <p className={"text-sm text-gray-400 truncate"}>{file.sizeText}</p>
           </div>
           <div className={"pr-4 flex items-center"}>
             <div className={"tooltip"} data-tip={"Edit"}>

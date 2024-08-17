@@ -31,13 +31,13 @@ export default async function Page(props: RouteProps) {
       <div className={"mx-auto w-[60%] max-md:w-[90%] grid grid-rows-[auto,1fr] gap-2"}>
         <div className={"grid grid-cols-[auto,1fr] bg-base-300 rounded-box overflow-hidden"}>
           <div className={"mr-8 avatar"}>
-            <div className={"size-32"}>
+            <div className={"size-24 md:size-32"}>
               <img src={"/assets?id=cavatar"} alt={"Avatar"} />
             </div>
           </div>
-          <div className={"flex flex-col justify-center"}>
-            <h2 className={"mb-1 text-xl font-bold"}>Dennise Catolos</h2>
-            <p>Year 1 Diploma in Information Technology</p>
+          <div className={"min-w-0 flex flex-col justify-center"}>
+            <h2 className={"mb-1 font-bold text-xl truncate"}>Dennise Catolos</h2>
+            <p className={"truncate"}>Year 1 DIT Student</p>
           </div>
         </div>
         <div className={"bg-base-300 rounded-box"}>

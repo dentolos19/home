@@ -20,7 +20,7 @@ Here are some of the benefits of configuring your own Microsoft Office...
 
 Configuring your own Microsoft Office is a great way to personalize your productivity tools and make them work for you.
 
-## How do I do it?
+## How to install?
 
 1. Go to the [Office Customization Tool](https://config.office.com/deploymentsettings) website.
 
