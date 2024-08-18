@@ -25,8 +25,13 @@ const filters = [
 export default async function Page(props: RouteProps) {
   const currentFilter = filters.find((filter) => filter.category === props.searchParams?.category) ?? filters[0];
   const posts = getPosts().filter(
-    (post) => !post.draft && (!currentFilter.category || post.category.includes(currentFilter.category))
+    (post) =>
+      // Removes post marked as draft.
+      !post.draft &&
+      // Filter by category, does not filter when category is undefined.
+      (!currentFilter.category || post.category.includes(currentFilter.category))
   );
+
   return (
     <main className={"py-4"}>
       <div className={"mx-auto w-[90%] md:w-[70%] lg:w-[50%] space-y-2"}>

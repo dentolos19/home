@@ -50,7 +50,7 @@ Configuring your own Microsoft Office is a great way to personalize your product
 
 9. Done!
 
-### What's next?
+## What's next?
 
 After installing Microsoft Office, you should activate it. If you already have a Microsoft 365 subscription, then just sign in with your own account to activate it. Or, if work at a company or study at a institution, they will have most likely had already provided you with a subscription in your work or school account.
 

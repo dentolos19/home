@@ -2,6 +2,7 @@ import ProjectCard from "@/app/(main)/projects/_components/project-card";
 import FilterSelector from "@/components/filter-selector";
 import { getRepos } from "@/lib/github";
 import type { RouteProps } from "@/types";
+import Link from "next/link";
 
 const filters = [
   {
@@ -29,17 +30,24 @@ const filters = [
     topic: "game",
   },
   {
-    label: "VSCode Extensions",
-    topic: "vscode-extension",
+    label: "Extensions",
+    topic: "extension",
   },
 ];
 
 export default async function Page(props: RouteProps) {
   const currentFilter = filters.find((filter) => filter.topic === props.searchParams?.topic) ?? filters[0];
   const repos = (await getRepos("dentolos19"))
-    .filter((repo) => !repo.topics.includes("personal"))
-    .sort((a, b) => b.stargazers_count - a.stargazers_count)
-    .filter((repo) => !currentFilter.topic || repo.topics.includes(currentFilter.topic));
+    .filter(
+      (repo) =>
+        // Remove repos marked with "personal".
+        !repo.topics.includes("personal") &&
+        // Filter by topic, does not filter when topic is undefined.
+        (!currentFilter.topic || repo.topics.includes(currentFilter.topic))
+    )
+    // Sort the repos by stars
+    .sort((a, b) => b.stargazers_count - a.stargazers_count);
+
   return (
     <main className={"py-4"}>
       <div className={"mx-auto w-[90%] md:w-[70%] lg:w-[50%] space-y-2"}>
@@ -66,6 +74,16 @@ export default async function Page(props: RouteProps) {
             />
           ))}
         </div>
+        {currentFilter && (
+          <div>
+            <Link
+              className={"w-full btn btn-outline"}
+              href={`https://github.com/dentolos19?tab=repositories&q=topic%3A${currentFilter.topic}&sort=stargazers`}
+            >
+              View on GitHub
+            </Link>
+          </div>
+        )}
       </div>
     </main>
   );
