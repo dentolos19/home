@@ -35,6 +35,8 @@ const filters = [
   },
 ];
 
+export const revalidate = 0;
+
 export default async function Page(props: RouteProps) {
   const currentFilter = filters.find((filter) => filter.topic === props.searchParams?.topic) ?? filters[0];
   const repos = (await getRepos("dentolos19"))
