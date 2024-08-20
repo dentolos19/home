@@ -1,3 +1,4 @@
+import Input from "@/components/ui/input";
 import { setLink } from "@/lib/links";
 import { redirect } from "next/navigation";
 
@@ -22,20 +23,8 @@ export default async function Page() {
         <form className={"card-body"}>
           <h2 className={"card-title self-center"}>Add Link</h2>
           <div className={"my-2 flex flex-col gap-2"}>
-            <input
-              className={"input"}
-              type={"text"}
-              name={"id"}
-              required={true}
-              placeholder={"ID"}
-            />
-            <input
-              className={"input"}
-              type={"url"}
-              name={"url"}
-              required={true}
-              placeholder={"URL"}
-            />
+            <Input type={"text"} name={"id"} label={"Identifier"} required />
+            <Input type={"url"} name={"url"} label={"Destination URL"} required />
           </div>
           <div className={"card-actions justify-end"}>
             <button className={"btn btn-sm btn-primary"} formAction={handleAdd}>
