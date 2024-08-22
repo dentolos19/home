@@ -1,4 +1,4 @@
-export type GhRepo = {
+export type Repo = {
   name: string;
   full_name: string;
   html_url: string;
@@ -13,5 +13,5 @@ export type GhRepo = {
 export function getRepos(username: string) {
   return fetch(`https://api.github.com/users/${username}/repos`)
     .then((res) => res.json())
-    .then((repos) => repos as GhRepo[]);
+    .then((repos) => repos as Repo[]);
 }

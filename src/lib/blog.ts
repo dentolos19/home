@@ -6,12 +6,12 @@ import path from "node:path";
 export type Post = {
   id: string;
   title: string;
-  excerpt: string | undefined;
+  excerpt?: string;
   category: string;
   draft: boolean;
-  url: string | undefined;
+  url?: string;
   date: string;
-  content: string | undefined;
+  content?: string;
 };
 
 export function getPosts() {
