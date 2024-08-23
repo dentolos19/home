@@ -14,17 +14,6 @@ export default async function Page(props: RouteProps) {
     return <NotFound />;
   }
 
-  const handleDownload = async () => {
-    "use server";
-    try {
-      const url = await storage.getFileDownload(bucketId, fileId);
-      redirect(url.href);
-    } catch (err) {
-      console.error(err);
-      redirect("/admin/error");
-    }
-  };
-
   const handleDelete = async () => {
     "use server";
     try {
@@ -62,9 +51,6 @@ export default async function Page(props: RouteProps) {
             />
           </div>
           <div className={"card-actions justify-end"}>
-            <button className={"btn btn-sm btn-info"} formAction={handleDownload}>
-              Download
-            </button>
             <button className={"btn btn-sm btn-error"} formAction={handleDelete}>
               Delete
             </button>

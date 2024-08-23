@@ -1,3 +1,4 @@
+import LinkItem from "@/app/(admin)/admin/links/_components/link-item";
 import { getLinks } from "@/lib/links";
 import Link from "next/link";
 
@@ -11,24 +12,7 @@ export default async function Page() {
         Add Link
       </Link>
       {links.map((link) => (
-        <div key={link.id} className={"p-4 flex rounded-box bg-base-300"}>
-          <div className={"min-w-0 flex-1 flex flex-col justify-center"}>
-            <h2 className={"text-lg font-bold truncate"}>{link.id}</h2>
-            <p className={"text-sm text-gray-400 truncate"}>{link.url}</p>
-          </div>
-          <div className={"flex items-center"}>
-            <div className={"tooltip"} data-tip={"Edit"}>
-              <Link className={"btn btn-sm btn-ghost"} href={`/admin/links/${link.id}`}>
-                <i className={"fa-solid fa-pen"} />
-              </Link>
-            </div>
-            <div className={"tooltip"} data-tip={"Visit"}>
-              <Link className={"btn btn-sm btn-ghost"} target={"_blank"} href={link.url}>
-                <i className={"fa-solid fa-arrow-up-right-from-square"} />
-              </Link>
-            </div>
-          </div>
-        </div>
+        <LinkItem key={link.id} data={link} />
       ))}
     </main>
   );

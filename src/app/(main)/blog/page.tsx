@@ -1,4 +1,4 @@
-import PostCard from "@/app/(main)/blog/_components/post-card";
+import PostItem from "@/app/(main)/blog/_components/post-item";
 import FilterSelector from "@/components/filter-selector";
 import { getPosts } from "@/lib/blog";
 import { RouteProps } from "@/types";
@@ -48,12 +48,14 @@ export default async function Page(props: RouteProps) {
         </div>
         <div className={"flex flex-col gap-2"}>
           {posts.map((post) => (
-            <PostCard
+            <PostItem
               key={post.id}
-              title={post.title}
-              excerpt={post.excerpt}
-              date={post.date}
-              href={post.url || `/blog/${post.id}`}
+              data={{
+                title: post.title,
+                excerpt: post.excerpt,
+                date: post.date,
+                href: post.url || `/blog/${post.id}`,
+              }}
             />
           ))}
         </div>

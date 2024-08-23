@@ -45,8 +45,8 @@ export default async function Page(props: RouteProps) {
         <form className={"card-body"}>
           <h2 className={"card-title self-center"}>Edit Link</h2>
           <div className={"my-2 flex flex-col gap-2"}>
-            <Input type={"text"} name={"id"} label={"ID"} defaultValue={record.id} required readOnly />
-            <Input type={"text"} name={"url"} label={"URL"} defaultValue={record.url} required readOnly />
+            <Input type={"text"} name={"id"} label={"Identifier"} defaultValue={record.id} readOnly />
+            <Input type={"text"} name={"url"} label={"Destination URL"} defaultValue={record.url} required />
           </div>
           <div className={"card-actions justify-end"}>
             <button className={"btn btn-sm btn-primary"} formAction={handleSave}>

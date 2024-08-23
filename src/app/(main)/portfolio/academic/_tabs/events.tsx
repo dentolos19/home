@@ -1,4 +1,4 @@
-import EventCard from "@/app/(main)/portfolio/academic/_components/event-card";
+import EventItem from "@/app/(main)/portfolio/academic/_components/event-item";
 import { getEvents } from "@/lib/content";
 
 export default function EventsTab() {
@@ -7,7 +7,7 @@ export default function EventsTab() {
     <section className={"p-4"}>
       <div className={"grid sm:grid-cols-2 gap-2"}>
         {events.map((event) => (
-          <EventCard key={event.id} {...event} />
+          <EventItem key={event.id} data={event} />
         ))}
       </div>
     </section>

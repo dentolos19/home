@@ -1,4 +1,4 @@
-import ProjectCard from "@/app/(main)/projects/_components/project-card";
+import ProjectItem from "@/app/(main)/projects/_components/project-item";
 import FilterSelector from "@/components/filter-selector";
 import { getRepos } from "@/lib/github";
 import type { RouteProps } from "@/types";
@@ -66,13 +66,15 @@ export default async function Page(props: RouteProps) {
         </div>
         <div className={"flex flex-col gap-2"}>
           {repos.map((repo) => (
-            <ProjectCard
+            <ProjectItem
               key={repo.full_name}
-              name={repo.name}
-              description={repo.description}
-              stars={repo.stargazers_count}
-              forks={repo.forks_count}
-              href={repo.html_url}
+              data={{
+                name: repo.name,
+                description: repo.description,
+                stars: repo.stargazers_count,
+                forks: repo.forks_count,
+                href: repo.html_url,
+              }}
             />
           ))}
         </div>
