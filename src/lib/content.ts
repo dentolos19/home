@@ -1,15 +1,6 @@
-import assets from "@/content/data/assets.json";
 import events from "@/content/data/events.json";
 import fs from "node:fs";
 import path from "node:path";
-
-export function getAssets() {
-  return assets;
-}
-
-export function getAsset(id: string) {
-  return getAssets().find((asset) => asset.id === id);
-}
 
 export function getEvents() {
   return events;
