@@ -14,20 +14,6 @@ export default async function Page(props: RouteProps) {
     return <NotFound />;
   }
 
-  const handleSave = async (data: FormData) => {
-    "use server";
-    // const id = data.get("id") as string;
-    // const url = data.get("url") as string;
-    // const success = await setAsset(id, {
-    //   url,
-    // });
-    // if (success) {
-    //   redirect("/admin/links");
-    // } else {
-    //   redirect("/admin/error");
-    // }
-  };
-
   const handleDelete = async (data: FormData) => {
     "use server";
     const id = data.get("id") as string;
@@ -46,12 +32,8 @@ export default async function Page(props: RouteProps) {
           <h2 className={"card-title self-center"}>Edit Asset</h2>
           <div className={"my-2 flex flex-col gap-2"}>
             <Input type={"text"} name={"id"} label={"Identifier"} defaultValue={record.id} readOnly />
-            <Input type={"text"} name={"url"} label={"Asset URL"} defaultValue={record.url} required />
           </div>
           <div className={"card-actions justify-end"}>
-            <button className={"btn btn-sm btn-primary"} formAction={handleSave}>
-              Save
-            </button>
             <button className={"btn btn-sm btn-error"} formAction={handleDelete}>
               Delete
             </button>

@@ -1,4 +1,4 @@
-import { getAsset } from "@/lib/assets";
+import { getLocalAssets } from "@/lib/content";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
 
@@ -7,6 +7,7 @@ export async function GET(request: NextRequest) {
   if (!id) {
     return redirect("/");
   }
-  const asset = await getAsset(id);
+  const assets = await getLocalAssets();
+  const asset = assets.find((asset) => asset.id === id);
   redirect(asset?.url || "/");
 }
