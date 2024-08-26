@@ -1,11 +1,11 @@
 import clsx from "clsx";
 
-type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+type MyInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label: string;
   altLabel?: string;
 };
 
-export default function Input(props: InputProps) {
+export default function MyInput(props: MyInputProps) {
   return (
     <label className={"form-control"}>
       <div className={"label"}>
