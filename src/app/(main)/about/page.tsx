@@ -1,8 +1,8 @@
-import { getTextFile } from "@/lib/content";
+import { getLocalFile } from "@/lib/local";
 import Markdown from "react-markdown";
 
 export default function Page() {
-  const content = getTextFile("about.md");
+  const content = getLocalFile("about.md");
   return (
     <main className={"py-4 grid place-items-center"}>
       <div className={"card bg-base-300"}>

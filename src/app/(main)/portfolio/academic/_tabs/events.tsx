@@ -1,8 +1,8 @@
 import EventItem from "@/app/(main)/portfolio/academic/_components/event-item";
-import { getEvents } from "@/lib/content";
+import { getLocalEvents } from "@/lib/local";
 
 export default function EventsTab() {
-  const events = getEvents();
+  const events = getLocalEvents();
   return (
     <section className={"p-4"}>
       <div className={"grid sm:grid-cols-2 gap-2"}>

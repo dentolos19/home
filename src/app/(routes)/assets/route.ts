@@ -1,4 +1,4 @@
-import { getLocalAssets } from "@/lib/content";
+import { getLocalAssets } from "@/lib/local";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
 

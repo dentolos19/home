@@ -7,11 +7,11 @@ export function getLocalAssets() {
   return assets;
 }
 
-export function getEvents() {
+export function getLocalEvents() {
   return events;
 }
 
-export function getTextFile(name: string) {
+export function getLocalFile(name: string) {
   const filePath = path.join(process.cwd(), "src", "content", name);
   return fs.readFileSync(filePath, "utf-8");
 }

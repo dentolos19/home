@@ -28,6 +28,13 @@ export default function FileItem(props: {
             <i className={"fa-solid fa-download"} />
           </Link>
         </div>
+        {props.data.previewUrl && (
+          <div className={"tooltip"} data-tip={"Preview"}>
+            <Link className={"btn btn-sm btn-ghost"} target={"_blank"} href={props.data.previewUrl}>
+              <i className={"fa-solid fa-magnifying-glass"} />
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
