@@ -37,7 +37,7 @@ export default async function Page(props: RouteProps) {
           </div>
           <div className={"min-w-0 flex flex-col justify-center"}>
             <h2 className={"mb-1 font-bold text-xl truncate"}>Dennise Catolos</h2>
-            <p className={"truncate"}>Year 1 DIT Student</p>
+            <p className={"truncate"}>Year 1 Information Technology</p>
           </div>
         </div>
         <div className={"bg-base-300 rounded-box"}>

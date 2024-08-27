@@ -4,12 +4,7 @@ import { clsx } from "clsx";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
-export default function FilterSelector(props: {
-  label: string;
-  name: string;
-  value?: string;
-  active: boolean;
-}) {
+export default function FilterSelector(props: { label: string; name: string; value?: string; active: boolean }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
