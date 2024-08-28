@@ -25,14 +25,14 @@ const links: NavigationItemData[] = [
 
 export default function PortfolioContainer(props: { children: React.ReactNode }) {
   return (
-    <div className={"min-h-0 grid md:grid-cols-[200px,1fr] max-md:grid-rows-[auto,1fr]"}>
+    <div className={"min-h-0 grid md:grid-cols-[200px,1fr] max-md:grid-rows-[1fr,auto]"}>
       <ul className={"max-md:hidden menu bg-base-300"}>
         {links.map((link, index) => (
           <NavigationItem key={index} data={link} />
         ))}
       </ul>
       {props.children}
-      <div className={"md:hidden btm-nav bg-base-300"}>
+      <div className={"md:hidden static btm-nav bg-base-300"}>
         {links.map((link, index) => (
           <NavigationItem key={index} data={link} bottomNav />
         ))}
