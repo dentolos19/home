@@ -10,7 +10,7 @@ const links: NavigationItemData[] = [
   },
   {
     label: "Portfolio",
-    href: "/portfolio/academic",
+    href: "/portfolio",
     icon: "fa-solid fa-briefcase",
   },
   {

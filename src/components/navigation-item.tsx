@@ -14,9 +14,10 @@ export type NavigationItemData = {
   }[];
 };
 
-export default function NavigationItem(props: { className?: string; data: NavigationItemData }) {
+export default function NavigationItem(props: { className?: string; data: NavigationItemData; bottomNav?: boolean }) {
   const pathname = usePathname();
-  if (props.data.subItems) {
+
+  if (props.data.subItems && !props.bottomNav)
     return (
       <li className={props.className}>
         <details>
@@ -36,7 +37,14 @@ export default function NavigationItem(props: { className?: string; data: Naviga
         </details>
       </li>
     );
-  }
+
+  if (props.bottomNav)
+    return (
+      <Link className={clsx(pathname === props.data.href && "active")} href={props.data.href || "#"}>
+        <i className={props.data.icon} />
+      </Link>
+    );
+
   return (
     <li className={props.className}>
       <Link className={clsx(pathname === props.data.href && "active")} href={props.data.href || "#"}>

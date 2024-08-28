@@ -1,19 +1,8 @@
 [
   {
-    "id": "y1-nypsolve",
-    "name": "NYP Solve",
-    "date": "2024-XX-XX",
-    "status": "Upcoming",
-    "private": false,
-    "role": "Welfare In-charge",
-    "description": "",
-    "src": "",
-    "href": ""
-  },
-  {
     "id": "y1-amazingrace",
     "name": "Amazing Race",
-    "date": "2024-11-XX",
+    "date": "2024-11-23",
     "status": "Upcoming",
     "private": true,
     "role": "Programmes In-charge",
@@ -24,10 +13,21 @@
   {
     "id": "y1-fireside",
     "name": "Fireside Talk",
-    "date": "2024-09-XX",
+    "date": "2024-11-01",
     "status": "Upcoming",
     "private": true,
     "role": "Programmes-cum-Welfare In-charge",
+    "description": "",
+    "src": "",
+    "href": ""
+  },
+  {
+    "id": "y1-nypsolve",
+    "name": "NYP Solve",
+    "date": "2024-09-09",
+    "status": "Upcoming",
+    "private": false,
+    "role": "Welfare In-charge",
     "description": "",
     "src": "",
     "href": ""
@@ -39,7 +39,7 @@
     "status": "Ended",
     "private": false,
     "role": "Media In-charge",
-    "description": "",
+    "description": "I was part of the committee that organized the inaugural PFP Club Camp. As the media in-charge of the event, I was responsible for creating the promotional materials for the event, including the posters, Instagram stories and the montage video.",
     "src": "/assets/events/pfpcc.jpg",
     "href": ""
   },

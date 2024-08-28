@@ -1,15 +1,15 @@
-import EventItem from "@/app/(main)/portfolio/academic/_components/event-item";
+import EventItem from "@/app/(main)/portfolio/_components/event-item";
 import { getLocalEvents } from "@/lib/local";
 
 export default function EventsTab() {
   const events = getLocalEvents();
   return (
-    <section className={"p-4"}>
-      <div className={"grid sm:grid-cols-2 gap-2"}>
+    <main className={"p-4"}>
+      <div className={"grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2"}>
         {events.map((event) => (
           <EventItem key={event.id} data={event} />
         ))}
       </div>
-    </section>
+    </main>
   );
 }
