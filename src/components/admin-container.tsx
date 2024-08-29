@@ -1,5 +1,5 @@
 import NavigationItem, { NavigationItemData } from "@/components/navigation-item";
-import { myStorage } from "@/lib/integrations/appwrite";
+import { storageIds } from "@/lib/integrations/appwrite";
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
@@ -20,7 +20,7 @@ const links: NavigationItemData[] = [
     subItems: [
       {
         label: "Media",
-        href: `/admin/files/${myStorage.media}`,
+        href: `/admin/files/${storageIds.media}`,
       },
     ],
   },

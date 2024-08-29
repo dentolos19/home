@@ -12,7 +12,7 @@ export default function FileItem(props: {
 }) {
   return (
     <div className={"h-16 sm:h-24 flex rounded-box bg-base-300"}>
-      <img className={"w-16 sm:w-24 rounded-l-box"} src={props.data.previewUrl || "/assets/file.png"} alt={"Preview"} />
+      <img className={"w-16 sm:w-24 object-cover rounded-l-box"} src={props.data.previewUrl || "/assets/file.png"} alt={"Preview"} />
       <div className={"pl-4 min-w-0 flex-1 flex flex-col justify-center"}>
         <h2 className={"text-lg font-bold truncate"}>{props.data.name}</h2>
         <p className={"text-sm text-gray-400 truncate"}>{props.data.size}</p>

@@ -1,5 +1,6 @@
 import NotFound from "@/app/not-found";
-import MyInput from "@/components/ui/input";
+import FormContainer from "@/components/form-container";
+import FormInput from "@/components/ui/form-input";
 import { deleteLink, getLink, setLink } from "@/lib/data/links";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
@@ -14,7 +15,7 @@ export default async function Page(props: RouteProps) {
     return <NotFound />;
   }
 
-  const handleSave = async (data: FormData) => {
+  const saveAction = async (data: FormData) => {
     "use server";
     const id = data.get("id") as string;
     const url = data.get("url") as string;
@@ -28,7 +29,7 @@ export default async function Page(props: RouteProps) {
     }
   };
 
-  const handleDelete = async (data: FormData) => {
+  const deleteAction = async (data: FormData) => {
     "use server";
     const id = data.get("id") as string;
     const success = await deleteLink(id);
@@ -41,23 +42,16 @@ export default async function Page(props: RouteProps) {
 
   return (
     <main className={"grid place-items-center"}>
-      <div className={"w-96 card bg-base-300"}>
-        <form className={"card-body"}>
-          <h2 className={"card-title self-center"}>Edit Link</h2>
-          <div className={"my-2 flex flex-col gap-2"}>
-            <MyInput type={"text"} name={"id"} label={"Identifier"} defaultValue={record.id} readOnly />
-            <MyInput type={"text"} name={"url"} label={"Destination URL"} defaultValue={record.url} required />
-          </div>
-          <div className={"card-actions justify-end"}>
-            <button className={"btn btn-sm btn-primary"} formAction={handleSave}>
-              Save
-            </button>
-            <button className={"btn btn-sm btn-error"} formAction={handleDelete}>
-              Delete
-            </button>
-          </div>
-        </form>
-      </div>
+      <FormContainer
+        title={"Edit Link"}
+        actions={[
+          { label: "Save", color: "primary", action: saveAction },
+          { label: "Delete", color: "error", action: deleteAction },
+        ]}
+      >
+        <FormInput type={"text"} name={"id"} label={"Identifier"} defaultValue={record.id} readOnly />
+        <FormInput type={"text"} name={"url"} label={"Destination URL"} defaultValue={record.url} required />
+      </FormContainer>
     </main>
   );
 }

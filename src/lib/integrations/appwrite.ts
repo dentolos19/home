@@ -6,7 +6,6 @@ appwrite.setEndpoint("https://cloud.appwrite.io/v1").setProject("66bd5d5a0011d11
 appwrite.headers["X-Appwrite-Key"] = APPWRITE_KEY;
 
 export const storage = new Storage(appwrite);
-
-export const myStorage = {
-  media: "66bd5e930023ae85b607",
+export const storageIds = {
+  media: "media",
 };

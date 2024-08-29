@@ -7,6 +7,11 @@ export function generateString(length: number) {
   return result;
 }
 
+export function renameFile(file: File, name: string) {
+  const blob = file.slice(0, file.size, file.type);
+  return new File([blob], name, { type: file.type });
+}
+
 export function humanizeDate(date: Date) {
   return humanizeDateString(date.toISOString());
 }

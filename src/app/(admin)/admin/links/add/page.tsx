@@ -1,9 +1,10 @@
-import MyInput from "@/components/ui/input";
+import FormContainer from "@/components/form-container";
+import FormInput from "@/components/ui/form-input";
 import { setLink } from "@/lib/data/links";
 import { redirect } from "next/navigation";
 
 export default async function Page() {
-  const handleAdd = async (data: FormData) => {
+  const addAction = async (data: FormData) => {
     "use server";
     const id = data.get("id") as string;
     const url = data.get("url") as string;
@@ -19,20 +20,10 @@ export default async function Page() {
 
   return (
     <main className={"grid place-items-center"}>
-      <div className={"w-96 card bg-base-300"}>
-        <form className={"card-body"}>
-          <h2 className={"card-title self-center"}>Add Link</h2>
-          <div className={"my-2 flex flex-col gap-2"}>
-            <MyInput type={"text"} name={"id"} label={"Identifier"} required />
-            <MyInput type={"url"} name={"url"} label={"Destination URL"} required />
-          </div>
-          <div className={"card-actions justify-end"}>
-            <button className={"btn btn-sm btn-primary"} formAction={handleAdd}>
-              Add
-            </button>
-          </div>
-        </form>
-      </div>
+      <FormContainer title={"Add Link"} actions={[{ label: "Add", color: "primary", action: addAction }]}>
+        <FormInput type={"text"} name={"id"} label={"Identifier"} required />
+        <FormInput type={"url"} name={"url"} label={"Destination URL"} required />
+      </FormContainer>
     </main>
   );
 }

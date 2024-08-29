@@ -1,38 +1,33 @@
+import FormContainer from "@/components/form-container";
+import FormInput from "@/components/ui/form-input";
 import { storage } from "@/lib/integrations/appwrite";
+import { renameFile } from "@/lib/utils";
 import { RouteProps } from "@/types";
-import { ID } from "appwrite";
 import { redirect } from "next/navigation";
 
 export default function Page(props: RouteProps) {
   const bucketId = props.params.bucketId;
 
-  const handleUpload = async (data: FormData) => {
+  const uploadAction = async (data: FormData) => {
     "use server";
+    const id = data.get("id") as string;
     const file = data.get("file") as File;
     try {
-      await storage.createFile(bucketId, ID.unique(), file);
-      redirect(`/admin/files/${bucketId}`);
+      await storage.createFile(bucketId, id, renameFile(file, id));
     } catch (err) {
       console.error(err);
       redirect("/admin/error");
+    } finally {
+      redirect(`/admin/files/${bucketId}`);
     }
   };
 
   return (
     <main className={"grid place-items-center"}>
-      <div className={"card bg-base-300"}>
-        <form className={"card-body"}>
-          <h2 className={"card-title self-center"}>Upload File</h2>
-          <div className={"my-2 flex flex-col gap-2"}>
-            <input className={"file-input"} type={"file"} name={"file"} required={true} />
-          </div>
-          <div className={"card-actions justify-end"}>
-            <button className={"btn btn-sm btn-primary"} formAction={handleUpload}>
-              Upload
-            </button>
-          </div>
-        </form>
-      </div>
+      <FormContainer title={"Upload File"} actions={[{ label: "Upload", color: "primary", action: uploadAction }]}>
+        <FormInput type={"text"} name={"id"} label={"Identifier"} required />
+        <input className={"file-input"} type={"file"} name={"file"} required />
+      </FormContainer>
     </main>
   );
 }

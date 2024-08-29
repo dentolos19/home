@@ -1,4 +1,6 @@
 import NotFound from "@/app/not-found";
+import FormContainer from "@/components/form-container";
+import FormInput from "@/components/ui/form-input";
 import { storage } from "@/lib/integrations/appwrite";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
@@ -14,49 +16,23 @@ export default async function Page(props: RouteProps) {
     return <NotFound />;
   }
 
-  const handleDelete = async () => {
+  const deleteAction = async () => {
     "use server";
     try {
       await storage.deleteFile(bucketId, fileId);
-      redirect(`/admin/files/${bucketId}`);
     } catch (err) {
       console.error(err);
       redirect("/admin/error");
+    } finally {
+      redirect(`/admin/files/${bucketId}`);
     }
   };
 
   return (
     <main className={"grid place-items-center"}>
-      <div className={"w-96 card bg-base-300"}>
-        <form className={"card-body"}>
-          <h2 className={"card-title self-center"}>Edit File</h2>
-          <div className={"my-2 flex flex-col gap-2"}>
-            <input
-              className={"input"}
-              type={"text"}
-              name={"id"}
-              required={true}
-              readOnly={true}
-              placeholder={"ID"}
-              defaultValue={file?.$id}
-            />
-            <input
-              className={"input"}
-              type={"url"}
-              name={"url"}
-              required={true}
-              readOnly={true}
-              placeholder={"URL"}
-              defaultValue={file?.name}
-            />
-          </div>
-          <div className={"card-actions justify-end"}>
-            <button className={"btn btn-sm btn-error"} formAction={handleDelete}>
-              Delete
-            </button>
-          </div>
-        </form>
-      </div>
+      <FormContainer title={"Edit File"} actions={[{ label: "Delete", color: "error", action: deleteAction }]}>
+        <FormInput type={"text"} name={"id"} label={"Identifer"} defaultValue={file.$id} readOnly />
+      </FormContainer>
     </main>
   );
 }
