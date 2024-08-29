@@ -1,6 +1,9 @@
-import Link from "next/link";
+"use client";
+
+import { useRouter } from "next/navigation";
 
 export default function NotFound() {
+  const router = useRouter();
   return (
     <main className={"grid place-items-center"}>
       <div className={"card bg-base-300"}>
@@ -8,9 +11,14 @@ export default function NotFound() {
           <h2 className={"card-title"}>Oops!</h2>
           <p>Sorry, the page that you are looking for does not exist.</p>
           <div className={"card-actions"}>
-            <Link className={"btn btn-sm btn-primary"} href={"/"}>
-              Home
-            </Link>
+            <button
+              className={"btn btn-sm btn-primary"}
+              onClick={() => {
+                router.back();
+              }}
+            >
+              Back
+            </button>
           </div>
         </div>
       </div>

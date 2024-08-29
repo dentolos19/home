@@ -1,5 +1,5 @@
 import NavigationItem, { NavigationItemData } from "@/components/navigation-item";
-import { buckets } from "@/lib/backend";
+import { myStorage } from "@/lib/integrations/appwrite";
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
@@ -18,10 +18,10 @@ const links: NavigationItemData[] = [
     label: "Files",
     icon: "fa-solid fa-folder",
     subItems: [
-      ...buckets.map((bucket) => ({
-        label: bucket.name,
-        href: `/admin/files/${bucket.id}`,
-      })),
+      {
+        label: "Media",
+        href: `/admin/files/${myStorage.media}`,
+      },
     ],
   },
 ];

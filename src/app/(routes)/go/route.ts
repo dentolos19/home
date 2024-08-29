@@ -1,4 +1,4 @@
-import { getLink } from "@/lib/links";
+import { getLink } from "@/lib/data/links";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
 

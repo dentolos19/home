@@ -1,4 +1,4 @@
-import { storage } from "@/lib/backend";
+import { storage } from "@/lib/integrations/appwrite";
 import { RouteProps } from "@/types";
 import { ID } from "appwrite";
 import { redirect } from "next/navigation";

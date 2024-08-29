@@ -1,6 +1,6 @@
 import FileItem from "@/app/(admin)/_components/file-item";
 import NotFound from "@/app/not-found";
-import { storage } from "@/lib/backend";
+import { storage } from "@/lib/integrations/appwrite";
 import { RouteProps } from "@/types";
 import Link from "next/link";
 

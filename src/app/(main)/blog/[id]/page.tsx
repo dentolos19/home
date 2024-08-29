@@ -1,5 +1,5 @@
 import NotFound from "@/app/not-found";
-import { getPost } from "@/lib/blog";
+import { getPost } from "@/lib/data/blog";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
 import Markdown from "react-markdown";

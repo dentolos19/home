@@ -1,6 +1,6 @@
 import PostItem from "@/app/(main)/blog/_components/post-item";
 import FilterSelector from "@/components/filter-selector";
-import { getPosts } from "@/lib/blog";
+import { getPosts } from "@/lib/data/blog";
 import { RouteProps } from "@/types";
 
 const filters = [

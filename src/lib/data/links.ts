@@ -1,16 +1,16 @@
-import { redis } from "@/lib/backend";
+import { redis } from "@/lib/integrations/redis";
 
-export type Redirect = RedirectRecord & {
+export type MyLink = MyLinkRecord & {
   id: string;
 };
 
-export type RedirectRecord = {
+export type MyLinkRecord = {
   url: string;
 };
 
 export async function getLink(id: string) {
   try {
-    const link = await redis.get<RedirectRecord>(`links:${id}`);
+    const link = await redis.get<MyLinkRecord>(`links:${id}`);
     if (!link) {
       return undefined;
     }
@@ -27,10 +27,10 @@ export async function getLinks() {
   try {
     const keys = await redis.keys("links:*");
     const links = await redis.mget(keys);
-    const records: Redirect[] = [];
+    const records: MyLink[] = [];
     keys.forEach((key, index) => {
       const id = key.split(":")[1];
-      const record = links[index] as RedirectRecord;
+      const record = links[index] as MyLinkRecord;
       records.push({
         id,
         ...record,
@@ -42,7 +42,7 @@ export async function getLinks() {
   }
 }
 
-export async function setLink(id: string, record: RedirectRecord) {
+export async function setLink(id: string, record: MyLinkRecord) {
   try {
     await redis.set(`links:${id}`, record);
     return true;

@@ -1,6 +1,6 @@
 import ProjectItem from "@/app/(main)/projects/_components/project-item";
 import FilterSelector from "@/components/filter-selector";
-import { getRepos } from "@/lib/github";
+import { getRepos } from "@/lib/integrations/github";
 import type { RouteProps } from "@/types";
 import Link from "next/link";
 

@@ -1,4 +1,4 @@
-import { formatDate } from "@/lib/utils";
+import { humanizeDateString } from "@/lib/utils";
 import matter from "gray-matter";
 import fs from "node:fs";
 import path from "node:path";
@@ -32,7 +32,7 @@ export function getPosts() {
         category: fileMatter.data.category,
         draft: fileMatter.data.draft,
         url: fileMatter.data.url,
-        date: formatDate(postDate),
+        date: humanizeDateString(postDate),
         content: fileMatter.content,
       } as Post;
     })

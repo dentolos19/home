@@ -1,5 +1,5 @@
 import NotFound from "@/app/not-found";
-import { storage } from "@/lib/backend";
+import { storage } from "@/lib/integrations/appwrite";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
 

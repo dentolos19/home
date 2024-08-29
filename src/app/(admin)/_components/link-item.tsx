@@ -1,9 +1,9 @@
 "use client";
 
-import { Redirect } from "@/lib/links";
+import { MyLink } from "@/lib/data/links";
 import Link from "next/link";
 
-export default function LinkItem(props: { data: Redirect }) {
+export default function LinkItem(props: { data: MyLink }) {
   const handleCopy = () => {
     navigator.clipboard.writeText(`https://dennise.me/go/${props.data.id}`);
   };

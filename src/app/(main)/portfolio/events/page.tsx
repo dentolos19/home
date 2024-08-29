@@ -1,7 +1,9 @@
 import EventItem from "@/app/(main)/portfolio/_components/event-item";
 import { getLocalEvents } from "@/lib/local";
 
-export default function EventsTab() {
+export const revalidate = 0;
+
+export default async function EventsTab() {
   const events = getLocalEvents();
   return (
     <main className={"p-4"}>

@@ -1,6 +1,6 @@
 import NotFound from "@/app/not-found";
 import MyInput from "@/components/ui/input";
-import { deleteLink, getLink, setLink } from "@/lib/links";
+import { deleteLink, getLink, setLink } from "@/lib/data/links";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
 

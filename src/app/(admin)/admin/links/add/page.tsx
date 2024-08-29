@@ -1,5 +1,5 @@
 import MyInput from "@/components/ui/input";
-import { setLink } from "@/lib/links";
+import { setLink } from "@/lib/data/links";
 import { redirect } from "next/navigation";
 
 export default async function Page() {

@@ -7,7 +7,11 @@ export function generateString(length: number) {
   return result;
 }
 
-export function formatDate(date: string) {
+export function humanizeDate(date: Date) {
+  return humanizeDateString(date.toISOString());
+}
+
+export function humanizeDateString(date: string) {
   let currentDate = new Date();
   let targetDate = currentDate;
 

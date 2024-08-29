@@ -1,5 +1,5 @@
 import LinkItem from "@/app/(admin)/_components/link-item";
-import { getLinks } from "@/lib/links";
+import { getLinks } from "@/lib/data/links";
 import Link from "next/link";
 
 export const revalidate = 0;
