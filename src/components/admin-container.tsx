@@ -30,20 +30,22 @@ export default function AdminContainer(props: { children: React.ReactNode }) {
   return (
     <div className={"drawer lg:drawer-open"}>
       <input id={"drawer"} className={"drawer-toggle"} type={"checkbox"} />
-      <div className={"h-dvh drawer-content grid grid-rows-[auto,1fr]"}>
-        <div className={"navbar bg-base-300"}>
-          <div className={"navbar-start"}>
-            <label className={"btn btn-ghost lg:hidden"} htmlFor={"drawer"}>
-              <i className={"fa-solid fa-bars fa-xl"} />
-            </label>
-          </div>
-          <div className={"navbar-end"}>
-            <div className={"mr-2 flex items-center tooltip tooltip-left"} data-tip={"Account"}>
-              <UserButton />
+      <div className={"drawer-content"}>
+        <div className={"h-dvh grid grid-rows-[auto,1fr]"}>
+          <div className={"navbar bg-base-300"}>
+            <div className={"navbar-start"}>
+              <label className={"btn btn-ghost lg:hidden"} htmlFor={"drawer"}>
+                <i className={"fa-solid fa-bars fa-xl"} />
+              </label>
+            </div>
+            <div className={"navbar-end"}>
+              <div className={"mr-2 flex items-center tooltip tooltip-left"} data-tip={"Account"}>
+                <UserButton />
+              </div>
             </div>
           </div>
+          {props.children}
         </div>
-        {props.children}
       </div>
       <div className={"drawer-side"}>
         <label className={"drawer-overlay"} htmlFor={"drawer"} />

@@ -1,9 +1,6 @@
 import { redis } from "@/lib/integrations/redis";
 
-export type MyLink = MyLinkRecord & {
-  id: string;
-};
-
+export type MyLink = MyLinkRecord & { id: string };
 export type MyLinkRecord = {
   url: string;
 };
@@ -11,13 +8,11 @@ export type MyLinkRecord = {
 export async function getLink(id: string) {
   try {
     const link = await redis.get<MyLinkRecord>(`links:${id}`);
-    if (!link) {
-      return undefined;
-    }
+    if (!link) return undefined;
     return {
       id,
       ...link,
-    };
+    } as MyLink;
   } catch (error) {
     return undefined;
   }
