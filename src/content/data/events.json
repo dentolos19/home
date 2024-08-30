@@ -33,14 +33,14 @@
     "href": "https://nyptech-activities.vercel.app/solve"
   },
   {
-    "id": "y1-pfpcc2024",
+    "id": "y1-pfpcc24",
     "name": "PFP Club Camp",
     "date": "2024-07-20 and 2024-07-27",
     "status": "Ended",
     "private": false,
     "role": "Media In-charge",
     "description": "I was part of the committee that organized the inaugural PFP Club Camp. As the media in-charge of the event, I was responsible for creating the promotional materials for the event, including the posters, Instagram stories and the montage video.",
-    "src": "/assets/events/pfpcc.jpg",
+    "src": "/assets/events-pfpcc24",
     "href": ""
   },
   {
@@ -55,14 +55,14 @@
     "href": "https://nyptech.vercel.app/blog/nyp-link"
   },
   {
-    "id": "pfp-outreach2024",
+    "id": "pfp-outreach",
     "name": "PFP Outreach @ SGSS",
     "date": "2024-05-14",
     "status": "Ended",
     "private": false,
     "role": "AR Developer",
     "description": "I was part of the team leading an outreach programme at Serangoon Garden Secondary School. I was involved in developing the AR cards that help students learn the United Nations Sustainable Development Goals.",
-    "src": "/assets/events/pfpoutreach.jpg",
+    "src": "/assets/events-pfpoutreach",
     "href": ""
   },
   {
@@ -73,7 +73,7 @@
     "private": false,
     "role": "Student Mentor",
     "description": "",
-    "src": "/assets/events/pfpfmo.jpg",
+    "src": "/assets/events-pfpfmo24",
     "href": ""
   },
   {
@@ -84,7 +84,7 @@
     "private": false,
     "role": "Logistics In-charge",
     "description": "I was a committee member involved in organizing NYP's PFP Open House 2024. I was in charge of compiling the overall logistics of the event, developing the microsite detailing PFP students' experiences, and ensuring that nothing went wrong during the actual event.",
-    "src": "/assets/events/oh24.jpg",
+    "src": "/assets/events-oh24",
     "href": ""
   },
   {

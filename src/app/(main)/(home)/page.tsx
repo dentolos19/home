@@ -6,7 +6,7 @@ export default function Page() {
       <div className={"relative"}>
         <div className={"absolute position-center-x top-[-30px] z-10 avatar"}>
           <div className={"size-[200px] rounded-full"}>
-            <img src={"/assets?id=avatar"} alt={"Avatar"} />
+            <img src={"/assets/avatar"} alt={"Avatar"} />
           </div>
         </div>
         <div className={"mt-[150px] card bg-base-300"}>

@@ -31,7 +31,7 @@ export default function EventItem(props: {
         <figure>
           <img
             className={"aspect-video object-cover"}
-            src={props.data.src || "/assets?id=placeholder"}
+            src={props.data.src || "/assets/placeholder"}
             alt={"Preview"}
           />
         </figure>

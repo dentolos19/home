@@ -12,7 +12,7 @@ export default function AssetItem(props: AssetItemProps) {
   const previewUrl = storage.getFilePreview(props.data.bucketId, props.data.fileId, 100, 100);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(`https://dennise.me/assets?id=${props.data.id}`);
+    navigator.clipboard.writeText(`https://dennise.me/assets/${props.data.id}`);
   };
 
   return (
