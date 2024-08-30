@@ -1,6 +1,6 @@
 import NotFound from "@/app/not-found";
 import FormContainer from "@/components/form-container";
-import FormInput from "@/components/ui/form-input";
+import FormControl from "@/components/ui/form-control";
 import { storage } from "@/lib/integrations/appwrite";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
@@ -31,7 +31,9 @@ export default async function Page(props: RouteProps) {
   return (
     <main className={"grid place-items-center"}>
       <FormContainer title={"Edit File"} actions={[{ label: "Delete", color: "error", action: deleteAction }]}>
-        <FormInput type={"text"} name={"id"} label={"Identifer"} defaultValue={file.$id} readOnly />
+        <FormControl label={"Identifier"}>
+          <input className={"input"} type={"text"} name={"id"} defaultValue={file.$id} readOnly />
+        </FormControl>
       </FormContainer>
     </main>
   );

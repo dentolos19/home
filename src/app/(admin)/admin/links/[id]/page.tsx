@@ -1,6 +1,6 @@
 import NotFound from "@/app/not-found";
 import FormContainer from "@/components/form-container";
-import FormInput from "@/components/ui/form-input";
+import FormControl from "@/components/ui/form-control";
 import { deleteLink, getLink, setLink } from "@/lib/data/links";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
@@ -49,8 +49,12 @@ export default async function Page(props: RouteProps) {
           { label: "Delete", color: "error", action: deleteAction },
         ]}
       >
-        <FormInput type={"text"} name={"id"} label={"Identifier"} defaultValue={record.id} readOnly />
-        <FormInput type={"text"} name={"url"} label={"Destination URL"} defaultValue={record.url} required />
+        <FormControl label={"Identifier"}>
+          <input className={"input"} type={"text"} name={"id"} defaultValue={record.id} readOnly />
+        </FormControl>
+        <FormControl label={"Destination URL"}>
+          <input className={"input"} type={"text"} name={"url"} defaultValue={record.url} required />
+        </FormControl>
       </FormContainer>
     </main>
   );

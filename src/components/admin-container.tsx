@@ -15,6 +15,11 @@ const links: NavigationItemData[] = [
     icon: "fa-solid fa-link",
   },
   {
+    label: "Assets",
+    href: "/admin/assets",
+    icon: "fa-solid fa-file",
+  },
+  {
     label: "Files",
     icon: "fa-solid fa-folder",
     subItems: [

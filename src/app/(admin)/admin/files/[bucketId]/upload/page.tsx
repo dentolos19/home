@@ -1,5 +1,5 @@
 import FormContainer from "@/components/form-container";
-import FormInput from "@/components/ui/form-input";
+import FormControl from "@/components/ui/form-control";
 import { storage } from "@/lib/integrations/appwrite";
 import { patterns, renameFile } from "@/lib/utils";
 import { RouteProps } from "@/types";
@@ -25,7 +25,9 @@ export default function Page(props: RouteProps) {
   return (
     <main className={"grid place-items-center"}>
       <FormContainer title={"Upload File"} actions={[{ label: "Upload", color: "primary", action: uploadAction }]}>
-        <FormInput type={"text"} name={"id"} label={"Identifier"} pattern={patterns.safeInput.source} required />
+        <FormControl label={"Identifier"}>
+          <input className={"input"} type={"text"} name={"id"} pattern={patterns.safeInput.source} required />
+        </FormControl>
         <input className={"file-input"} type={"file"} name={"file"} required />
       </FormContainer>
     </main>

@@ -1,5 +1,5 @@
 import FormContainer from "@/components/form-container";
-import FormInput from "@/components/ui/form-input";
+import FormControl from "@/components/ui/form-control";
 import { setLink } from "@/lib/data/links";
 import { patterns } from "@/lib/utils";
 import { redirect } from "next/navigation";
@@ -22,8 +22,12 @@ export default async function Page() {
   return (
     <main className={"grid place-items-center"}>
       <FormContainer title={"Add Link"} actions={[{ label: "Add", color: "primary", action: addAction }]}>
-        <FormInput type={"text"} name={"id"} label={"Identifier"} pattern={patterns.safeInput.source} required />
-        <FormInput type={"url"} name={"url"} label={"Destination URL"} required />
+        <FormControl label={"Identifier"}>
+          <input className={"input"} type={"text"} name={"id"} pattern={patterns.safeInput.source} required />
+        </FormControl>
+        <FormControl label={"Destination URL"}>
+          <input className={"input"} type={"url"} name={"url"} required />
+        </FormControl>
       </FormContainer>
     </main>
   );

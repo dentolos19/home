@@ -26,8 +26,8 @@ export default async function Page(props: RouteProps) {
     return {
       ...file,
       sizeText,
-      previewUrl: previewUrl.href,
-      downloadUrl: downloadUrl.href,
+      previewUrl: previewUrl,
+      downloadUrl: downloadUrl,
     };
   });
 
