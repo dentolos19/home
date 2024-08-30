@@ -1,3 +1,7 @@
+export const patterns = {
+  safeInput: /^[a-zA-Z0-9\-_]*$/g,
+};
+
 export function generateString(length: number) {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let result = "";
