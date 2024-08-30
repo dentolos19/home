@@ -15,10 +15,12 @@ export default function FormControl(props: FormControlProps) {
         {props.altLabel && <span className={"label-text-alt"}>{props.altLabel}</span>}
       </div>
       {props.children}
-      <div className={"label"}>
-        {props.bottomLeftLabel && <span className={"label-text-alt"}>{props.bottomLeftLabel}</span>}
-        {props.bottomRightLabel && <span className={"label-text-alt"}>{props.bottomRightLabel}</span>}
-      </div>
+      {props.bottomLeftLabel && props.bottomRightLabel && (
+        <div className={"label"}>
+          {props.bottomLeftLabel && <span className={"label-text-alt"}>{props.bottomLeftLabel}</span>}
+          {props.bottomRightLabel && <span className={"label-text-alt"}>{props.bottomRightLabel}</span>}
+        </div>
+      )}
     </label>
   );
 }

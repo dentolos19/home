@@ -1,37 +1,66 @@
+"use client";
+
+import { setAction } from "@/app/(admin)/admin/assets/actions";
 import FormContainer from "@/components/form-container";
 import FormControl from "@/components/ui/form-control";
-import { setAsset } from "@/lib/data/assets";
+import { storage, storageIds } from "@/lib/integrations/appwrite";
 import { patterns } from "@/lib/utils";
-import { redirect } from "next/navigation";
+import { ChangeEvent, useState } from "react";
 
 export default function Page() {
-  const uploadAction = async (data: FormData) => {
-    "use server";
-    const id = data.get("id") as string;
-    const bucketId = data.get("bucketId") as string;
-    const fileId = data.get("fileId") as string;
-    const success = await setAsset(id, {
-      bucketId,
-      fileId,
-    });
-    if (success) {
-      redirect("/admin/assets");
+  const [fileIds, setFileIds] = useState<string[] | undefined>([]);
+
+  const onBucketIdChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const bucketId = event.target.value;
+    setFileIds(undefined);
+    if (bucketId === "media") {
+      storage.listFiles("media").then((response) => {
+        setFileIds(response.files.map((file) => file.$id));
+      });
     } else {
-      redirect("/admin/error");
+      setFileIds([]);
     }
   };
 
+  const bucketIds = Object.entries(storageIds);
+
   return (
     <main className={"grid place-items-center"}>
-      <FormContainer title={"Set Asset"} actions={[{ label: "Set", color: "primary", action: uploadAction }]}>
+      <FormContainer title={"Set Asset"} actions={[{ label: "Set", color: "primary", action: setAction }]}>
         <FormControl label={"Identifier"}>
           <input className={"input"} type={"text"} name={"id"} pattern={patterns.safeInput.source} required />
         </FormControl>
         <FormControl label={"Bucket ID"}>
-          <input className={"input"} type={"text"} name={"bucketId"} pattern={patterns.safeInput.source} required />
+          <select className={"select"} name={"bucketId"} onChange={onBucketIdChange}>
+            <option disabled selected>
+              Select a bucket
+            </option>
+            {bucketIds.map(([id, name]) => (
+              <option key={id} value={id}>
+                {name}
+              </option>
+            ))}
+          </select>
         </FormControl>
         <FormControl label={"File ID"}>
-          <input className={"input"} type={"text"} name={"fileId"} pattern={patterns.safeInput.source} required />
+          <select className={"select"} name={"fileId"}>
+            {fileIds ? (
+              <>
+                <option disabled selected>
+                  Select a file
+                </option>
+                {fileIds.map((id) => (
+                  <option key={id} value={id}>
+                    {id}
+                  </option>
+                ))}
+              </>
+            ) : (
+              <option disabled selected>
+                Loading...
+              </option>
+            )}
+          </select>
         </FormControl>
       </FormContainer>
     </main>

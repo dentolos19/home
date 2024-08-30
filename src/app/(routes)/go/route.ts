@@ -7,5 +7,7 @@ export async function GET(req: NextRequest) {
   if (!id) redirect("/");
 
   const record = await getLink(id);
-  redirect(record?.url ?? "/");
+  if (!record) redirect("/");
+
+  redirect(record.url);
 }

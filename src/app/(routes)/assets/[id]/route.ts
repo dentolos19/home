@@ -1,4 +1,5 @@
-import { getLink } from "@/lib/data/links";
+import { getAsset } from "@/lib/data/assets";
+import { storage } from "@/lib/integrations/appwrite";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
@@ -6,8 +7,9 @@ import { NextRequest } from "next/server";
 export async function GET(req: NextRequest, props: RouteProps) {
   const id = props.params.id;
 
-  const record = await getLink(id);
+  const record = await getAsset(id);
   if (!record) redirect("/");
 
-  redirect(record.url);
+  const previewUrl = storage.getFilePreview(record.bucketId, record.fileId);
+  redirect(previewUrl);
 }

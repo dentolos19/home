@@ -1,0 +1,34 @@
+"use server";
+
+import { deleteAsset, setAsset } from "@/lib/data/assets";
+import { redirect } from "next/navigation";
+
+export async function setAction(data: FormData) {
+  const id = data.get("id") as string;
+  const bucketId = data.get("bucketId") as string | undefined;
+  const fileId = data.get("fileId") as string | undefined;
+
+  if (!bucketId || !fileId) return;
+
+  const success = await setAsset(id, {
+    bucketId,
+    fileId,
+  });
+
+  if (success) {
+    redirect("/admin/assets");
+  } else {
+    redirect("/admin/error");
+  }
+}
+
+export async function deleteAction(data: FormData) {
+  const id = data.get("id") as string;
+  const success = await deleteAsset(id);
+
+  if (success) {
+    redirect("/admin/assets");
+  } else {
+    redirect("/admin/error");
+  }
+}

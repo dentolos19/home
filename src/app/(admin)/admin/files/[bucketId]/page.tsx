@@ -21,13 +21,9 @@ export default async function Page(props: RouteProps) {
     if (sizeMb > 1) {
       sizeText = sizeMb.toFixed(2) + " MB";
     }
-    const previewUrl = storage.getFilePreview(bucketId, file.$id);
-    const downloadUrl = storage.getFileDownload(bucketId, file.$id);
     return {
       ...file,
       sizeText,
-      previewUrl: previewUrl,
-      downloadUrl: downloadUrl,
     };
   });
 
@@ -44,8 +40,6 @@ export default async function Page(props: RouteProps) {
             size: file.sizeText,
             bucketId,
             fileId: file.$id,
-            downloadUrl: file.downloadUrl,
-            previewUrl: file.previewUrl,
           }}
         />
       ))}

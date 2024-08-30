@@ -3,7 +3,11 @@
 import { MyLink } from "@/lib/data/links";
 import Link from "next/link";
 
-export default function LinkItem(props: { data: MyLink }) {
+type LinkItemProps = {
+  data: MyLink;
+};
+
+export default function LinkItem(props: LinkItemProps) {
   const handleCopy = () => {
     navigator.clipboard.writeText(`https://dennise.me/go/${props.data.id}`);
   };
