@@ -1,34 +1,26 @@
+"use client";
+
+import { uploadAction } from "@/app/(admin)/admin/files/actions";
 import FormContainer from "@/components/form-container";
 import FormControl from "@/components/ui/form-control";
-import { storage } from "@/lib/integrations/appwrite";
-import { patterns, renameFile } from "@/lib/utils";
+import { patterns, replaceFormValue } from "@/lib/utils";
 import { RouteProps } from "@/types";
-import { redirect } from "next/navigation";
 
 export default function Page(props: RouteProps) {
   const bucketId = props.params.bucketId;
 
-  const uploadAction = async (data: FormData) => {
-    "use server";
-    const id = data.get("id") as string;
-    const file = data.get("file") as File;
-    try {
-      await storage.createFile(bucketId, id, renameFile(file, id));
-    } catch (err) {
-      console.error(err);
-      redirect("/admin/error");
-    } finally {
-      redirect(`/admin/files/${bucketId}`);
-    }
+  const onUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    replaceFormValue(event.target.form!, "name", event.target.files![0].name.replace(/\.[^/.]+$/, ""));
   };
 
   return (
     <main className={"grid place-items-center"}>
       <FormContainer title={"Upload File"} actions={[{ label: "Upload", color: "primary", action: uploadAction }]}>
-        <FormControl label={"Identifier"}>
-          <input className={"input"} type={"text"} name={"id"} pattern={patterns.safeInput.source} required />
+        <input className={"hidden"} name={"bucketId"} value={bucketId} />
+        <input className={"file-input"} type={"file"} name={"file"} required onChange={onUpload} />
+        <FormControl label={"Name"}>
+          <input className={"input"} type={"text"} name={"name"} pattern={patterns.safeInput.source} required />
         </FormControl>
-        <input className={"file-input"} type={"file"} name={"file"} required />
       </FormContainer>
     </main>
   );

@@ -23,10 +23,10 @@ const links: NavigationItemData[] = [
     label: "Files",
     icon: "fa-solid fa-folder",
     subItems: [
-      {
-        label: "Media",
-        href: `/admin/files/${storageIds.media}`,
-      },
+      ...Object.values(storageIds).map((bucket) => ({
+        label: bucket.label,
+        href: `/admin/files/${bucket.id}`,
+      })),
     ],
   },
 ];

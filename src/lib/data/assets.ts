@@ -4,6 +4,7 @@ export type MyAsset = MyAssetRecord & { id: string };
 export type MyAssetRecord = {
   bucketId: string;
   fileId: string;
+  download?: boolean;
 };
 
 export async function getAsset(id: string) {

@@ -14,10 +14,11 @@ export default async function Page(props: RouteProps) {
   if (!record) {
     return <NotFound />;
   }
+
   return (
     <main className={"grid place-items-center"}>
       <FormContainer title={"Edit Asset"} actions={[{ label: "Delete", color: "error", action: deleteAction }]}>
-        <FormControl label={"Identifier"}>
+        <FormControl label={"ID"}>
           <input className={"input"} type={"text"} name={"id"} defaultValue={record.id} readOnly />
         </FormControl>
         <FormControl label={"Bucket ID"}>
@@ -26,6 +27,17 @@ export default async function Page(props: RouteProps) {
         <FormControl label={"File ID"}>
           <input className={"input"} type={"text"} name={"fileId"} defaultValue={record.fileId} readOnly />
         </FormControl>
+        <div className={"form-control"}>
+          <label className={"label cursor-pointer"}>
+            <span className={"label-text"}>Is Downloadable</span>
+            <input
+              className={"checkbox"}
+              type={"checkbox"}
+              name={"download"}
+              checked={record.download}
+            />
+          </label>
+        </div>
       </FormContainer>
     </main>
   );

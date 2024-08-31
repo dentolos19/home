@@ -7,5 +7,12 @@ appwrite.headers["X-Appwrite-Key"] = APPWRITE_KEY;
 
 export const storage = new Storage(appwrite);
 export const storageIds = {
-  media: "media",
+  media: {
+    id: "media",
+    label: "Media",
+  },
+  downloadable: {
+    id: "66d1e57300147b191dd2",
+    label: "Downloadable",
+  },
 };

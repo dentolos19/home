@@ -4,54 +4,56 @@ import { setAction } from "@/app/(admin)/admin/assets/actions";
 import FormContainer from "@/components/form-container";
 import FormControl from "@/components/ui/form-control";
 import { storage, storageIds } from "@/lib/integrations/appwrite";
-import { patterns } from "@/lib/utils";
+import { patterns, replaceFormValue } from "@/lib/utils";
+import { Models } from "appwrite";
 import { ChangeEvent, useState } from "react";
 
 export default function Page() {
-  const [fileIds, setFileIds] = useState<string[] | undefined>([]);
+  const [files, setFiles] = useState<Models.File[] | undefined>([]);
 
-  const onBucketIdChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  const onBucketChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const bucketId = event.target.value;
-    setFileIds(undefined);
+    setFiles(undefined);
     if (bucketId === "media") {
-      storage.listFiles("media").then((response) => {
-        setFileIds(response.files.map((file) => file.$id));
+      storage.listFiles("media").then((res) => {
+        setFiles(res.files);
       });
     } else {
-      setFileIds([]);
+      setFiles([]);
     }
   };
 
-  const bucketIds = Object.entries(storageIds);
+  const onFileChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    replaceFormValue(event.target.form!, "id", event.target.value!.replace(/\.[^/.]+$/, ""));
+  };
+
+  const buckets = Object.entries(storageIds);
 
   return (
     <main className={"grid place-items-center"}>
       <FormContainer title={"Set Asset"} actions={[{ label: "Set", color: "primary", action: setAction }]}>
-        <FormControl label={"Identifier"}>
-          <input className={"input"} type={"text"} name={"id"} pattern={patterns.safeInput.source} required />
-        </FormControl>
         <FormControl label={"Bucket ID"}>
-          <select className={"select"} name={"bucketId"} onChange={onBucketIdChange}>
+          <select className={"select"} name={"bucketId"} onChange={onBucketChange}>
             <option disabled selected>
               Select a bucket
             </option>
-            {bucketIds.map(([id, name]) => (
-              <option key={id} value={id}>
-                {name}
+            {buckets.map(([id, data]) => (
+              <option key={id} value={data.id}>
+                {data.label}
               </option>
             ))}
           </select>
         </FormControl>
         <FormControl label={"File ID"}>
-          <select className={"select"} name={"fileId"}>
-            {fileIds ? (
+          <select className={"select"} name={"fileId"} onChange={onFileChange}>
+            {files ? (
               <>
                 <option disabled selected>
                   Select a file
                 </option>
-                {fileIds.map((id) => (
-                  <option key={id} value={id}>
-                    {id}
+                {files.map((file) => (
+                  <option key={file.$id} value={file.$id}>
+                    {file.name}
                   </option>
                 ))}
               </>
@@ -61,6 +63,15 @@ export default function Page() {
               </option>
             )}
           </select>
+        </FormControl>
+        <div className={"form-control"}>
+          <label className={"label cursor-pointer"}>
+            <span className={"label-text"}>Is Downloadable</span>
+            <input className={"checkbox"} type={"checkbox"} name={"download"} />
+          </label>
+        </div>
+        <FormControl label={"ID"}>
+          <input className={"input"} type={"text"} name={"id"} pattern={patterns.safeInput.source} required />
         </FormControl>
       </FormContainer>
     </main>

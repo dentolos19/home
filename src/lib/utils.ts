@@ -11,9 +11,15 @@ export function generateString(length: number) {
   return result;
 }
 
-export function renameFile(file: File, name: string) {
+export function renameFile(file: File, name: string, withExtension: boolean = true) {
   const blob = file.slice(0, file.size, file.type);
+  if (withExtension) name = `${name}.${file.name.split(".").pop()}`;
   return new File([blob], name, { type: file.type });
+}
+
+export function replaceFormValue(form: HTMLFormElement, name: string, value: string) {
+  const input = form.querySelector<HTMLInputElement>(`input[name=${name}]`);
+  if (input) input.value = value;
 }
 
 export function humanizeDate(date: Date) {

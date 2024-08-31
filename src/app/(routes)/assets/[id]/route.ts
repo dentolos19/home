@@ -10,6 +10,8 @@ export async function GET(req: NextRequest, props: RouteProps) {
   const record = await getAsset(id);
   if (!record) redirect("/");
 
-  const previewUrl = storage.getFilePreview(record.bucketId, record.fileId);
-  redirect(previewUrl);
+  let url: string = storage.getFilePreview(record.bucketId, record.fileId);
+  if (record.download) url = storage.getFileDownload(record.bucketId, record.fileId);
+
+  redirect(url);
 }

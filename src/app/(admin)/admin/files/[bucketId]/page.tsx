@@ -14,34 +14,13 @@ export default async function Page(props: RouteProps) {
     return <NotFound />;
   }
 
-  const files = bucket.files.map((file) => {
-    const sizeKb = file.sizeOriginal / 1024;
-    const sizeMb = sizeKb / 1024;
-    let sizeText = sizeKb.toFixed(2) + " KB";
-    if (sizeMb > 1) {
-      sizeText = sizeMb.toFixed(2) + " MB";
-    }
-    return {
-      ...file,
-      sizeText,
-    };
-  });
-
   return (
     <main className={"p-4 space-y-2"}>
       <Link className={"w-full btn btn-primary"} href={`/admin/files/${bucketId}/upload`}>
         Upload File
       </Link>
-      {files.map((file) => (
-        <FileItem
-          key={file.$id}
-          data={{
-            name: file.name,
-            size: file.sizeText,
-            bucketId,
-            fileId: file.$id,
-          }}
-        />
+      {bucket.files.map((file) => (
+        <FileItem key={file.$id} data={file} />
       ))}
     </main>
   );
