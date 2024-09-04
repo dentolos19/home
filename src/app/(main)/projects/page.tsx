@@ -45,14 +45,14 @@ export default async function Page(props: RouteProps) {
         // Remove repos marked with "personal".
         !repo.topics.includes("personal") &&
         // Filter by topic, does not filter when topic is undefined.
-        (!currentFilter.topic || repo.topics.includes(currentFilter.topic))
+        (!currentFilter.topic || repo.topics.includes(currentFilter.topic)),
     )
     // Sort the repos by stars
     .sort((a, b) => b.stargazers_count - a.stargazers_count);
 
   return (
     <main className={"py-4"}>
-      <div className={"mx-auto w-[90%] md:w-[70%] lg:w-[50%] space-y-2"}>
+      <div className={"mx-auto w-[90%] space-y-2 md:w-[70%] lg:w-[50%]"}>
         <div className={"flex gap-2 overflow-x-auto"}>
           {filters.map((filter) => (
             <FilterSelector
@@ -81,7 +81,7 @@ export default async function Page(props: RouteProps) {
         {currentFilter && (
           <div>
             <Link
-              className={"w-full btn btn-outline"}
+              className={"btn btn-outline w-full"}
               href={`https://github.com/dentolos19?tab=repositories&q=topic%3A${currentFilter.topic}&sort=stargazers`}
             >
               View on GitHub

@@ -12,7 +12,7 @@ export default function NotFound() {
           <p>Sorry, the page that you are looking for does not exist.</p>
           <div className={"card-actions"}>
             <button
-              className={"btn btn-sm btn-primary"}
+              className={"btn btn-primary btn-sm"}
               onClick={() => {
                 router.back();
               }}

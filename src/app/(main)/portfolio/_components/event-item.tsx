@@ -24,16 +24,12 @@ export default function EventItem(props: {
   return (
     <>
       <button
-        className={"card text-left cursor-pointer transition bg-base-300 hover:bg-base-200"}
+        className={"card cursor-pointer bg-base-300 text-left transition hover:bg-base-200"}
         type={"button"}
         onClick={handleClick}
       >
         <figure>
-          <img
-            className={"aspect-video object-cover"}
-            src={props.data.src || "/assets/placeholder"}
-            alt={"Preview"}
-          />
+          <img className={"aspect-video object-cover"} src={props.data.src || "/assets/placeholder"} alt={"Preview"} />
         </figure>
         <div className={"card-body"}>
           <h2 className={"card-title"}>
@@ -43,7 +39,7 @@ export default function EventItem(props: {
                 "badge",
                 props.data.status === "Upcoming" && "badge-success",
                 props.data.status === "Ongoing" && "badge-primary",
-                props.data.status === "Ended" && "badge-error"
+                props.data.status === "Ended" && "badge-error",
               )}
             >
               {props.data.status}
@@ -58,7 +54,7 @@ export default function EventItem(props: {
       <dialog id={props.data.id} className={"modal"}>
         <div className={"modal-box"}>
           <form method={"dialog"}>
-            <button className={"btn btn-sm btn-circle btn-ghost absolute right-4 top-4"} type={"submit"}>
+            <button className={"btn btn-circle btn-ghost btn-sm absolute right-4 top-4"} type={"submit"}>
               <i className={"fa-solid fa-x"} />
             </button>
           </form>
@@ -69,7 +65,7 @@ export default function EventItem(props: {
                 "badge",
                 props.data.status === "Upcoming" && "badge-success",
                 props.data.status === "Ongoing" && "badge-primary",
-                props.data.status === "Ended" && "badge-error"
+                props.data.status === "Ended" && "badge-error",
               )}
             >
               {props.data.status}
@@ -78,8 +74,8 @@ export default function EventItem(props: {
           </div>
           <div className={"mt-4"}>{props.data.description || "Nothing to read here."}</div>
           {props.data.href && (
-            <Link className={"mt-2 btn btn-sm btn-info"} href={props.data.href}>
-              <i className={"fa-solid fa-arrow-up-right-from-square"} />
+            <Link className={"btn btn-info btn-sm mt-2"} href={props.data.href}>
+              <i className={"fa-arrow-up-right-from-square fa-solid"} />
               Read More
             </Link>
           )}

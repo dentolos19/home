@@ -16,20 +16,22 @@ export default function AssetItem(props: AssetItemProps) {
   };
 
   return (
-    <div className={"h-16 sm:h-24 flex rounded-box bg-base-300"}>
-      <img className={"w-16 sm:w-24 object-cover rounded-l-box"} src={previewUrl} alt={"Preview"} />
-      <div className={"pl-4 min-w-0 flex-1 flex flex-col justify-center"}>
-        <h2 className={"text-lg font-bold truncate"}>{props.data.id}</h2>
-        <p className={"text-sm text-gray-400 truncate"}>{props.data.bucketId}/{props.data.fileId}</p>
+    <div className={"flex h-16 rounded-box bg-base-300 sm:h-24"}>
+      <img className={"w-16 rounded-l-box object-cover sm:w-24"} src={previewUrl} alt={"Preview"} />
+      <div className={"flex min-w-0 flex-1 flex-col justify-center p-1 pl-4"}>
+        <h2 className={"truncate text-lg font-bold"}>{props.data.id}</h2>
+        <p className={"truncate text-sm text-gray-400"}>
+          {props.data.bucketId}/{props.data.fileId}
+        </p>
       </div>
-      <div className={"pr-4 flex items-center"}>
+      <div className={"flex items-center pr-4"}>
         <div className={"tooltip"} data-tip={"Edit"}>
-          <Link className={"btn btn-sm btn-ghost"} href={`/admin/assets/${props.data.id}`}>
+          <Link className={"btn btn-ghost btn-sm"} href={`/admin/assets/${props.data.id}`}>
             <i className={"fa-solid fa-pen"} />
           </Link>
         </div>
         <div className={"tooltip"} data-tip={"Copy"}>
-          <button className={"btn btn-sm btn-ghost"} onClick={handleCopy}>
+          <button className={"btn btn-ghost btn-sm"} onClick={handleCopy}>
             <i className={"fa-solid fa-copy"} />
           </button>
         </div>

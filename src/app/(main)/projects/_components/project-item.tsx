@@ -10,7 +10,7 @@ export default function ProjectItem(props: {
   };
 }) {
   return (
-    <Link className={"card cursor-pointer transition bg-base-300 hover:bg-base-200"} href={props.data.href}>
+    <Link className={"card cursor-pointer bg-base-300 transition hover:bg-base-200"} href={props.data.href}>
       <div className={"card-body"}>
         <h2 className={"card-title"}>
           {props.data.name}

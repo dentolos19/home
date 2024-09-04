@@ -9,7 +9,7 @@ export default function PostItem(props: {
   };
 }) {
   return (
-    <Link className={"card cursor-pointer transition bg-base-300 hover:bg-base-200"} href={props.data.href}>
+    <Link className={"card cursor-pointer bg-base-300 transition hover:bg-base-200"} href={props.data.href}>
       <div className={"card-body"}>
         <h2 className={"card-title"}>{props.data.title}</h2>
         <p className={"text-xs text-gray-400"}>{props.data.date}</p>

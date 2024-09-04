@@ -7,8 +7,8 @@ export const revalidate = 0;
 export default async function Page() {
   const links = await getLinks();
   return (
-    <main className={"p-4 space-y-2"}>
-      <Link className={"w-full btn btn-primary"} href={"/admin/links/add"}>
+    <main className={"space-y-2 p-4"}>
+      <Link className={"btn btn-primary w-full"} href={"/admin/links/add"}>
         Add Link
       </Link>
       {links.map((link) => (

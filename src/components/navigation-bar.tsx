@@ -27,7 +27,7 @@ const links: NavigationItemData[] = [
 
 export default function NavigationBar() {
   return (
-    <nav className={"z-50 navbar bg-base-300"}>
+    <nav className={"navbar z-50 bg-base-300"}>
       <div className={"navbar-start"}>
         <div className={"tooltip tooltip-right"} data-tip={"Home"}>
           <Link className={"btn btn-ghost text-xl max-md:hidden"} href={"/"}>
@@ -38,7 +38,7 @@ export default function NavigationBar() {
           <div className={"btn btn-ghost"} role={"button"} tabIndex={0}>
             <i className={"fa-solid fa-bars fa-xl"} />
           </div>
-          <ul className={"dropdown-content menu bg-base-300"}>
+          <ul className={"menu dropdown-content bg-base-300"}>
             {links.map((link) => (
               <NavigationItem key={link.label} data={link} />
             ))}

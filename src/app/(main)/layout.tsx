@@ -1,6 +1,6 @@
-import AppContainer from "@/components/app-container";
+import AppShell from "@/components/app-shell";
 import { LayoutProps } from "@/types";
 
 export default function Layout(props: LayoutProps) {
-  return <AppContainer>{props.children}</AppContainer>;
+  return <AppShell>{props.children}</AppShell>;
 }

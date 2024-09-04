@@ -15,8 +15,8 @@ export default async function Page(props: RouteProps) {
   }
 
   return (
-    <main className={"p-4 space-y-2"}>
-      <Link className={"w-full btn btn-primary"} href={`/admin/files/${bucketId}/upload`}>
+    <main className={"space-y-2 p-4"}>
+      <Link className={"btn btn-primary w-full"} href={`/admin/files/${bucketId}/upload`}>
         Upload File
       </Link>
       {bucket.files.map((file) => (

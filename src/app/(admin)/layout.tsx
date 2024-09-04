@@ -1,4 +1,4 @@
-import AdminContainer from "@/components/admin-container";
+import AdminShell from "@/components/admin-shell";
 import { LayoutProps } from "@/types";
 import { OrganizationSwitcher, Protect, SignedIn, SignedOut, SignIn, SignOutButton } from "@clerk/nextjs";
 
@@ -14,7 +14,7 @@ function ProtectionFallback() {
           </div>
           <div className={"card-actions"}>
             <SignOutButton>
-              <button className={"btn btn-sm btn-error"}>Logout</button>
+              <button className={"btn btn-error btn-sm"}>Logout</button>
             </SignOutButton>
           </div>
         </div>
@@ -33,7 +33,7 @@ export default function Layout(props: LayoutProps) {
       </SignedOut>
       <SignedIn>
         <Protect condition={(has) => has({ role: "org:admin" })} fallback={<ProtectionFallback />}>
-          <AdminContainer>{props.children}</AdminContainer>
+          <AdminShell>{props.children}</AdminShell>
         </Protect>
       </SignedIn>
     </>

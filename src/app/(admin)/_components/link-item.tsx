@@ -13,24 +13,24 @@ export default function LinkItem(props: LinkItemProps) {
   };
 
   return (
-    <div key={props.data.id} className={"p-4 flex rounded-box bg-base-300"}>
-      <div className={"min-w-0 flex-1 flex flex-col justify-center"}>
-        <h2 className={"text-lg font-bold truncate"}>{props.data.id}</h2>
-        <p className={"text-sm text-gray-400 truncate"}>{props.data.url}</p>
+    <div key={props.data.id} className={"flex rounded-box bg-base-300 p-4"}>
+      <div className={"flex min-w-0 flex-1 flex-col justify-center"}>
+        <h2 className={"truncate text-lg font-bold"}>{props.data.id}</h2>
+        <p className={"truncate text-sm text-gray-400"}>{props.data.url}</p>
       </div>
       <div className={"flex items-center"}>
         <div className={"tooltip"} data-tip={"Edit"}>
-          <Link className={"btn btn-sm btn-ghost"} href={`/admin/links/${props.data.id}`}>
+          <Link className={"btn btn-ghost btn-sm"} href={`/admin/links/${props.data.id}`}>
             <i className={"fa-solid fa-pen"} />
           </Link>
         </div>
         <div className={"tooltip"} data-tip={"Visit"}>
-          <Link className={"btn btn-sm btn-ghost"} target={"_blank"} href={props.data.url}>
-            <i className={"fa-solid fa-arrow-up-right-from-square"} />
+          <Link className={"btn btn-ghost btn-sm"} target={"_blank"} href={props.data.url}>
+            <i className={"fa-arrow-up-right-from-square fa-solid"} />
           </Link>
         </div>
         <div className={"tooltip"} data-tip={"Copy"}>
-          <button className={"btn btn-sm btn-ghost"} onClick={handleCopy}>
+          <button className={"btn btn-ghost btn-sm"} onClick={handleCopy}>
             <i className={"fa-solid fa-copy"} />
           </button>
         </div>

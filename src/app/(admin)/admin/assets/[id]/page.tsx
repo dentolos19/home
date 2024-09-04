@@ -30,12 +30,7 @@ export default async function Page(props: RouteProps) {
         <div className={"form-control"}>
           <label className={"label cursor-pointer"}>
             <span className={"label-text"}>Is Downloadable</span>
-            <input
-              className={"checkbox"}
-              type={"checkbox"}
-              name={"download"}
-              checked={record.download}
-            />
+            <input className={"checkbox"} type={"checkbox"} name={"download"} checked={record.download} />
           </label>
         </div>
       </FormContainer>

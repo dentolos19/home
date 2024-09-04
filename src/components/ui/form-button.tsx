@@ -9,7 +9,7 @@ export default function FormButton(props: SubmitButtonProps) {
   const { pending } = useFormStatus();
   return (
     <button className={props.className} {...props}>
-      {pending ? <i className={"loading loading-xs loading-spinner"} /> : props.children}
+      {pending ? <i className={"loading loading-spinner loading-xs"} /> : props.children}
     </button>
   );
 }

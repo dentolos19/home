@@ -19,25 +19,25 @@ export default function FileItem(props: FileItemProps) {
   }
 
   return (
-    <div className={"h-16 sm:h-24 flex rounded-box bg-base-300"}>
-      <img className={"w-16 sm:w-24 object-cover rounded-l-box"} src={downscaledPreviewUrl} alt={"Preview"} />
-      <div className={"pl-4 min-w-0 flex-1 flex flex-col justify-center"}>
-        <h2 className={"text-lg font-bold truncate"}>{props.data.name}</h2>
-        <p className={"text-sm text-gray-400 truncate"}>{sizeText}</p>
+    <div className={"flex h-16 rounded-box bg-base-300 sm:h-24"}>
+      <img className={"w-16 rounded-l-box object-cover sm:w-24"} src={downscaledPreviewUrl} alt={"Preview"} />
+      <div className={"flex min-w-0 flex-1 flex-col justify-center pl-4"}>
+        <h2 className={"truncate text-lg font-bold"}>{props.data.name}</h2>
+        <p className={"truncate text-sm text-gray-400"}>{sizeText}</p>
       </div>
-      <div className={"pr-4 flex items-center"}>
+      <div className={"flex items-center pr-4"}>
         <div className={"tooltip"} data-tip={"Edit"}>
-          <Link className={"btn btn-sm btn-ghost"} href={`/admin/files/${props.data.bucketId}/${props.data.$id}`}>
+          <Link className={"btn btn-ghost btn-sm"} href={`/admin/files/${props.data.bucketId}/${props.data.$id}`}>
             <i className={"fa-solid fa-pen"} />
           </Link>
         </div>
         <div className={"tooltip"} data-tip={"Download"}>
-          <Link className={"btn btn-sm btn-ghost"} target={"_blank"} href={downloadUrl}>
+          <Link className={"btn btn-ghost btn-sm"} target={"_blank"} href={downloadUrl}>
             <i className={"fa-solid fa-download"} />
           </Link>
         </div>
         <div className={"tooltip"} data-tip={"Preview"}>
-          <Link className={"btn btn-sm btn-ghost"} target={"_blank"} href={previewUrl}>
+          <Link className={"btn btn-ghost btn-sm"} target={"_blank"} href={previewUrl}>
             <i className={"fa-solid fa-magnifying-glass"} />
           </Link>
         </div>

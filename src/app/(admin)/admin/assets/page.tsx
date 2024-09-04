@@ -7,8 +7,8 @@ export const revalidate = 0;
 export default async function Page() {
   const assets = await getAssets();
   return (
-    <main className={"p-4 space-y-2"}>
-      <Link className={"w-full btn btn-primary"} href={`/admin/assets/set`}>
+    <main className={"space-y-2 p-4"}>
+      <Link className={"btn btn-primary w-full"} href={`/admin/assets/set`}>
         Set Asset
       </Link>
       {assets.map((asset) => (

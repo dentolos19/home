@@ -25,7 +25,7 @@ export default function Page(props: RouteProps) {
         {/* <meta name={"twitter:image"} content={post.imageSrc}/> */}
       </head>
       <main className={"grid place-items-center"}>
-        <div className={"my-4 card bg-base-300"}>
+        <div className={"card my-4 bg-base-300"}>
           <div className={"card-body"}>
             <p className={"prose"}>
               <Markdown>{post.content}</Markdown>

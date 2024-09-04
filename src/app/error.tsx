@@ -15,7 +15,7 @@ export default function Error(props: ErrorRouteProps) {
           <h2 className={"card-title"}>Oops!</h2>
           <p>Something went wrong in the code, sorry about that!</p>
           <div className={"card-actions"}>
-            <button className={"btn btn-sm btn-primary"} onClick={props.reset}>
+            <button className={"btn btn-primary btn-sm"} onClick={props.reset}>
               Reload
             </button>
           </div>
