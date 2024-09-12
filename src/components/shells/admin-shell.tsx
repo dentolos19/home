@@ -38,7 +38,7 @@ const links: NavigationItemData[] = [
 export default function AdminShell(props: { children: React.ReactNode }) {
   const auth = useAuth();
 
-  if (auth.loading) return <LoadingView />
+  if (auth.loading) return <LoadingView />;
   if (!auth.user) return <LoginView />;
 
   const handleLogout = () => {

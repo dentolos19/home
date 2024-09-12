@@ -7,7 +7,7 @@ export default function Page() {
         <div className={"grid grid-cols-[auto,1fr] overflow-hidden rounded-box bg-base-300"}>
           <div className={"avatar mr-8"}>
             <div className={"size-24 md:size-32"}>
-              <img src={"/assets/cavatar"} alt={"Avatar"} />
+              <img src={"/assets/portrait"} alt={"Avatar"} />
             </div>
           </div>
           <div className={"flex min-w-0 flex-col justify-center"}>
