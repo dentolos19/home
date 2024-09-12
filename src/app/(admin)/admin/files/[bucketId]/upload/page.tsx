@@ -1,7 +1,7 @@
 "use client";
 
 import { uploadAction } from "@/app/(admin)/admin/files/actions";
-import FormContainer from "@/components/form-container";
+import FormContainer from "@/components/ui/form-container";
 import FormControl from "@/components/ui/form-control";
 import { patterns, replaceFormValue } from "@/lib/utils";
 import { RouteProps } from "@/types";

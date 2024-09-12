@@ -62,7 +62,7 @@ export default function AdminShell(props: { children: React.ReactNode }) {
                   <div className={"avatar cursor-pointer"}>
                     <div className={"size-8 rounded-full"}>
                       <img
-                        src={"https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
+                        src={"/assets/avatar"}
                         alt={"Avatar"}
                       />
                     </div>

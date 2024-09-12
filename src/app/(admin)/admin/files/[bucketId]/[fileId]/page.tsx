@@ -1,6 +1,6 @@
 import { deleteAction } from "@/app/(admin)/admin/assets/actions";
 import NotFound from "@/app/not-found";
-import FormContainer from "@/components/form-container";
+import FormContainer from "@/components/ui/form-container";
 import FormControl from "@/components/ui/form-control";
 import { storage } from "@/lib/integrations/appwrite";
 import { RouteProps } from "@/types";

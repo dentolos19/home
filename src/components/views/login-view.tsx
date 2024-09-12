@@ -1,5 +1,5 @@
 import { useAuth } from "@/components/contexts/auth-context";
-import FormContainer from "@/components/form-container";
+import FormContainer from "@/components/ui/form-container";
 import FormControl from "@/components/ui/form-control";
 
 export default function LoginView() {

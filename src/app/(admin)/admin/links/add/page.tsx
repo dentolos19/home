@@ -1,5 +1,5 @@
 import { setAction } from "@/app/(admin)/admin/links/actions";
-import FormContainer from "@/components/form-container";
+import FormContainer from "@/components/ui/form-container";
 import FormControl from "@/components/ui/form-control";
 import { patterns } from "@/lib/utils";
 

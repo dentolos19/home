@@ -1,7 +1,7 @@
 "use client";
 
 import { setAction } from "@/app/(admin)/admin/assets/actions";
-import FormContainer from "@/components/form-container";
+import FormContainer from "@/components/ui/form-container";
 import FormControl from "@/components/ui/form-control";
 import { storage, storageIds } from "@/lib/integrations/appwrite";
 import { patterns, replaceFormValue } from "@/lib/utils";

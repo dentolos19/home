@@ -1,6 +1,6 @@
 import { deleteAction, setAction } from "@/app/(admin)/admin/links/actions";
 import NotFound from "@/app/not-found";
-import FormContainer from "@/components/form-container";
+import FormContainer from "@/components/ui/form-container";
 import FormControl from "@/components/ui/form-control";
 import { getLink } from "@/lib/data/links";
 import { RouteProps } from "@/types";
