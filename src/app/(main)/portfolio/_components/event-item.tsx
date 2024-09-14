@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 
-export default function EventItem(props: {
+type EventItemProps = {
   data: {
     id: string;
     name: string;
@@ -15,7 +15,9 @@ export default function EventItem(props: {
     src: string;
     href: string;
   };
-}) {
+};
+
+export default function EventItem(props: EventItemProps) {
   const handleClick = () => {
     const dialog = document.getElementById(props.data.id) as HTMLDialogElement;
     dialog.showModal();
@@ -25,11 +27,14 @@ export default function EventItem(props: {
     <>
       <button
         className={"card cursor-pointer bg-base-300 text-left transition hover:bg-base-200"}
-        type={"button"}
         onClick={handleClick}
       >
         <figure>
-          <img className={"aspect-video object-cover"} src={props.data.src || "/assets/placeholder"} alt={"Preview"} />
+          <img
+            className={"aspect-video object-cover"}
+            src={props.data.src || "/assets/placeholder.png"}
+            alt={"Preview"}
+          />
         </figure>
         <div className={"card-body"}>
           <h2 className={"card-title"}>

@@ -1,4 +1,4 @@
-import NotFound from "@/app/not-found";
+import NotFoundBoundary from "@/app/not-found";
 import { getPost } from "@/lib/data/blog";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
@@ -6,12 +6,10 @@ import Markdown from "react-markdown";
 
 export default function Page(props: RouteProps) {
   const post = getPost(props.params.id);
-  if (!post) {
-    return <NotFound />;
-  }
-  if (post.url) {
-    redirect(post.url);
-  }
+
+  if (!post) return <NotFoundBoundary />;
+  if (post.url) return redirect(post.url);
+
   return (
     <>
       <head>

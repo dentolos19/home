@@ -3,7 +3,7 @@
 import { deleteAsset, setAsset } from "@/lib/data/assets";
 import { redirect } from "next/navigation";
 
-export async function setAction(data: FormData) {
+export async function setAssetAction(data: FormData) {
   const id = data.get("id") as string;
   const bucketId = data.get("bucketId") as string | undefined;
   const fileId = data.get("fileId") as string | undefined;
@@ -24,7 +24,7 @@ export async function setAction(data: FormData) {
   }
 }
 
-export async function deleteAction(data: FormData) {
+export async function deleteAssetAction(data: FormData) {
   const id = data.get("id") as string;
   const success = await deleteAsset(id);
 

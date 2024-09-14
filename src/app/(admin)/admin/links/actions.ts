@@ -3,7 +3,7 @@
 import { deleteLink, setLink } from "@/lib/data/links";
 import { redirect } from "next/navigation";
 
-export async function setAction(data: FormData) {
+export async function setLinkAction(data: FormData) {
   const id = data.get("id") as string;
   const url = data.get("url") as string;
 
@@ -18,7 +18,7 @@ export async function setAction(data: FormData) {
   }
 }
 
-export async function deleteAction(data: FormData) {
+export async function deleteLinkAction(data: FormData) {
   const id = data.get("id") as string;
 
   const success = await deleteLink(id);

@@ -1,5 +1,5 @@
-import { deleteAction, setAction } from "@/app/(admin)/admin/links/actions";
-import NotFound from "@/app/not-found";
+import { deleteLinkAction, setLinkAction } from "@/app/(admin)/admin/links/actions";
+import NotFoundBoundary from "@/app/not-found";
 import FormContainer from "@/components/ui/form-container";
 import FormControl from "@/components/ui/form-control";
 import { getLink } from "@/lib/data/links";
@@ -11,17 +11,15 @@ export default async function Page(props: RouteProps) {
   const id = props.params.id;
   const record = await getLink(id);
 
-  if (!record) {
-    return <NotFound />;
-  }
+  if (!record) return <NotFoundBoundary />;
 
   return (
     <main className={"grid place-items-center"}>
       <FormContainer
         title={"Edit Link"}
         actions={[
-          { label: "Save", color: "primary", action: setAction },
-          { label: "Delete", color: "error", action: deleteAction },
+          { label: "Save", color: "primary", action: setLinkAction },
+          { label: "Delete", color: "error", action: deleteLinkAction },
         ]}
       >
         <FormControl label={"ID"}>

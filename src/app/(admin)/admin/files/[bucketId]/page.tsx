@@ -1,5 +1,5 @@
 import FileItem from "@/app/(admin)/_components/file-item";
-import NotFound from "@/app/not-found";
+import NotFoundBoundary from "@/app/not-found";
 import { storage } from "@/lib/integrations/appwrite";
 import { RouteProps } from "@/types";
 import Link from "next/link";
@@ -10,9 +10,7 @@ export default async function Page(props: RouteProps) {
   const bucketId = props.params.bucketId;
   const bucket = await storage.listFiles(bucketId).catch(() => undefined);
 
-  if (!bucket) {
-    return <NotFound />;
-  }
+  if (!bucket) return <NotFoundBoundary />;
 
   return (
     <main className={"space-y-2 p-4"}>

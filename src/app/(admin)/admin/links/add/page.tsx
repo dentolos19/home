@@ -1,4 +1,4 @@
-import { setAction } from "@/app/(admin)/admin/links/actions";
+import { setLinkAction } from "@/app/(admin)/admin/links/actions";
 import FormContainer from "@/components/ui/form-container";
 import FormControl from "@/components/ui/form-control";
 import { patterns } from "@/lib/utils";
@@ -6,7 +6,7 @@ import { patterns } from "@/lib/utils";
 export default async function Page() {
   return (
     <main className={"grid place-items-center"}>
-      <FormContainer title={"Add Link"} actions={[{ label: "Add", color: "primary", action: setAction }]}>
+      <FormContainer title={"Add Link"} actions={[{ label: "Add", color: "primary", action: setLinkAction }]}>
         <FormControl label={"ID"}>
           <input className={"input"} type={"text"} name={"id"} pattern={patterns.safeInput.source} required />
         </FormControl>

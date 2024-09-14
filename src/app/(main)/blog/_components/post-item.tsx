@@ -1,13 +1,15 @@
 import Link from "next/link";
 
-export default function PostItem(props: {
+type PostItemProps = {
   data: {
     title: string;
     excerpt?: string;
     date: string;
     href: string;
   };
-}) {
+};
+
+export default function PostItem(props: PostItemProps) {
   return (
     <Link className={"card cursor-pointer bg-base-300 transition hover:bg-base-200"} href={props.data.href}>
       <div className={"card-body"}>

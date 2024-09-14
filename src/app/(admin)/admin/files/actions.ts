@@ -5,7 +5,7 @@ import { renameFile } from "@/lib/utils";
 import { ID } from "appwrite";
 import { redirect } from "next/navigation";
 
-export async function uploadAction(data: FormData) {
+export async function uploadFileAction(data: FormData) {
   const bucketId = data.get("bucketId") as string;
   const file = data.get("file") as File;
   const name = data.get("name") as string;
@@ -22,7 +22,7 @@ export async function uploadAction(data: FormData) {
   }
 }
 
-export async function deleteAction(data: FormData) {
+export async function deleteFileAction(data: FormData) {
   const bucketId = data.get("bucketId") as string;
   const fileId = data.get("fileId") as string;
 

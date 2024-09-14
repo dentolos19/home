@@ -1,6 +1,6 @@
 "use client";
 
-import { setAction } from "@/app/(admin)/admin/assets/actions";
+import { setAssetAction } from "@/app/(admin)/admin/assets/actions";
 import FormContainer from "@/components/ui/form-container";
 import FormControl from "@/components/ui/form-control";
 import { storage, storageIds } from "@/lib/integrations/appwrite";
@@ -31,7 +31,7 @@ export default function Page() {
 
   return (
     <main className={"grid place-items-center"}>
-      <FormContainer title={"Set Asset"} actions={[{ label: "Set", color: "primary", action: setAction }]}>
+      <FormContainer title={"Set Asset"} actions={[{ label: "Set", color: "primary", action: setAssetAction }]}>
         <FormControl label={"Bucket ID"}>
           <select className={"select"} name={"bucketId"} onChange={onBucketChange}>
             <option disabled selected>

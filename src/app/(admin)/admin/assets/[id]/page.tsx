@@ -1,5 +1,5 @@
-import { deleteAction } from "@/app/(admin)/admin/assets/actions";
-import NotFound from "@/app/not-found";
+import { deleteAssetAction } from "@/app/(admin)/admin/assets/actions";
+import NotFoundBoundary from "@/app/not-found";
 import FormContainer from "@/components/ui/form-container";
 import FormControl from "@/components/ui/form-control";
 import { getAsset } from "@/lib/data/assets";
@@ -11,13 +11,11 @@ export default async function Page(props: RouteProps) {
   const id = props.params.id;
   const record = await getAsset(id);
 
-  if (!record) {
-    return <NotFound />;
-  }
+  if (!record) return <NotFoundBoundary />;
 
   return (
     <main className={"grid place-items-center"}>
-      <FormContainer title={"Edit Asset"} actions={[{ label: "Delete", color: "error", action: deleteAction }]}>
+      <FormContainer title={"Edit Asset"} actions={[{ label: "Delete", color: "error", action: deleteAssetAction }]}>
         <FormControl label={"ID"}>
           <input className={"input"} type={"text"} name={"id"} defaultValue={record.id} readOnly />
         </FormControl>
