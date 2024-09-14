@@ -12,8 +12,8 @@ export default function Error(props: ErrorRouteProps) {
     <main className={"grid place-items-center"}>
       <div className={"card bg-base-300"}>
         <div className={"card-body items-center text-center"}>
-          <h2 className={"card-title"}>Oops!</h2>
-          <p>Something went wrong in the code, sorry about that!</p>
+          <div className={"card-title"}>Oops!</div>
+          <div>Something went wrong in the code, sorry about that.</div>
           <div className={"card-actions"}>
             <button className={"btn btn-primary btn-sm"} onClick={props.reset}>
               Reload

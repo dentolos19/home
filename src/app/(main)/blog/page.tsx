@@ -23,12 +23,13 @@ const filters = [
 ];
 
 export default async function Page(props: RouteProps) {
+  const posts = getPosts();
   const currentFilter = filters.find((filter) => filter.category === props.searchParams?.category) ?? filters[0];
-  const posts = getPosts().filter(
+  const filteredPosts = posts.filter(
     (post) =>
-      // Removes post marked as draft.
+      // removes post marked as draft
       !post.draft &&
-      // Filter by category, does not filter when category is undefined.
+      // filter by category, does not filter when category is undefined
       (!currentFilter.category || post.category.includes(currentFilter.category)),
   );
 
@@ -47,7 +48,7 @@ export default async function Page(props: RouteProps) {
           ))}
         </div>
         <div className={"flex flex-col gap-2"}>
-          {posts.map((post) => (
+          {filteredPosts.map((post) => (
             <PostItem
               key={post.id}
               data={{

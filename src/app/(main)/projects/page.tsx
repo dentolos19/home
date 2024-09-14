@@ -35,19 +35,33 @@ const filters = [
   },
 ];
 
-export const revalidate = 0;
+export const revalidate = 86400; // revalidate data every 24 hours
 
 export default async function Page(props: RouteProps) {
+  const repos = await getRepos("dentolos19").catch(() => null);
+
+  if (!repos)
+    return (
+      <main className={"grid place-items-center"}>
+        <div className={"card bg-base-300"}>
+          <div className={"card-body items-center text-center"}>
+            <div className={"card-title"}>Oops!</div>
+            <div>We are unable to fetch data from GitHub.</div>
+          </div>
+        </div>
+      </main>
+    );
+
   const currentFilter = filters.find((filter) => filter.topic === props.searchParams?.topic) ?? filters[0];
-  const repos = (await getRepos("dentolos19"))
+  const filteredRepo = repos
     .filter(
       (repo) =>
-        // Remove repos marked with "personal".
+        // remove repos marked with "personal"
         !repo.topics.includes("personal") &&
-        // Filter by topic, does not filter when topic is undefined.
+        // filter by topic, does not filter when topic is undefined
         (!currentFilter.topic || repo.topics.includes(currentFilter.topic)),
     )
-    // Sort the repos by stars
+    // sort the repos by stars
     .sort((a, b) => b.stargazers_count - a.stargazers_count);
 
   return (
@@ -65,7 +79,7 @@ export default async function Page(props: RouteProps) {
           ))}
         </div>
         <div className={"flex flex-col gap-2"}>
-          {repos.map((repo) => (
+          {filteredRepo.map((repo) => (
             <ProjectItem
               key={repo.full_name}
               data={{

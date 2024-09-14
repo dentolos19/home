@@ -29,7 +29,7 @@
     "private": false,
     "role": "Operations Developer",
     "description": "As the operations developer, I developed and support the backend operations of this event.",
-    "src": "",
+    "src": "/assets/events/nypsolve.jpg",
     "href": "https://nyptech-activities.vercel.app/solve"
   },
   {
@@ -40,7 +40,7 @@
     "private": false,
     "role": "Media In-charge",
     "description": "I was part of the committee that organized the inaugural PFP Club Camp. As the media in-charge of the event, I was responsible for creating the promotional materials for the event, including the posters, Instagram stories and the montage video.",
-    "src": "/assets/events-pfpcc24",
+    "src": "/assets/events/pfpcc24.jpg",
     "href": ""
   },
   {
@@ -51,7 +51,7 @@
     "private": false,
     "role": "Honorary Ushurer",
     "description": "",
-    "src": "https://nyptech.vercel.app/assets/blog/nyplink-committee.jpg",
+    "src": "/assets/events/nyplink.jpg",
     "href": "https://nyptech.vercel.app/blog/nyp-link"
   },
   {
@@ -62,7 +62,7 @@
     "private": false,
     "role": "AR Developer",
     "description": "I was part of the team leading an outreach programme at Serangoon Garden Secondary School. I was involved in developing the AR cards that help students learn the United Nations Sustainable Development Goals.",
-    "src": "/assets/events-pfpoutreach",
+    "src": "/assets/events/pfpoutreach.jpg",
     "href": ""
   },
   {
@@ -73,7 +73,7 @@
     "private": false,
     "role": "Student Mentor",
     "description": "",
-    "src": "/assets/events-pfpfmo24",
+    "src": "/assets/events/pfpfmo24.jpg",
     "href": ""
   },
   {
@@ -84,7 +84,7 @@
     "private": false,
     "role": "Logistics In-charge",
     "description": "I was a committee member involved in organizing NYP's PFP Open House 2024. I was in charge of compiling the overall logistics of the event, developing the microsite detailing PFP students' experiences, and ensuring that nothing went wrong during the actual event.",
-    "src": "/assets/events-oh24",
+    "src": "/assets/events/oh24.jpg",
     "href": ""
   },
   {
