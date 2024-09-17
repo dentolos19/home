@@ -1,13 +1,13 @@
 "use client";
 
+import { hashString } from "@/lib/utils";
 import clsx from "clsx";
 import Link from "next/link";
 
 type EventItemProps = {
   data: {
-    id: string;
-    name: string;
     date: string;
+    name: string;
     status: string;
     private: boolean;
     role: string;
@@ -18,8 +18,10 @@ type EventItemProps = {
 };
 
 export default function EventItem(props: EventItemProps) {
+  const id = hashString(props.data.name);
+
   const handleClick = () => {
-    const dialog = document.getElementById(props.data.id) as HTMLDialogElement;
+    const dialog = document.getElementById(id) as HTMLDialogElement;
     dialog.showModal();
   };
 
@@ -37,7 +39,7 @@ export default function EventItem(props: EventItemProps) {
           />
         </figure>
         <div className={"card-body"}>
-          <h2 className={"card-title"}>
+          <div className={"card-title"}>
             {props.data.private ? "[Redacted]" : props.data.name}
             <div
               className={clsx(
@@ -49,14 +51,14 @@ export default function EventItem(props: EventItemProps) {
             >
               {props.data.status}
             </div>
-          </h2>
-          <p>{props.data.date}</p>
+          </div>
+          <div>{props.data.date}</div>
           <div className={"card-actions"}>
             <div className={"badge badge-outline"}>{props.data.role}</div>
           </div>
         </div>
       </button>
-      <dialog id={props.data.id} className={"modal"}>
+      <dialog id={id} className={"modal"}>
         <div className={"modal-box"}>
           <form method={"dialog"}>
             <button className={"btn btn-circle btn-ghost btn-sm absolute right-4 top-4"} type={"submit"}>

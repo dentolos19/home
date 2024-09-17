@@ -1,9 +1,14 @@
+import achievements from "@/content/data/achievements.json";
 import events from "@/content/data/events.json";
 import fs from "node:fs";
 import path from "node:path";
 
 export function getLocalEvents() {
   return events;
+}
+
+export function getLocalAchievements() {
+  return achievements;
 }
 
 export function getLocalFile(name: string) {

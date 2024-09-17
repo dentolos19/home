@@ -1,8 +1,7 @@
 [
   {
-    "id": "y1-amazingrace",
-    "name": "Amazing Race",
     "date": "2024-11-23",
+    "name": "Amazing Race",
     "status": "Upcoming",
     "private": true,
     "role": "Programmes In-charge",
@@ -11,9 +10,8 @@
     "href": ""
   },
   {
-    "id": "y1-fireside",
-    "name": "Fireside Talk",
     "date": "2024-11-01",
+    "name": "Fireside Talk",
     "status": "Upcoming",
     "private": false,
     "role": "Programmes-cum-Welfare In-charge",
@@ -22,9 +20,8 @@
     "href": ""
   },
   {
-    "id": "y1-nypsolve",
-    "name": "NYP Solve",
     "date": "2024-09-09",
+    "name": "NYP Solve",
     "status": "Ongoing",
     "private": false,
     "role": "Operations Developer",
@@ -33,9 +30,8 @@
     "href": "https://nyptech-activities.vercel.app/solve"
   },
   {
-    "id": "y1-pfpcc24",
-    "name": "PFP Club Camp",
     "date": "2024-07-20 and 2024-07-27",
+    "name": "PFP Club Camp",
     "status": "Ended",
     "private": false,
     "role": "Media In-charge",
@@ -44,9 +40,8 @@
     "href": ""
   },
   {
-    "id": "y1-nyplink",
-    "name": "NYP Link",
     "date": "2024-05-17",
+    "name": "NYP Link",
     "status": "Ended",
     "private": false,
     "role": "Honorary Ushurer",
@@ -55,9 +50,8 @@
     "href": "https://nyptech.vercel.app/blog/nyp-link"
   },
   {
-    "id": "pfp-outreach",
-    "name": "PFP Outreach @ SGSS",
     "date": "2024-05-14",
+    "name": "PFP Outreach @ SGSS",
     "status": "Ended",
     "private": false,
     "role": "AR Developer",
@@ -66,9 +60,8 @@
     "href": ""
   },
   {
-    "id": "pfp-fmo2024",
-    "name": "PFP Freshmen Orientation",
     "date": "2024-04-04",
+    "name": "PFP Freshmen Orientation",
     "status": "Ended",
     "private": false,
     "role": "Student Mentor",
@@ -77,9 +70,8 @@
     "href": ""
   },
   {
-    "id": "pfp-oh2024",
-    "name": "PFP Open House",
     "date": "2024-01-03 to 2024-01-06",
+    "name": "PFP Open House",
     "status": "Ended",
     "private": false,
     "role": "Logistics In-charge",
@@ -88,9 +80,8 @@
     "href": ""
   },
   {
-    "id": "pfp-designcomp2024",
-    "name": "PFP Design Competition",
     "date": "2023",
+    "name": "PFP Design Competition",
     "status": "Ended",
     "private": false,
     "role": "Student Liaison",

@@ -2,6 +2,17 @@ export const patterns = {
   safeInput: /^[a-zA-Z0-9\-_]*$/g,
 };
 
+export function hashString(value: string) {
+  let hash = 0;
+  if (value.length == 0) return hash.toString();
+  for (let i = 0; i < value.length; i++) {
+    const char = value.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash;
+  }
+  return hash.toString();
+}
+
 export function generateString(length: number) {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let result = "";
