@@ -1,5 +1,4 @@
-import { getAsset } from "@/lib/data/assets";
-import { storage } from "@/lib/integrations/appwrite";
+import { getLocalAssets } from "@/lib/local";
 import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
@@ -7,11 +6,8 @@ import { NextRequest } from "next/server";
 export async function GET(req: NextRequest, props: RouteProps) {
   const id = props.params.id;
 
-  const record = await getAsset(id);
-  if (!record) redirect("/");
+  const assets = getLocalAssets();
+  const asset = assets.find((asset) => asset.id === id);
 
-  let url: string = storage.getFilePreview(record.bucketId, record.fileId);
-  if (record.download) url = storage.getFileDownload(record.bucketId, record.fileId);
-
-  redirect(url);
+  redirect(asset?.url || "/");
 }

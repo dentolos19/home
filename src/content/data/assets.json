@@ -1,0 +1,22 @@
+[
+  {
+    "id": "placeholder",
+    "url": "/assets/global/placeholder.png"
+  },
+  {
+    "id": "avatar",
+    "url": "/assets/global/avatar.jpg"
+  },
+  {
+    "id": "bee",
+    "url": "/assets/global/bee.jpg"
+  },
+  {
+    "id": "face",
+    "url": "/assets/global/face.jpg"
+  },
+  {
+    "id": "portrait",
+    "url": "/assets/global/face.jpg"
+  }
+]

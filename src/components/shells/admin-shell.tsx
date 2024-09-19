@@ -4,7 +4,6 @@ import { useAuth } from "@/components/contexts/auth-context";
 import NavigationItem, { NavigationItemData } from "@/components/navigation-item";
 import LoadingView from "@/components/views/loading-view";
 import LoginView from "@/components/views/login-view";
-import { storageIds } from "@/lib/integrations/appwrite";
 import Link from "next/link";
 
 const links: NavigationItemData[] = [
@@ -17,21 +16,6 @@ const links: NavigationItemData[] = [
     label: "Links",
     href: "/admin/links",
     icon: "fa-solid fa-link",
-  },
-  {
-    label: "Assets",
-    href: "/admin/assets",
-    icon: "fa-solid fa-file",
-  },
-  {
-    label: "Files",
-    icon: "fa-solid fa-folder",
-    subItems: [
-      ...Object.values(storageIds).map((bucket) => ({
-        label: bucket.label,
-        href: `/admin/files/${bucket.id}`,
-      })),
-    ],
   },
 ];
 
@@ -61,10 +45,7 @@ export default function AdminShell(props: { children: React.ReactNode }) {
                 <summary className={"tooltip tooltip-left mr-2 flex items-center"} data-tip={"Account"}>
                   <div className={"avatar cursor-pointer"}>
                     <div className={"size-8 rounded-full"}>
-                      <img
-                        src={"/assets/avatar"}
-                        alt={"Avatar"}
-                      />
+                      <img src={"/assets/avatar"} alt={"Avatar"} />
                     </div>
                   </div>
                 </summary>

@@ -22,7 +22,7 @@ export function generateString(length: number) {
   return result;
 }
 
-export function renameFile(file: File, name: string, withExtension: boolean = true) {
+export function changeFileName(file: File, name: string, withExtension: boolean = true) {
   const blob = file.slice(0, file.size, file.type);
   if (withExtension) name = `${name}.${file.name.split(".").pop()}`;
   return new File([blob], name, { type: file.type });
