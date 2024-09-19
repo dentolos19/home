@@ -1,18 +1,21 @@
 import { redis } from "@/lib/integrations/redis";
 
-export type MyLink = MyLinkRecord & { id: string };
-export type MyLinkRecord = {
+export type Link = LinkRecord & {
+  id: string;
+};
+
+export type LinkRecord = {
   url: string;
 };
 
 export async function getLink(id: string) {
   try {
-    const link = await redis.get<MyLinkRecord>(`links:${id}`);
+    const link = await redis.get<LinkRecord>(`links:${id}`);
     if (!link) return undefined;
     return {
       id,
       ...link,
-    } as MyLink;
+    } as Link;
   } catch (error) {
     return undefined;
   }
@@ -22,10 +25,10 @@ export async function getLinks() {
   try {
     const keys = await redis.keys("links:*");
     const links = await redis.mget(keys);
-    const records: MyLink[] = [];
+    const records: Link[] = [];
     keys.forEach((key, index) => {
       const id = key.split(":")[1];
-      const record = links[index] as MyLinkRecord;
+      const record = links[index] as LinkRecord;
       records.push({
         id,
         ...record,
@@ -37,7 +40,7 @@ export async function getLinks() {
   }
 }
 
-export async function setLink(id: string, record: MyLinkRecord) {
+export async function setLink(id: string, record: LinkRecord) {
   try {
     await redis.set(`links:${id}`, record);
     return true;

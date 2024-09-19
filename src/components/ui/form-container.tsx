@@ -7,7 +7,7 @@ type FormContainerProps = {
   title: string;
   actions: {
     label: string;
-    color: "primary" | "secondary" | "success" | "warning" | "error" | "info";
+    color: "primary" | "secondary" | "accent" | "success" | "info" | "warning" | "error" | "neutral";
     action: (data: FormData) => void;
   }[];
 };
@@ -20,7 +20,7 @@ export default function FormContainer(props: FormContainerProps) {
         <div className={"my-2 flex flex-col gap-2"}>{props.children}</div>
         <div className={"card-actions justify-end"}>
           {props.actions.map((action) => (
-            <FormButton key={action.label} className={`btn btn-sm btn-${action.color}`} formAction={action.action}>
+            <FormButton key={action.label} className={`btn btn-sm btn-${action.color} btn-`} formAction={action.action}>
               {action.label}
             </FormButton>
           ))}

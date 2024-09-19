@@ -14,7 +14,13 @@ export type NavigationItemData = {
   }[];
 };
 
-export default function NavigationItem(props: { className?: string; data: NavigationItemData; bottomNav?: boolean }) {
+type NavigationItemProps = {
+  className?: string;
+  data: NavigationItemData;
+  bottomNav?: boolean;
+};
+
+export default function NavigationItem(props: NavigationItemProps) {
   const pathname = usePathname();
 
   if (props.data.subItems && !props.bottomNav)

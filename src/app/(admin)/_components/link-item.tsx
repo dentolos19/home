@@ -1,10 +1,10 @@
 "use client";
 
-import { MyLink } from "@/lib/data/links";
+import { Link as LinkData } from "@/lib/data/links";
 import Link from "next/link";
 
 type LinkItemProps = {
-  data: MyLink;
+  data: LinkData;
 };
 
 export default function LinkItem(props: LinkItemProps) {
