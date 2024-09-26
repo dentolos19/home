@@ -25,10 +25,10 @@ const filters = [
   //   label: "Rust",
   //   topic: "rust",
   // },
-  {
-    label: "Games",
-    topic: "game",
-  },
+  // {
+  //   label: "Games",
+  //   topic: "game",
+  // },
   {
     label: "Extensions",
     topic: "extension",

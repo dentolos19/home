@@ -5,7 +5,7 @@
       "name": "Production",
       "type": "node-terminal",
       "request": "launch",
-      "command": "node --run build && node --run start",
+      "command": "pnpm build && pnpm start",
       "serverReadyAction": {
         "pattern": "Local:.+(https?://.+)",
         "uriFormat": "%s",
@@ -16,7 +16,7 @@
       "name": "Development",
       "type": "node-terminal",
       "request": "launch",
-      "command": "node --run dev",
+      "command": "pnpm dev",
       "serverReadyAction": {
         "pattern": "Local:.+(https?://.+)",
         "uriFormat": "%s",
