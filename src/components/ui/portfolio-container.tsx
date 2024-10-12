@@ -16,11 +16,6 @@ const links: NavigationItemData[] = [
     href: "/portfolio/achievements",
     icon: "fa-solid fa-star",
   },
-  {
-    label: "Experience",
-    href: "/portfolio/experience",
-    icon: "fa-solid fa-building",
-  },
 ];
 
 export default function PortfolioContainer(props: { children: React.ReactNode }) {

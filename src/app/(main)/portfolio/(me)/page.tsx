@@ -1,3 +1,4 @@
+import testimonials from "@/content/data/testimonials.json";
 import Link from "next/link";
 
 export default function Page() {
@@ -11,8 +12,35 @@ export default function Page() {
             </div>
           </div>
           <div className={"flex min-w-0 flex-col justify-center"}>
-            <h2 className={"mb-1 truncate text-xl font-bold"}>Dennise Catolos</h2>
-            <p className={"truncate"}>Aspiring Technologist</p>
+            <div className={"mb-1 truncate text-2xl font-bold"}>Dennise Catolos</div>
+            <div className={"truncate"}>Aspiring Technologist</div>
+          </div>
+        </div>
+        <div className={"rounded-box bg-base-300 p-6"}>
+          <div className={"mb-2 text-xl font-bold"}>About Me</div>
+          <div>
+            As a passionate IT student at Nanyang Polytechnic, I am driven to create impactful software solutions that
+            contribute to a better future. ❤️‍🔥 My journey in technology began in primary school, where I experimented
+            with coding small programs. 🧑‍💻 Since then, I have developed a strong technical foundation through hands-on
+            experience with various programming languages and technologies, including .NET, Python, React, and Next.js.
+          </div>
+        </div>
+        <div className={"rounded-box bg-base-300 p-6"}>
+          <div className={"mb-2 text-xl font-bold"}>Testimonials</div>
+          <div className={"space-y-4"}>
+            {testimonials.map((testimonial, index) => (
+              <div key={index}>
+                <div className={"mb-1 text-sm"}>
+                  <span>“</span>
+                  <span className={"italic"}>{testimonial.content}</span>
+                  <span>”</span>
+                </div>
+                <div className={"mb-1 text-xs text-gray-400"}>
+                  <span>— </span>
+                  <span>{testimonial.author}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
         <Link className={"btn btn-primary"} href={"/go/linkedin"}>

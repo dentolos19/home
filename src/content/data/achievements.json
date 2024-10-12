@@ -9,18 +9,18 @@
     "date": "2023-04-06",
     "name": "Academic Achievement Award",
     "description": "Performed best in Additional Mathematics and Science (Physics, Chemistry) in N-Level.",
-    "src": "/assets/placeholder.png"
+    "src": "/assets/achievements/aaa.png"
   },
   {
     "date": "2022-09-28",
     "name": "NYAA Silver Award",
     "description": "",
-    "src": "/assets/placeholder.png"
+    "src": "/assets/achievements/nyaa.png"
   },
   {
     "date": "2021-11",
     "name": "NCAC Silver Award",
     "description": "",
-    "src": "/assets/placeholder.png"
+    "src": "/assets/achievements/ncac.png"
   }
 ]
