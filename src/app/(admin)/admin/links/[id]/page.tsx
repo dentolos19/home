@@ -8,7 +8,7 @@ import { RouteProps } from "@/types";
 export const revalidate = 0;
 
 export default async function Page(props: RouteProps) {
-  const id = props.params.id;
+  const id = (await props.params).id;
   const record = await getLink(id);
 
   if (!record) return <NotFoundBoundary />;

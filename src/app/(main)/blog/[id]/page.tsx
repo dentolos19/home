@@ -4,8 +4,8 @@ import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
 import Markdown from "react-markdown";
 
-export default function Page(props: RouteProps) {
-  const post = getPost(props.params.id);
+export default async function Page(props: RouteProps) {
+  const post = getPost((await props.params).id);
 
   if (!post) return <NotFoundBoundary />;
   if (post.url) return redirect(post.url);
