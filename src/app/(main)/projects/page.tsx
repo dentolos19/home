@@ -52,7 +52,7 @@ export default async function Page(props: RouteProps) {
       </main>
     );
 
-  const currentFilter = filters.find((filter) => filter.topic === props.searchParams?.topic) ?? filters[0];
+  const currentFilter = filters.find(async (filter) => filter.topic === (await props.searchParams).topic) ?? filters[0];
   const filteredRepo = repos
     .filter(
       (repo) =>

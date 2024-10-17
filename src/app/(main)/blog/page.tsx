@@ -24,7 +24,7 @@ const filters = [
 
 export default async function Page(props: RouteProps) {
   const posts = getPosts();
-  const currentFilter = filters.find((filter) => filter.category === props.searchParams?.category) ?? filters[0];
+  const currentFilter = filters.find(async (filter) => filter.category === (await props.searchParams).category) ?? filters[0];
   const filteredPosts = posts.filter(
     (post) =>
       // removes post marked as draft
