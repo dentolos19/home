@@ -1,5 +1,10 @@
 import EventItem from "@/app/(main)/portfolio/_components/event-item";
 import { getLocalEvents } from "@/lib/local";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Events",
+};
 
 export default async function Page() {
   const events = getLocalEvents();

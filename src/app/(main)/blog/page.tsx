@@ -2,6 +2,7 @@ import PostItem from "@/app/(main)/blog/_components/post-item";
 import FilterSelector from "@/components/filter-selector";
 import { getPosts } from "@/lib/data/blog";
 import { RouteProps } from "@/types";
+import { Metadata } from "next";
 
 const filters = [
   {
@@ -22,9 +23,14 @@ const filters = [
   // },
 ];
 
+export const metadata: Metadata = {
+  title: "Dennise's Blog",
+};
+
 export default async function Page(props: RouteProps) {
   const posts = getPosts();
-  const currentFilter = filters.find(async (filter) => filter.category === (await props.searchParams).category) ?? filters[0];
+  const currentFilter =
+    filters.find(async (filter) => filter.category === (await props.searchParams).category) ?? filters[0];
   const filteredPosts = posts.filter(
     (post) =>
       // removes post marked as draft

@@ -1,5 +1,10 @@
 import { getLocalFile } from "@/lib/local";
+import { Metadata } from "next";
 import Markdown from "react-markdown";
+
+export const metadata: Metadata = {
+  title: "About Dennise",
+};
 
 export default function Page() {
   const content = getLocalFile("about.md");

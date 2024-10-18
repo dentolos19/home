@@ -1,5 +1,10 @@
 import AchievementItem from "@/app/(main)/portfolio/_components/achievement-item";
 import { getLocalAchievements } from "@/lib/local";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Achievements",
+};
 
 export default async function Page() {
   const events = getLocalAchievements();

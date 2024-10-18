@@ -2,6 +2,7 @@ import ProjectItem from "@/app/(main)/projects/_components/project-item";
 import FilterSelector from "@/components/filter-selector";
 import { getRepos } from "@/lib/integrations/github";
 import type { RouteProps } from "@/types";
+import { Metadata } from "next";
 import Link from "next/link";
 
 const filters = [
@@ -34,6 +35,10 @@ const filters = [
     topic: "extension",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Dennise's Projects",
+};
 
 export const revalidate = 86400; // revalidate data every 24 hours
 
