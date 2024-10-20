@@ -22,14 +22,6 @@ const filters = [
     label: "Python",
     topic: "python",
   },
-  // {
-  //   label: "Rust",
-  //   topic: "rust",
-  // },
-  // {
-  //   label: "Games",
-  //   topic: "game",
-  // },
   {
     label: "Extensions",
     topic: "extension",
@@ -43,6 +35,7 @@ export const metadata: Metadata = {
 export const revalidate = 86400; // revalidate data every 24 hours
 
 export default async function Page(props: RouteProps) {
+  const { topic } = await props.searchParams;
   const repos = await getRepos("dentolos19").catch(() => null);
 
   if (!repos)
@@ -57,7 +50,7 @@ export default async function Page(props: RouteProps) {
       </main>
     );
 
-  const currentFilter = filters.find(async (filter) => filter.topic === (await props.searchParams).topic) ?? filters[0];
+  const currentFilter = filters.find((filter) => filter.topic === topic) ?? filters[0];
   const filteredRepo = repos
     .filter(
       (repo) =>

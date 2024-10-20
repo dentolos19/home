@@ -17,10 +17,6 @@ const filters = [
     label: "Guides",
     category: "guides",
   },
-  // {
-  //   label: "Stories",
-  //   category: "stories",
-  // },
 ];
 
 export const metadata: Metadata = {
@@ -28,9 +24,10 @@ export const metadata: Metadata = {
 };
 
 export default async function Page(props: RouteProps) {
+  const { category } = await props.searchParams;
   const posts = getPosts();
-  const currentFilter =
-    filters.find(async (filter) => filter.category === (await props.searchParams).category) ?? filters[0];
+
+  const currentFilter = filters.find((filter) => filter.category === category) ?? filters[0];
   const filteredPosts = posts.filter(
     (post) =>
       // removes post marked as draft
