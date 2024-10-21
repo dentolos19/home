@@ -1,7 +1,7 @@
 import NotFoundBoundary from "@/app/not-found";
 import { getPost } from "@/lib/data/blog";
 import { RouteProps } from "@/types";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import Markdown from "react-markdown";
 

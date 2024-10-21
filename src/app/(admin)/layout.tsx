@@ -4,6 +4,9 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Dennise's Administration",
+  robots: {
+    index: false,
+  },
 };
 
 export default function Layout(props: LayoutProps) {
