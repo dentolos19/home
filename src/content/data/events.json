@@ -1,9 +1,19 @@
 [
   {
+    "date": "2024-11",
+    "name": "NYP Solve",
+    "status": "Upcoming",
+    "private": false,
+    "role": "Programmes Assistant",
+    "description": "",
+    "src": "/assets/events/nypsolve.jpg",
+    "href": "https://activities.nyptech.club/solve"
+  },
+  {
     "date": "2024-11-23",
     "name": "Amazing Race",
     "status": "Upcoming",
-    "private": true,
+    "private": false,
     "role": "Programmes In-charge",
     "description": "",
     "src": "",
@@ -11,23 +21,13 @@
   },
   {
     "date": "2024-11-01",
-    "name": "Fireside Talk",
-    "status": "Upcoming",
+    "name": "Entrepreneur Insights",
+    "status": "Ended",
     "private": false,
     "role": "Programmes-cum-Welfare In-charge",
     "description": "",
-    "src": "",
+    "src": "/assets/events/entrepreneurinsights.png",
     "href": ""
-  },
-  {
-    "date": "2024-09-09",
-    "name": "NYP Solve",
-    "status": "Ongoing",
-    "private": false,
-    "role": "Operations Developer",
-    "description": "As the operations developer, I developed and support the backend operations of this event.",
-    "src": "/assets/events/nypsolve.jpg",
-    "href": "https://nyptech-activities.vercel.app/solve"
   },
   {
     "date": "2024-07-20 and 2024-07-27",
@@ -47,7 +47,7 @@
     "role": "Honorary Ushurer",
     "description": "",
     "src": "/assets/events/nyplink.jpg",
-    "href": "https://nyptech.vercel.app/blog/nyp-link"
+    "href": "https://nyptech.club/blog/nyp-link"
   },
   {
     "date": "2024-05-14",
