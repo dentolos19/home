@@ -15,8 +15,8 @@
     "status": "Upcoming",
     "private": false,
     "role": "Programmes In-charge",
-    "description": "",
-    "src": "",
+    "description": "This event offers participants the opportunity to experience a unique in-flight experience through time. It also encourages them to apply NICE Teamwork, Fish Philosophy and Critical Thinking values and skills that they have acquired throughout their time at Nanyang Polytechnic. Beyond the adventure, this event serves as a platform for students and alumni to bond, creating cherished memories and strengthening friendships.",
+    "src": "/assets/events/amazingrace.png",
     "href": ""
   },
   {
@@ -25,9 +25,9 @@
     "status": "Ended",
     "private": false,
     "role": "Programmes-cum-Welfare In-charge",
-    "description": "",
+    "description": "The event aims to inspire students by showcasing Mr. Satria’s personal and professional achievements, offer practical advice on navigating the tech industry and entrepreneurship, and encourage an open dialogue between Mr. Satria and the students.",
     "src": "/assets/events/entrepreneurinsights.png",
-    "href": ""
+    "href": "https://linkedin.com/posts/activity-7258363880026877952-xCNa"
   },
   {
     "date": "2024-07-20 and 2024-07-27",
@@ -86,7 +86,7 @@
     "private": false,
     "role": "Student Liaison",
     "description": "I was involved in organizing the inaugural PFP Design Competition where PFP students design custom shirts for the cohort. We had over five participants who joined and had over a hundred orders for the shirt.",
-    "src": "",
+    "src": "/assets/events/pfpdesigncomp.png",
     "href": ""
   }
 ]
