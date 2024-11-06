@@ -2,6 +2,7 @@
 title: How to install Microsoft Office with your own configuration
 excerpt: A simple and short guide for installing Microsoft Office for free.
 category: guides
+draft: true
 ---
 
 # Introduction
