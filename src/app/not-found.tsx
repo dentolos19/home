@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-export default function NotFoundBoundary() {
+export default function NotFoundPage() {
   const router = useRouter();
   return (
     <main className={"grid place-items-center"}>

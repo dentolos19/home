@@ -1,6 +1,7 @@
-import AuthProvider from "@/components/contexts/auth-context";
 import { inter } from "@/fonts";
 import { LayoutProps } from "@/types";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -20,7 +21,13 @@ export default function Layout(props: LayoutProps) {
         <script src="https://kit.fontawesome.com/d0674de6ae.js" crossOrigin="anonymous" async />
       </head>
       <body className={inter.className}>
-        <AuthProvider>{props.children}</AuthProvider>
+        <ClerkProvider
+          appearance={{
+            baseTheme: dark,
+          }}
+        >
+          {props.children}
+        </ClerkProvider>
         <Analytics />
       </body>
     </html>

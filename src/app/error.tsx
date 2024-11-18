@@ -3,7 +3,7 @@
 import { ErrorRouteProps } from "@/types";
 import { useEffect } from "react";
 
-export default function ErrorBoundary(props: ErrorRouteProps) {
+export default function ErrorPage(props: ErrorRouteProps) {
   useEffect(() => {
     console.error(props.error);
   }, [props.error]);

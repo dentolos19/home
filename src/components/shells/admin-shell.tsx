@@ -1,9 +1,7 @@
 "use client";
 
-import { useAuth } from "@/components/contexts/auth-context";
 import NavigationItem, { NavigationItemData } from "@/components/navigation-item";
-import LoadingView from "@/components/views/loading-view";
-import LoginView from "@/components/views/login-view";
+import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 const links: NavigationItemData[] = [
@@ -20,15 +18,6 @@ const links: NavigationItemData[] = [
 ];
 
 export default function AdminShell(props: { children: React.ReactNode }) {
-  const auth = useAuth();
-
-  if (auth.loading) return <LoadingView />;
-  if (!auth.user) return <LoginView />;
-
-  const handleLogout = () => {
-    auth.logout();
-  };
-
   return (
     <div className={"drawer lg:drawer-open"}>
       <input id={"drawer"} className={"drawer-toggle"} type={"checkbox"} />
@@ -41,20 +30,9 @@ export default function AdminShell(props: { children: React.ReactNode }) {
               </label>
             </div>
             <div className={"navbar-end"}>
-              <details className={"dropdown dropdown-end"}>
-                <summary className={"tooltip tooltip-left mr-2 flex items-center"} data-tip={"Account"}>
-                  <div className={"avatar cursor-pointer"}>
-                    <div className={"size-8 rounded-full"}>
-                      <img src={"/assets/avatar"} alt={"Avatar"} />
-                    </div>
-                  </div>
-                </summary>
-                <ul className={"menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow"}>
-                  <li>
-                    <button onClick={handleLogout}>Logout</button>
-                  </li>
-                </ul>
-              </details>
+              <div className={"mr-2 flex items-center"}>
+                <UserButton />
+              </div>
             </div>
           </div>
           {props.children}

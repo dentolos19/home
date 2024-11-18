@@ -1,4 +1,4 @@
-import NotFoundBoundary from "@/app/not-found";
+import NotFoundPage from "@/app/not-found";
 import { getPost } from "@/lib/data/blog";
 import { RouteProps } from "@/types";
 import { Metadata } from "next";
@@ -20,7 +20,7 @@ export async function generateMetadata(props: RouteProps) {
 export default async function Page(props: RouteProps) {
   const post = getPost((await props.params).id);
 
-  if (!post) return <NotFoundBoundary />;
+  if (!post) return <NotFoundPage />;
   if (post.url) return redirect(post.url);
 
   return (
