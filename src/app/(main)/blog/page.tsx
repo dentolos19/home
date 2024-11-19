@@ -10,12 +10,12 @@ const filters = [
     category: undefined,
   },
   {
-    label: "General",
-    category: "general",
+    label: "Experiences",
+    category: "experiences",
   },
   {
-    label: "Guides",
-    category: "guides",
+    label: "Stories",
+    category: "stories",
   },
 ];
 

@@ -7,7 +7,7 @@ import Markdown from "react-markdown";
 
 export async function generateMetadata(props: RouteProps) {
   const post = getPost((await props.params).id);
-  if (!post) return { title: "Not Found" };
+  if (!post) return {} satisfies Metadata;
   return {
     title: `${post.title} | Dennise's Blog`,
     openGraph: {
