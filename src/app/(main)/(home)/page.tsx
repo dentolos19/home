@@ -11,10 +11,10 @@ export default function Page() {
         </div>
         <div className={"card mt-[150px] bg-base-300"}>
           <div className={"card-body items-center text-center"}>
-            <h2 className={"card-title text-3xl"}>Dennise Catolos</h2>
-            <p className={"my-2 max-w-screen-sm"}>
+            <div className={"card-title text-4xl"}>Dennise Catolos</div>
+            <div className={"my-1 max-w-screen-sm text-secondary"}>
               A Year 1 student studying at Nanyang Polytechnic, pursing a Diploma in Information Technology. ✌️🧑‍💻
-            </p>
+            </div>
             <div className={"card-actions gap-4"}>
               <div className={"tooltip tooltip-bottom"} data-tip={"Contact Me"}>
                 <Link href={"mailto:contact@dennise.me"}>

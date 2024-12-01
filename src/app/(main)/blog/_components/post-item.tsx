@@ -17,9 +17,9 @@ export default function PostItem(props: PostItemProps) {
       href={props.data.href}
     >
       <div className={"card-body"}>
-        <h2 className={"card-title"}>{props.data.title}</h2>
-        <p className={"text-xs text-gray-400"}>{props.data.date}</p>
-        <p>{props.data.excerpt}</p>
+        <div className={"card-title"}>{props.data.title}</div>
+        <div className={"text-xs text-secondary"}>{props.data.date}</div>
+        <div className={"text-sm"}>{props.data.excerpt}</div>
       </div>
     </Link>
   );

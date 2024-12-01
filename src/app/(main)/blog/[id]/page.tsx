@@ -27,9 +27,9 @@ export default async function Page(props: RouteProps) {
     <main className={"grid place-items-center"}>
       <div className={"card my-4 bg-base-300"}>
         <div className={"card-body"}>
-          <p className={"prose"}>
+          <div className={"prose"}>
             <Markdown>{post.content}</Markdown>
-          </p>
+          </div>
         </div>
       </div>
     </main>

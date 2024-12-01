@@ -52,7 +52,7 @@ export default function EventItem(props: EventItemProps) {
               {props.data.status}
             </div>
           </div>
-          <div>{props.data.date}</div>
+          <div className={"text-sm text-secondary"}>{props.data.date}</div>
           <div className={"card-actions"}>
             <div className={"badge badge-outline"}>{props.data.role}</div>
           </div>

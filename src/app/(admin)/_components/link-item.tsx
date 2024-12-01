@@ -15,8 +15,8 @@ export default function LinkItem(props: LinkItemProps) {
   return (
     <div key={props.data.id} className={"flex rounded-box bg-base-300 p-4"}>
       <div className={"flex min-w-0 flex-1 flex-col justify-center"}>
-        <h2 className={"truncate text-lg font-bold"}>{props.data.id}</h2>
-        <p className={"truncate text-sm text-gray-400"}>{props.data.url}</p>
+        <div className={"truncate text-lg font-bold"}>{props.data.id}</div>
+        <div className={"truncate text-sm text-gray-400"}>{props.data.url}</div>
       </div>
       <div className={"flex items-center"}>
         <div className={"tooltip"} data-tip={"Edit"}>

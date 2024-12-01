@@ -13,12 +13,12 @@ export default function Page() {
           </div>
           <div className={"flex min-w-0 flex-col justify-center"}>
             <div className={"mb-1 truncate text-2xl font-bold"}>Dennise Catolos</div>
-            <div className={"truncate"}>Aspiring Technologist</div>
+            <div className={"truncate text-sm text-secondary"}>Aspiring Technologist</div>
           </div>
         </div>
         <div className={"rounded-box bg-base-300 p-6"}>
           <div className={"mb-2 text-xl font-bold"}>About Me</div>
-          <div>
+          <div className={"text-sm"}>
             As a passionate IT student at Nanyang Polytechnic, I am driven to create impactful software solutions that
             contribute to a better future. ❤️‍🔥 My journey in technology began in primary school, where I experimented
             with coding small programs. 🧑‍💻 Since then, I have developed a strong technical foundation through hands-on

@@ -34,7 +34,7 @@ export default function AchievementItem(props: AchievementItemProps) {
         </figure>
         <div className={"card-body"}>
           <div className={"card-title"}>{props.data.name}</div>
-          <div>{props.data.date}</div>
+          <div className={"text-sm text-secondary"}>{props.data.date}</div>
         </div>
       </button>
       <dialog id={id} className={"modal"}>

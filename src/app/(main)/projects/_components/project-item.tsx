@@ -12,7 +12,7 @@ export default function ProjectItem(props: {
   return (
     <Link className={"card cursor-pointer bg-base-300 transition hover:bg-base-200"} href={props.data.href}>
       <div className={"card-body"}>
-        <h2 className={"card-title"}>
+        <div className={"card-title"}>
           {props.data.name}
           {(props.data.stars || 0) > 0 && (
             <div className={"badge badge-accent gap-1"}>
@@ -26,8 +26,8 @@ export default function ProjectItem(props: {
               {props.data.forks}
             </div>
           )}
-        </h2>
-        <p>{props.data.description}</p>
+        </div>
+        <div className={"text-sm text-secondary"}>{props.data.description}</div>
       </div>
     </Link>
   );
