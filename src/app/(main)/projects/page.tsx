@@ -54,12 +54,12 @@ export default async function Page(props: RouteProps) {
   const filteredRepo = repos
     .filter(
       (repo) =>
-        // remove repos marked with "personal"
+        // Remove repos marked with "personal"
         !repo.topics.includes("personal") &&
-        // filter by topic, does not filter when topic is undefined
+        // Filter by topic, does not filter when topic is undefined
         (!currentFilter.topic || repo.topics.includes(currentFilter.topic)),
     )
-    // sort the repos by stars
+    // Sort the repos by stars
     .sort((a, b) => b.stargazers_count - a.stargazers_count);
 
   return (

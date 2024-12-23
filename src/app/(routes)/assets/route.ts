@@ -9,6 +9,5 @@ export async function GET(req: NextRequest) {
   const assets = getLocalAssets();
   const asset = assets.find((asset) => asset.id === id);
 
-  console.log(asset);
   redirect(asset?.url || "");
 }

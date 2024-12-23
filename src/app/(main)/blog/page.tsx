@@ -30,9 +30,9 @@ export default async function Page(props: RouteProps) {
   const currentFilter = filters.find((filter) => filter.category === category) ?? filters[0];
   const filteredPosts = posts.filter(
     (post) =>
-      // removes post marked as draft
+      // Removes post marked as draft
       !post.draft &&
-      // filter by category, does not filter when category is undefined
+      // Filter by category, does not filter when category is undefined
       (!currentFilter.category || post.category.includes(currentFilter.category)),
   );
 
