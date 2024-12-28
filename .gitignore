@@ -16,7 +16,8 @@ out/
 next-env.d.ts
 
 # User-specific files
-.env*.local
+.env*
+!.env*.template
 
 # Miscellaneous files
 .DS_Store

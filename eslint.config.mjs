@@ -9,12 +9,6 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
-export default [
-  ...compat.extends("next/core-web-vitals"),
-  {
-    rules: {
-      "import/no-anonymous-default-export": "off",
-      "@next/next/no-img-element": "off",
-    },
-  },
-];
+const config = [...compat.extends("next/core-web-vitals", "next/typescript")];
+
+export default config;

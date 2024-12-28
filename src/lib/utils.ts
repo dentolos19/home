@@ -38,7 +38,7 @@ export function humanizeDate(date: Date) {
 }
 
 export function humanizeDateString(date: string) {
-  let currentDate = new Date();
+  const currentDate = new Date();
   let targetDate = currentDate;
 
   if (!date.includes("T")) {

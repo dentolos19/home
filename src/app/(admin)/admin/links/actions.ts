@@ -1,13 +1,13 @@
 "use server";
 
-import { deleteLink, setLink } from "@/lib/data/links";
+import { createLink, deleteLink } from "@/lib/data/links";
 import { redirect } from "next/navigation";
 
 export async function setLinkAction(data: FormData) {
   const id = data.get("id") as string;
   const url = data.get("url") as string;
 
-  const success = await setLink(id, {
+  const success = await createLink(id, {
     url,
   });
 

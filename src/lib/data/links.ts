@@ -1,5 +1,7 @@
 import { redis } from "@/lib/integrations/redis";
 
+const PARENT_KEY = "go";
+
 export type Link = LinkRecord & {
   id: string;
 };
@@ -7,6 +9,15 @@ export type Link = LinkRecord & {
 export type LinkRecord = {
   url: string;
 };
+
+export async function createLink(id: string, record: LinkRecord) {
+  try {
+    await redis.set(`links:${id}`, record);
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 export async function getLink(id: string) {
   try {
@@ -16,7 +27,7 @@ export async function getLink(id: string) {
       id,
       ...link,
     } as Link;
-  } catch (error) {
+  } catch {
     return undefined;
   }
 }
@@ -35,17 +46,8 @@ export async function getLinks() {
       });
     });
     return records;
-  } catch (error) {
+  } catch {
     return [];
-  }
-}
-
-export async function setLink(id: string, record: LinkRecord) {
-  try {
-    await redis.set(`links:${id}`, record);
-    return true;
-  } catch (error) {
-    return false;
   }
 }
 
@@ -53,7 +55,16 @@ export async function deleteLink(id: string) {
   try {
     await redis.del(`links:${id}`);
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
+}
+
+export async function checkLinkExists(id: string) {
+  const exists = await redis.exists(`${PARENT_KEY}:${id}:url`);
+  return exists === 1;
+}
+
+export function incrementLinkClicks(id: string) {
+  return redis.incr(`${PARENT_KEY}:${id}:clicks`).then((clicks) => clicks);
 }
