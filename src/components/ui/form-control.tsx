@@ -13,7 +13,7 @@ export default function FormControl(props: FormControlProps) {
       </div>
       {props.children}
       <div className={"label"}>
-        {props.errorLabel && <span className={"label-text-alt text-error"}>{props.label}</span>}
+        {props.errorLabel && <span className={"label-text-alt text-error"}>{props.errorLabel}</span>}
       </div>
     </label>
   );

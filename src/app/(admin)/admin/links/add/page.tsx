@@ -8,8 +8,8 @@ import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
 const formSchema = z.object({
-  id: z.string().nonempty(),
-  url: z.string().url().nonempty(),
+  id: z.string().nonempty("An ID is required."),
+  url: z.string().url("A valid URL is required").nonempty("A URL is required."),
 });
 
 export default function Page() {
