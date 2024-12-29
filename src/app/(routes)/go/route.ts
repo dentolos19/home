@@ -1,13 +1,18 @@
-import { getLink } from "@/lib/data/links";
+import { getLink, incrementLinkClicks } from "@/lib/data/links";
+import { RouteProps } from "@/types";
 import { redirect } from "next/navigation";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
-  const id = req.nextUrl.searchParams.get("id");
+export async function GET(_: NextRequest, props: RouteProps) {
+  const { id } = await props.searchParams;
   if (!id) redirect("/");
 
-  const record = await getLink(id);
-  if (!record) redirect("/");
-
-  redirect(record.url);
+  try {
+    const link = await getLink(id);
+    await incrementLinkClicks(id);
+    return NextResponse.redirect(link.url);
+  } catch (error) {
+    console.error(error);
+    return NextResponse.redirect("/");
+  }
 }

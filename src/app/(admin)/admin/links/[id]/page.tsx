@@ -1,34 +1,97 @@
-import { deleteLinkAction, setLinkAction } from "@/app/(admin)/admin/links/actions";
+"use client";
+
+import LoadingPage from "@/app/(admin)/loading";
 import NotFoundPage from "@/app/not-found";
-import FormContainer from "@/components/ui/form-container";
 import FormControl from "@/components/ui/form-control";
-import { getLink } from "@/lib/data/links";
-import { RouteProps } from "@/types";
+import { getLink, updateLink } from "@/lib/data/links";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { z } from "zod";
 
-export const revalidate = 0;
+const formSchema = z.object({
+  id: z.string().nonempty(),
+  url: z.string().url().nonempty(),
+});
 
-export default async function Page(props: RouteProps) {
-  const id = (await props.params).id;
-  const record = await getLink(id);
+export default function Page() {
+  const { id } = useParams() as { id: string };
+  const router = useRouter();
+  const form = useForm<z.infer<typeof formSchema>>({ resolver: zodResolver(formSchema) });
 
-  if (!record) return <NotFoundPage />;
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
+
+  async function onSave(values: z.infer<typeof formSchema>) {
+    try {
+      await updateLink(values.id, values.url);
+      router.push("/admin/links");
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred. Please check the console for more details.");
+    }
+  }
+
+  async function onCancel() {
+    router.push("/admin/links");
+  }
+
+  useEffect(() => {
+    setLoading(true);
+    getLink(id)
+      .then((data) => {
+        form.reset({
+          id: data.id,
+          url: data.url,
+        });
+      })
+      .catch(() => {
+        setNotFound(true);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <LoadingPage />;
+  if (notFound) return <NotFoundPage />;
 
   return (
     <main className={"grid place-items-center"}>
-      <FormContainer
-        title={"Edit Link"}
-        actions={[
-          { label: "Save", color: "primary", action: setLinkAction },
-          { label: "Delete", color: "error", action: deleteLinkAction },
-        ]}
-      >
-        <FormControl label={"ID"}>
-          <input className={"input"} type={"text"} name={"id"} defaultValue={record.id} readOnly />
-        </FormControl>
-        <FormControl label={"Destination URL"}>
-          <input className={"input"} type={"text"} name={"url"} defaultValue={record.url} required />
-        </FormControl>
-      </FormContainer>
+      <div className={"card bg-base-300"}>
+        <form className={"card-body"} onSubmit={form.handleSubmit(onSave)}>
+          <div className={"card-title self-center"}>Add Link</div>
+          <div>
+            <Controller
+              control={form.control}
+              name={"id"}
+              render={({ field, fieldState }) => (
+                <FormControl label={"ID"} errorLabel={fieldState.error?.message}>
+                  <input {...field} className={"input"} disabled />
+                </FormControl>
+              )}
+            />
+            <Controller
+              control={form.control}
+              name={"url"}
+              render={({ field, fieldState }) => (
+                <FormControl label={"URL"} errorLabel={fieldState.error?.message}>
+                  <input {...field} className={"input"} />
+                </FormControl>
+              )}
+            />
+          </div>
+          <div className={"card-actions justify-end"}>
+            <button className={"btn btn-primary btn-sm"} type={"submit"} disabled={form.formState.isSubmitting}>
+              {form.formState.isSubmitting ? "Saving..." : "Save"}
+            </button>
+            <button className={"btn btn-outline btn-sm"} disabled={form.formState.isSubmitting} onClick={onCancel}>
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
   );
 }

@@ -5,3 +5,5 @@ export const linkSchema = z.object({
   url: z.string().url(),
   clicks: z.number().int(),
 });
+
+export type LinkInfo = z.infer<typeof linkSchema>;

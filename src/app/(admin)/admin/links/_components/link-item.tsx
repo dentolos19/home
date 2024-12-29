@@ -1,14 +1,14 @@
 "use client";
 
-import { Link as LinkData } from "@/lib/data/links";
+import { LinkInfo } from "@/lib/data/schema";
 import Link from "next/link";
 
 type LinkItemProps = {
-  data: LinkData;
+  data: LinkInfo;
 };
 
 export default function LinkItem(props: LinkItemProps) {
-  const handleCopy = () => {
+  const onCopy = () => {
     navigator.clipboard.writeText(`https://dennise.me/go/${props.data.id}`);
   };
 
@@ -30,7 +30,7 @@ export default function LinkItem(props: LinkItemProps) {
           </Link>
         </div>
         <div className={"tooltip"} data-tip={"Copy"}>
-          <button className={"btn btn-ghost btn-sm"} onClick={handleCopy}>
+          <button className={"btn btn-ghost btn-sm"} onClick={onCopy}>
             <i className={"fa-solid fa-copy"} />
           </button>
         </div>
