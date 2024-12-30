@@ -18,7 +18,7 @@ export default function Page() {
         </div>
         <div className={"rounded-box bg-base-300 p-6"}>
           <div className={"mb-2 text-xl font-bold"}>About Me</div>
-          <div className={"text-sm"}>
+          <div className={"text-sm text-secondary"}>
             As a passionate IT student at Nanyang Polytechnic, I am driven to create impactful software solutions that
             contribute to a better future. ❤️‍🔥 My journey in technology began in primary school, where I experimented
             with coding small programs. 🧑‍💻 Since then, I have developed a strong technical foundation through hands-on
@@ -35,7 +35,7 @@ export default function Page() {
                   <span className={"italic"}>{testimonial.content}</span>
                   <span>”</span>
                 </div>
-                <div className={"mb-1 text-xs text-gray-400"}>
+                <div className={"mb-1 text-xs text-secondary"}>
                   <span>— </span>
                   <span>{testimonial.author}</span>
                 </div>

@@ -2,37 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  overflow: hidden !important;
-  scrollbar-gutter: unset !important;
-}
+@layer base {
+  html {
+    @apply overflow-hidden;
 
-body {
-  height: 100dvh;
-}
-
-main {
-  height: 100%;
-  overflow: auto;
-}
-
-@layer utilities {
-  .position-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    scrollbar-gutter: unset !important;
   }
 
-  .position-center-x {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  body {
+    @apply h-dvh;
   }
 
-  .position-center-y {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+  main {
+    @apply h-full overflow-auto;
   }
 }
