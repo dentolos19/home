@@ -3,7 +3,7 @@
 import LoadingPage from "@/app/(admin)/loading";
 import NotFoundPage from "@/app/not-found";
 import FormControl from "@/components/ui/form-control";
-import { getLink, updateLink } from "@/lib/data/links";
+import { checkLinkExists, deleteLink } from "@/lib/data/links";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -11,9 +11,7 @@ import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
 const formSchema = z.object({
-  id: z.string().nonempty(),
-  url: z.string().url("A valid URL is required").nonempty("A URL is required."),
-  clicks: z.number().int().nonnegative(),
+  id: z.string().nonempty("A confirmation ID is required."),
 });
 
 export default function Page() {
@@ -24,9 +22,14 @@ export default function Page() {
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
-  async function onSave(values: z.infer<typeof formSchema>) {
+  async function onDelete(values: z.infer<typeof formSchema>) {
+    if (values.id !== id) {
+      form.setError("id", { message: "Confirmation ID does not match the link's ID." });
+      return;
+    }
+
     try {
-      await updateLink(values.id, values.url);
+      await deleteLink(id);
       router.push("/admin/links");
     } catch (error) {
       console.error(error);
@@ -40,16 +43,9 @@ export default function Page() {
 
   useEffect(() => {
     setLoading(true);
-    getLink(id)
-      .then((data) => {
-        form.reset({
-          id: data.id,
-          url: data.url,
-          clicks: data.clicks,
-        });
-      })
-      .catch(() => {
-        setNotFound(true);
+    checkLinkExists(id)
+      .then((exists) => {
+        setNotFound(!exists);
       })
       .finally(() => {
         setLoading(false);
@@ -61,41 +57,29 @@ export default function Page() {
 
   return (
     <main className={"grid place-items-center"}>
-      <div className={"card w-[350px] bg-base-300"}>
-        <form className={"card-body"} onSubmit={form.handleSubmit(onSave)}>
-          <div className={"card-title self-center"}>Manage Link</div>
+      <div className={"card w-[400px] bg-base-300"}>
+        <form className={"card-body"} onSubmit={form.handleSubmit(onDelete)}>
+          <div className={"card-title self-center"}>Delete Link</div>
+          <div className={"text-center"}>
+            Are you sure you want to delete this link? Please enter the ID of the link to confirm.
+          </div>
+          <div className={"my-2 text-center"}>
+            <span className={"text-lg font-medium"}>{id}</span>
+          </div>
           <div>
             <Controller
               control={form.control}
               name={"id"}
-              render={({ field, fieldState }) => (
-                <FormControl label={"ID"} errorLabel={fieldState.error?.message}>
-                  <input {...field} className={"input"} disabled />
-                </FormControl>
-              )}
-            />
-            <Controller
-              control={form.control}
-              name={"url"}
               render={({ field, fieldState, formState }) => (
-                <FormControl label={"URL"} errorLabel={fieldState.error?.message}>
+                <FormControl label={"Confirmation ID"} errorLabel={fieldState.error?.message}>
                   <input {...field} className={"input"} disabled={formState.isSubmitting} />
-                </FormControl>
-              )}
-            />
-            <Controller
-              control={form.control}
-              name={"clicks"}
-              render={({ field, fieldState }) => (
-                <FormControl label={"Clicks"} errorLabel={fieldState.error?.message}>
-                  <input {...field} className={"input"} disabled />
                 </FormControl>
               )}
             />
           </div>
           <div className={"card-actions justify-end"}>
             <button className={"btn btn-primary btn-sm"} type={"submit"} disabled={form.formState.isSubmitting}>
-              {form.formState.isSubmitting ? "Saving..." : "Save"}
+              {form.formState.isSubmitting ? "Deleting..." : "Delete"}
             </button>
             <button
               className={"btn btn-outline btn-sm"}

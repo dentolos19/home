@@ -1,7 +1,7 @@
 "use client";
 
 import FormControl from "@/components/ui/form-control";
-import { createLink } from "@/lib/data/links";
+import { checkLinkExists, createLink } from "@/lib/data/links";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
@@ -18,6 +18,11 @@ export default function Page() {
 
   async function onAdd(values: z.infer<typeof formSchema>) {
     try {
+      const exists = await checkLinkExists(values.id);
+      if (exists) {
+        form.setError("id", { message: "A link with this ID already exists." });
+        return;
+      }
       await createLink(values.id, values.url);
       router.push("/admin/links");
     } catch (error) {
@@ -32,25 +37,25 @@ export default function Page() {
 
   return (
     <main className={"grid place-items-center"}>
-      <div className={"card bg-base-300"}>
+      <div className={"card w-[350px] bg-base-300"}>
         <form className={"card-body"} onSubmit={form.handleSubmit(onAdd)}>
           <div className={"card-title self-center"}>Add Link</div>
           <div>
             <Controller
               control={form.control}
               name={"id"}
-              render={({ field, fieldState }) => (
+              render={({ field, fieldState, formState }) => (
                 <FormControl label={"ID"} errorLabel={fieldState.error?.message}>
-                  <input {...field} className={"input"} />
+                  <input {...field} className={"input"} disabled={formState.isSubmitting} />
                 </FormControl>
               )}
             />
             <Controller
               control={form.control}
               name={"url"}
-              render={({ field, fieldState }) => (
+              render={({ field, fieldState, formState }) => (
                 <FormControl label={"URL"} errorLabel={fieldState.error?.message}>
-                  <input {...field} className={"input"} />
+                  <input {...field} className={"input"} disabled={formState.isSubmitting} />
                 </FormControl>
               )}
             />
@@ -59,7 +64,12 @@ export default function Page() {
             <button className={"btn btn-primary btn-sm"} type={"submit"} disabled={form.formState.isSubmitting}>
               {form.formState.isSubmitting ? "Adding..." : "Add"}
             </button>
-            <button className={"btn btn-outline btn-sm"} disabled={form.formState.isSubmitting} onClick={onCancel}>
+            <button
+              className={"btn btn-outline btn-sm"}
+              type={"button"}
+              disabled={form.formState.isSubmitting}
+              onClick={onCancel}
+            >
               Cancel
             </button>
           </div>
