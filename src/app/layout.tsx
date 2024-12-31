@@ -3,6 +3,7 @@ import { LayoutProps } from "@/types";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
+import clsx from "clsx";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -20,14 +21,8 @@ export default function Layout(props: LayoutProps) {
         <link rel="manifest" href="/site.webmanifest" />
         <script src="https://kit.fontawesome.com/d0674de6ae.js" crossOrigin="anonymous" async />
       </head>
-      <body className={inter.className}>
-        <ClerkProvider
-          appearance={{
-            baseTheme: dark,
-          }}
-        >
-          {props.children}
-        </ClerkProvider>
+      <body className={clsx("antialiased", inter.className)}>
+        <ClerkProvider appearance={{ baseTheme: dark }}>{props.children}</ClerkProvider>
         <Analytics />
       </body>
     </html>

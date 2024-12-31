@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   title: "Dennise's Projects",
 };
 
-export const revalidate = 86400; // revalidate data every 24 hours
+export const revalidate = 86400; // Revalidate data every 24 hours
 
 export default async function Page(props: RouteProps) {
   const { topic } = await props.searchParams;
@@ -56,7 +56,7 @@ export default async function Page(props: RouteProps) {
       (repo) =>
         // Remove repos marked with "personal"
         !repo.topics.includes("personal") &&
-        // Filter by topic, does not filter when topic is undefined
+        // Filter by topic; does not filter when topic is undefined
         (!currentFilter.topic || repo.topics.includes(currentFilter.topic)),
     )
     // Sort the repos by stars

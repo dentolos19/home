@@ -1,6 +1,7 @@
 import { getLink, incrementLinkClicks } from "@/lib/data/links";
 import { RouteProps } from "@/types";
-import { NextRequest, NextResponse } from "next/server";
+import { redirect } from "next/navigation";
+import { NextRequest } from "next/server";
 
 export async function GET(_: NextRequest, props: RouteProps) {
   const { id } = await props.params;
@@ -8,9 +9,9 @@ export async function GET(_: NextRequest, props: RouteProps) {
   try {
     const link = await getLink(id);
     await incrementLinkClicks(id);
-    return NextResponse.redirect(link.url);
+    redirect(link.url);
   } catch (error) {
     console.error(error);
-    return NextResponse.redirect("/");
+    redirect("/");
   }
 }

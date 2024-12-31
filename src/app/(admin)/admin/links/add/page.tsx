@@ -1,6 +1,6 @@
 "use client";
 
-import FormControl from "@/components/ui/form-control";
+import FormControl from "@/components/form-control";
 import { checkLinkExists, createLink } from "@/lib/data/links";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";

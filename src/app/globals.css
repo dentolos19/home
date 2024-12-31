@@ -4,16 +4,16 @@
 
 @layer base {
   html {
-    @apply overflow-hidden;
-
+    overflow: hidden;
     scrollbar-gutter: unset !important;
   }
 
   body {
-    @apply h-dvh;
+    height: 100dvh;
   }
 
   main {
-    @apply h-full overflow-auto;
+    height: 100%;
+    overflow: auto;
   }
 }

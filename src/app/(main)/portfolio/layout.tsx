@@ -1,4 +1,4 @@
-import PortfolioContainer from "@/components/ui/portfolio-container";
+import PortfolioContainer from "@/components/portfolio-container";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

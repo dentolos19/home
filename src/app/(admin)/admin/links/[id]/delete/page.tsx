@@ -2,7 +2,7 @@
 
 import LoadingPage from "@/app/(admin)/loading";
 import NotFoundPage from "@/app/not-found";
-import FormControl from "@/components/ui/form-control";
+import FormControl from "@/components/form-control";
 import { checkLinkExists, deleteLink } from "@/lib/data/links";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useParams, useRouter } from "next/navigation";

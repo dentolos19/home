@@ -32,7 +32,7 @@ export default async function Page(props: RouteProps) {
     (post) =>
       // Removes post marked as draft
       !post.draft &&
-      // Filter by category, does not filter when category is undefined
+      // Filter by category; does not filter when category is undefined
       (!currentFilter.category || post.category.includes(currentFilter.category)),
   );
 
